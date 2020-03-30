@@ -31,7 +31,7 @@ exports.config = {
     // 'Testcases/Template/*js',
     'Testcases/Patient/*.js',
     // 'Testcases/ScanIN/*.js',
-    'Testcases/ScanOut/*.js',
+    // 'Testcases/ScanOut/*.js',
     // 'Testcases/Bill_and_Replace/*.js',
     // 'Testcases/Replenish_Bin/*js',
     // 'Testcases/ApproveItem/*.js',

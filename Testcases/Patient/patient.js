@@ -59,7 +59,7 @@ describe('Patient module', function () {
 
   });
 
-  xit('Patient: Update Patient.', function () {
+  it('Patient: Update Patient.', function () {
     // element(by.css('div.pagehead > hyb-select > a')).click();
     // element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);
     // element(by.buttonText('Select')).click();
@@ -71,10 +71,9 @@ describe('Patient module', function () {
         expect(text.trim()).toContain(Patient_fname + " " + randNumber);
       });
     });
-    let patient = element(by.repeater('patient in patients'));
-    browser.wait(EC.elementToBeClickable(patient.element(by.css('.dropdown-toggle'))), 5000);
-    patient.element(by.css('.dropdown-toggle')).click();
-    element(by.xpath('//div[@class="pull-right dropdown open"]//a[contains(text(),"Edit Patient")]')).click();
+    browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//a[contains(text(),"Edit Patient")]')).getWebElement()).then(function () {
+      element(by.xpath('//a[contains(text(),"Edit Patient")]')).click();
+    })
     expect(element(by.css('.modal-header > div.headtext > span')).getText()).toContain('Edit Patient');
     element(by.model('patient.address1')).sendKeys("test");
     element(by.buttonText('Save')).click();
@@ -90,14 +89,14 @@ describe('Patient module', function () {
     });
   });
 
-  xit('add charges to patient', function () {
+  it('add charges to patient', function () {
     element(by.linkText('Charges')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Patients Charges');
     element(by.xpath('//span[contains(text(),"Recurring Charges")]')).click();
     element(by.buttonText('Add Recurring Charge')).click();
     browser.sleep(1000);
-    element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
+    element(by.model('searchParams.search')).sendKeys('GS1570637970631');
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
@@ -108,7 +107,8 @@ describe('Patient module', function () {
     element(by.model('$ctrl.scheduler.schedule_type')).click();
     element(by.xpath('//option[contains(text(),"One Time")]')).click();
     browser.sleep(1000);
-    element(by.model('hours')).sendKeys('23');
+    element(by.model('hours')).clear().sendKeys('23');
+    element(by.model('minutes')).clear().sendKeys('45');
     element(by.buttonText('Save')).click();
     expect($('.toast-message').getText()).toEqual("Schedule added successfully.");
   });
