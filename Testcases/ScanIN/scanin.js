@@ -10,6 +10,8 @@ describe('Hybrent Scan IN Module', function () {
   var Dme_item_name = browser.params.itemCatalog.Dme_item_name;
   var Dme_Alias = browser.params.itemCatalog.Dme_Alias;
   var Dme_mfr = browser.params.itemCatalog.Dme_mfr;
+  var Consignment = browser.params.itemCatalog.Consignment;
+  var Con_sku = browser.params.itemCatalog.Con_sku;
   var randomnmbr = browser.params.Vendor_price_tier.randompricetier;
 
 
@@ -55,7 +57,7 @@ describe('Hybrent Scan IN Module', function () {
     });
   });
 
-  it('Scan In - Add items for scan In by click on scan In button', function () {
+  it('Scan In - Add general items for scan In by click on scan In button', function () {
     browser.sleep(1000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(1000);
@@ -74,7 +76,7 @@ describe('Hybrent Scan IN Module', function () {
     element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
-    element(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).click();
+    //element(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).click();
     element(by.buttonText('Add')).click();
     element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
     element(by.buttonText('Search')).click();
@@ -118,7 +120,38 @@ describe('Hybrent Scan IN Module', function () {
 
   });
 
-  it('Scan In - Search added items by item Name, sku, mfr', function () {
+  it('add consignment item in scanin', function () {
+    browser.sleep(1000);
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
+    browser.sleep(1000);
+    var itemRow = element(by.repeater('item in items').row(0));
+    element(by.buttonText('Add')).click();
+    browser.sleep(1000);
+    element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
+    browser.sleep(1000);
+    element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
+    browser.sleep(1000);
+    element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
+    browser.sleep(1000);
+    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
+    element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
+    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
+    element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
+    element(by.buttonText('Select')).click();
+    browser.sleep(1000);
+    //element(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).click();
+    element(by.buttonText('Add')).click();
+    element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    element(by.buttonText('Search')).click();
+    browser.sleep(1000);
+    element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
+      element1.element(by.binding('htmlVal')).getText().then(function (text) {
+        expect(text).toEqual(Consignment + randNumber);
+      });
+    });
+  })
+
+  it('Scan In - Search general item added for scan in by item Name, sku, mfr', function () {
     element(by.model('search.search')).clear().sendKeys(General_item_Name + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
@@ -135,32 +168,50 @@ describe('Hybrent Scan IN Module', function () {
     });
   });
 
-  it('add stock status for vendor stock item', function () {
-    element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
+  it('Scan In - Search consignement item added for scan in by item Name, sku, mfr', function () {
+    element(by.model('search.search')).clear().sendKeys(Consignment + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
-    element(by.xpath('//*[@id="ng-view"]/div/div[3]/div/div/table/tbody/tr/td[7]/div/a')).click();
+    element.all(by.repeater('item in items')).each(function (element1, index) {
+      expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', Consignment + randNumber)).isPresent()).toBeTruthy();
+    });
+    element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    element(by.buttonText('Search')).click();
+    browser.sleep(1000);
+    element.all(by.repeater('item in items')).each(function (element1, index) {
+      element1.element(by.binding('item.sku')).getText().then(function (text) {
+        expect(text).toEqual(Con_sku + randNumber);
+      });
+    });
+  });
+
+  it('add stock status for vendor stock item', function () {
+    element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    element(by.buttonText('Search')).click();
+    browser.sleep(1000);
+    var addstock = element(by.partialLinkText('Add'));
+    addstock.click();
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
-    element(by.model('stockDetail.lot_number')).sendKeys('lot' + randomnmbr);
+    // element(by.model('stockDetail.lot_number')).sendKeys('lot' + randomnmbr);
     element(by.model('stockDetail.serial_number')).sendKeys('serial' + randomnmbr);
     browser.sleep(1000);
-    element(by.xpath('//i[@class="glyphicon glyphicon-calendar"]')).click();
-    browser.sleep(1000);
-    element(by.buttonText('Today')).click();
-    browser.sleep(1000);
-    element(by.buttonText('Add')).click();
-    browser.sleep(1000);
-    element(by.xpath('//i[@class="fa fa-clone"]')).click();
-    browser.sleep(1000);
-    var secondlot = element.all(by.model('stockDetail.serial_number')).get(1);
-    secondlot.sendKeys('serial' + randomnmbr);
-    element(by.buttonText('Add')).click();
-    browser.sleep(1000);
-    element(by.xpath('//i[@class="fa fa-clone"]')).click();
-    browser.sleep(1000);
-    var thirdlot = element.all(by.model('stockDetail.serial_number')).get(2);
-    thirdlot.sendKeys('serial' + randomnmbr);
+    // element(by.xpath('//i[@class="glyphicon glyphicon-calendar"]')).click();
+    // browser.sleep(1000);
+    // element(by.buttonText('Today')).click();
+    // browser.sleep(1000);
+    // element(by.buttonText('Add')).click();
+    // browser.sleep(1000);
+    // element(by.xpath('//i[@class="fa fa-clone"]')).click();
+    // browser.sleep(1000);
+    // var secondlot = element.all(by.model('stockDetail.serial_number')).get(1);
+    // secondlot.sendKeys('serial' + randomnmbr);
+    // element(by.buttonText('Add')).click();
+    // browser.sleep(1000);
+    // element(by.xpath('//i[@class="fa fa-clone"]')).click();
+    // browser.sleep(1000);
+    // var thirdlot = element.all(by.model('stockDetail.serial_number')).get(2);
+    // thirdlot.sendKeys('serial' + randomnmbr);
     element(by.buttonText('Save')).click();
     expect($('.toast-message').getText()).toEqual('Items stock info added successfully.');
 
@@ -179,6 +230,17 @@ describe('Hybrent Scan IN Module', function () {
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
     element(by.buttonText('Add To Inventory')).click();
+    browser.sleep(2000);
+    var inventory_maximum = element(by.css('.sa-button-container'));
+    inventory_maximum.isPresent().then(function (present) {
+      if (present) {
+        console.log('Yes still wants to complete Scan In?');
+        element(by.buttonText('Yes')).click();
+      } else {
+        console.log('Do you still wants to complete Scan In? not appear');
+      }
+
+    });
     expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
 
   });

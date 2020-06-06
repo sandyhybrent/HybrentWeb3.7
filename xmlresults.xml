@@ -1,58 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="1" tests="10" time="140.483">
- <testsuite name="Hybrent Login Module" timestamp="2020-03-30T13:27:40" hostname="localhost" time="84.214" errors="0" tests="3" skipped="2" disabled="0" failures="0">
-  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="0.003">
+<testsuites disabled="0" errors="0" failures="3" tests="13" time="54.245">
+ <testsuite name="Hybrent Login Module" timestamp="2020-06-06T14:34:36" hostname="localhost" time="33.488" errors="0" tests="3" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="21.617" />
+  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="3.63" />
+  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="8.239" />
+ </testsuite>
+ <testsuite name="Hybrent Manage Inventory Module" timestamp="2020-06-06T14:35:10" hostname="localhost" time="20.757" errors="0" tests="10" skipped="5" disabled="0" failures="3">
+  <testcase classname="Hybrent Manage Inventory Module" name="Manage Inventory page should open" time="4.494" />
+  <testcase classname="Hybrent Manage Inventory Module" name="List page should display list of items and manage inventory filters" time="0.113" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by Name" time="0.001">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="0.001">
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by alise" time="0">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="84.205" />
- </testsuite>
- <testsuite name="user default facility" timestamp="2020-03-30T13:29:04" hostname="localhost" time="0.8" errors="0" tests="1" skipped="0" disabled="0" failures="0">
-  <testcase classname="user default facility" name="user default facility is" time="0.799" />
- </testsuite>
- <testsuite name="Patient module" timestamp="2020-03-30T13:29:05" hostname="localhost" time="55.469" errors="0" tests="6" skipped="0" disabled="0" failures="1">
-  <testcase classname="Patient module" name="Navigate to patient module" time="3.985" />
-  <testcase classname="Patient module" name="Verify that search patient By filter appear on patient detail page" time="0.306" />
-  <testcase classname="Patient module" name="verify that user is able to add patient by clicking on add patient button" time="18.114" />
-  <testcase classname="Patient module" name="Patient: Update Patient." time="11.191" />
-  <testcase classname="Patient module" name="search newly created patient by name" time="2.263">
-   <failure type="exception" message="Failed: element click intercepted: Element &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;...&lt;/button&gt; is not clickable at point (1114, 16). Other element would receive the click: &lt;img src=&quot;https://qa9.test.hybrent.com/api/index.php/user/profile/pic/19?t=644155&quot; style=&quot;width:50px;height:50px;border-radius:50%;&quot;&gt;
-  (Session info: chrome=80.0.3987.149)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
-System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.43.32&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
-Driver info: driver.version: unknown"><![CDATA[WebDriverError: element click intercepted: Element <button type="submit" class="btn btn-primary">...</button> is not clickable at point (1114, 16). Other element would receive the click: <img src="https://qa9.test.hybrent.com/api/index.php/user/profile/pic/19?t=644155" style="width:50px;height:50px;border-radius:50%;">
-  (Session info: chrome=80.0.3987.149)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
-System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.43.32', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
-Driver info: driver.version: unknown
-    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
-    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-From: Task: WebElement.click()
-    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
-    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
-    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
-    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
-    at Array.map (<anonymous>)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by mfr number" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by sku" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Manage Inventory Module" name="Vendor filter should display items for selected vendor only." time="0">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Manage Inventory Module" name="create a replenish support inventory" time="0.04">
+   <failure type="exception" message="Failed: No element found using locator: By(css selector, div.btn-group pull-right inventory-action-btn)"><![CDATA[NoSuchElementError: No element found using locator: By(css selector, div.btn-group pull-right inventory-action-btn)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:814:27
     at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
     at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
     at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)Error
     at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
     at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
     at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
-    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:85:38)
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:82:56)
     at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
     at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
     at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
     at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
     at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
     at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
-From: Task: Run it("search newly created patient by name") in control flow
+From: Task: Run it("create a replenish support inventory") in control flow
     at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
     at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
     at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
@@ -65,17 +55,106 @@ From: Task: Run it("search newly created patient by name") in control flow
     at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
 From asynchronous test: 
 Error
-    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:83:3)
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:81:3)
     at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
     at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
     at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
-    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:2:1)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
     at Module._compile (internal/modules/cjs/loader.js:1158:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
     at Module.load (internal/modules/cjs/loader.js:1002:32)
     at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
    </failure>
   </testcase>
-  <testcase classname="Patient module" name="add charges to patient" time="19.608" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item without track stock transfer" time="7.957">
+   <failure type="exception" message="Failed: Wait timed out after 5040ms"><![CDATA[TimeoutError: Wait timed out after 5040ms
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2201:17
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: <anonymous wait>
+    at scheduleWait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2188:20)
+    at ControlFlow.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2517:12)
+    at thenableWebDriverProxy.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:934:29)
+    at run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:59:33)
+    at ProtractorBrowser.to.<computed> [as wait] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:67:16)
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:100:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+From: Task: Run it("Transfer Item without track stock transfer") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:95:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item with track stock transfer" time="8.148">
+   <failure type="exception" message="Failed: Wait timed out after 5011ms"><![CDATA[TimeoutError: Wait timed out after 5011ms
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2201:17
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: <anonymous wait>
+    at scheduleWait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2188:20)
+    at ControlFlow.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2517:12)
+    at thenableWebDriverProxy.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:934:29)
+    at run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:59:33)
+    at ProtractorBrowser.to.<computed> [as wait] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:67:16)
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:118:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+From: Task: Run it("Transfer Item with track stock transfer") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:113:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
  </testsuite>
 </testsuites>

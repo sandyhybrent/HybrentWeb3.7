@@ -11,6 +11,7 @@ describe('user default facility', function () {
     element(by.xpath(userfacility)).getText().then(function (facility_name) {
       console.log('user default facility is', facility_name);
       browser.params.user.fac_name = facility_name;
+      browser.sleep(2000);
       console.log(browser.params.user.fac_name);
       expect(browser.getTitle()).toEqual('User Profile');
     })

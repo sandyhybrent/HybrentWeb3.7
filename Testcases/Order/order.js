@@ -88,14 +88,15 @@ describe('Hybrent Order Module', function () {
     browser.wait(EC.elementToBeClickable($('div.btn-group > .dropdown-toggle')), 5000);
     $('div.btn-group > button.dropdown-toggle').click();
     expect(element(by.linkText('Add Items to Cart')).isPresent()).toBe(true);
-    expect(element(by.linkText('Print PO')).isPresent()).toBe(true);
+    // expect(element(by.linkText('Print PO')).isPresent()).toBe(true);
     expect(element(by.linkText('Download PO')).isPresent()).toBe(true);
     expect(element(by.linkText('Print Items')).isPresent()).toBe(true);
     expect(element(by.linkText('Invoices')).isPresent()).toBe(true);
     expect(element(by.linkText('PO Log')).isPresent()).toBe(true);
+    expect(element(by.linkText('PO Approval Log')).isPresent()).toBe(true);
     expect(element(by.linkText('Notes')).isPresent()).toBe(true);
     expect(element(by.linkText('Documents')).isPresent()).toBe(true);
-    expect(element(by.linkText('Mark as Receive Only')).isPresent()).toBe(true);
+    expect(element(by.linkText('Mark as Non Receive Only')).isPresent()).toBe(true);
     expect(element(by.linkText('Delete PO')).isPresent()).toBe(true);
   });
 

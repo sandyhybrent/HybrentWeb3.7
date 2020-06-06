@@ -24,7 +24,7 @@ describe('Hybrent Templates Module', function () {
   });
 
   it('Add item to newly created template', function () {
-    element(by.model('searchParams.search')).sendKeys('SP440278');
+    element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
     browser.sleep(1000);
     element(by.buttonText('Add')).click();
     element(by.buttonText('Save')).click();
@@ -32,7 +32,7 @@ describe('Hybrent Templates Module', function () {
     element.all(by.repeater('item in vendor.items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         browser.sleep(2000);
-        expect(text).toEqual('SP440278');
+        expect(text).toEqual(General_sku + randNumber);
       });
     });
     element(by.buttonText('Close')).click();

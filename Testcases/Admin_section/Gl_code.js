@@ -9,7 +9,9 @@ describe('GL code moudle', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     browser.sleep(2000);
-    element(by.linkText('Test GL Code')).click();
+    var GL_Code = $('[href*=https://qa11.test.hybrent.com/b/#/admin/glcode]'); // NOTE: also simplified the selector
+    GL_Code.click();
+    // element(by.linkText('NuGL')).click();
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('GLCodes');
   });

@@ -1,4 +1,4 @@
-xdescribe('Hybrent Templates Module for scan out', function () {
+describe('Hybrent Templates Module for scan out', function () {
   var EC = protractor.ExpectedConditions;
   var templateName = browser.params.Templates.scanout_tempate_name;
   var General_sku = browser.params.itemCatalog.General_sku;
@@ -7,7 +7,7 @@ xdescribe('Hybrent Templates Module for scan out', function () {
 
   it('Templates scanout List page should open', function () {
     browser.sleep(2000);
-    var scanout = element.all(by.className('uib-tab nav-item')).get(1);
+    var scanout = element.all(by.className('nav-link')).get(1);
     scanout.click();
     expect(browser.getTitle()).toEqual('Templates');
   });
@@ -27,7 +27,7 @@ xdescribe('Hybrent Templates Module for scan out', function () {
   });
 
   it('Add item to newly created template', function () {
-    element(by.model('searchParams.search')).sendKeys('SP440278');
+    element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
     browser.sleep(1000);
     element(by.buttonText('Add')).click();
     browser.sleep(1000);
@@ -43,14 +43,18 @@ xdescribe('Hybrent Templates Module for scan out', function () {
 
   it('Search template by name', function () {
     browser.sleep(3000);
-    element(by.id('PONUM')).sendKeys('sct' + randNumber);
-    element(by.buttonText('Search')).click();
+    let search = element.all(by.model('searchForm.searchFilter')).get(1);
+    search.clear().sendKeys('sct' + randNumber);
+    let search_button = element.all(by.buttonText('Search')).get(1);
+    search_button.click();
     browser.sleep(2000);
-    expect(element(by.repeater('template in templates')).getText()).toContain('sct' + randNumber);
+    var scanouttemplate = element(by.repeater('template in templates')).get(1);
+    expect(scanouttemplate.getText()).toContain('sct' + randNumber);
   });
 
   it('update newly created scanout template', function () {
-    element(by.xpath('//div[@class="tab-pane active"]//i[@class="fa fa-edit"]')).click();
+    let edit_scanout = element.all(by.className('fa fa-edit')).get(1);
+    edit_scanout.click();
     browser.sleep(2000);
     element(by.buttonText('+')).click();
     expect($('.toast-message').getText()).toEqual('Template updated successfully.');
@@ -60,7 +64,8 @@ xdescribe('Hybrent Templates Module for scan out', function () {
 
   it('delete newly created scanout template', function () {
     browser.sleep(1000);
-    element(by.xpath('//div[@class="tab-pane active"]//i[@class="fa fa-trash-o"]')).click();
+    let delete_template = element.all(by.className('fa fa-trash-o')).get(1);
+    delete_template.click();
     browser.sleep(1000);
     element(by.buttonText('Yes')).click();
     expect($('.toast-message').getText()).toEqual('Template deleted successfully.');

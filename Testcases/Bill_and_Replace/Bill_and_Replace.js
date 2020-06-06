@@ -8,6 +8,8 @@ describe('Hybrent Bill & Replace Module', function () {
   var General_mfrNumber = browser.params.itemCatalog.General_mfrNumber;
   var randomnmbr = browser.params.Vendor_price_tier.randompricetier;
   var PO_Num = browser.params.itemCatalog.PO_Number;
+  var Con_sku = browser.params.itemCatalog.Con_sku;
+  var Consignment = browser.params.itemCatalog.Consignment;
 
   it('Open Bill and Replace module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-retweet')).getWebElement()).then(function () {
@@ -24,34 +26,34 @@ describe('Hybrent Bill & Replace Module', function () {
   });
 
   it('Search item by SKU, MFR and Name ', function () {
-    element(by.model('searchParams.search')).clear().sendKeys(General_item_Name + randNumber);
+    element(by.model('searchParams.search')).clear().sendKeys(Consignment + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
-      expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', General_item_Name + randNumber)).isPresent()).toBeTruthy();
+      expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', Consignment + randNumber)).isPresent()).toBeTruthy();
     });
-    element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual(General_sku + randNumber);
+        expect(text).toEqual(Con_sku + randNumber);
       });
     });
 
-    element(by.model('searchParams.search')).clear().sendKeys(General_mfrNumber + randNumber);
+    element(by.model('searchParams.search')).clear().sendKeys("cmfr" + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual(General_sku + randNumber);
+        expect(text).toEqual(Con_sku + randNumber);
       });
     });
   });
 
-  it('add item for Bill and replace by searching serial number', function () {
-    element(by.model('searchParams.search')).clear().sendKeys('serial' + randomnmbr);
+  it('add item for Bill and replace to generate B&R PO', function () {
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randomnmbr);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual(General_sku + randNumber);
+        expect(text).toEqual(Con_sku + randNumber);
       });
     });
 

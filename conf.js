@@ -29,13 +29,13 @@ exports.config = {
     // 'Testcases/Receive/*js',
     // 'Testcases/Invoice/*js',
     // 'Testcases/Template/*js',
-    'Testcases/Patient/*.js',
+    // 'Testcases/Patient/*.js',
     // 'Testcases/ScanIN/*.js',
     // 'Testcases/ScanOut/*.js',
     // 'Testcases/Bill_and_Replace/*.js',
     // 'Testcases/Replenish_Bin/*js',
     // 'Testcases/ApproveItem/*.js',
-    // 'Testcases/Manage Inventory/*.js',
+    'Testcases/Manage Inventory/*.js',
     // 'Testcases/Inventory_Transfer/*js',
     // 'Testcases/Shipment/*js',
     // 'Testcases/Physician/*.js',
@@ -49,7 +49,8 @@ exports.config = {
     // 'Testcases/Out_Of_Stock/*js',
     // 'Testcases/Admin_section/*js',
     // 'Testcases/DME/*js',
-    // 'Testcases/All_Reports/*js'
+    // 'Testcases/All_Reports/*js',
+    // 'Testcases/Patient1/*.js'
   ],
 
   onPrepare: function () {

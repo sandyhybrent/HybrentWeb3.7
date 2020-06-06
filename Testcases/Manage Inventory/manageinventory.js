@@ -24,7 +24,7 @@ describe('Hybrent Manage Inventory Module', function () {
 
   });
 
-  it('Search items by Name', function () {
+  xit('Search items by Name', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_item_Name + randNumber);
     element(by.buttonText('Search')).click();
     element.all(by.repeater('item in items')).each(function (element1, index) {
@@ -34,7 +34,7 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  it('Search items by alise', function () {
+  xit('Search items by alise', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_alias + randNumber);
     element(by.buttonText('Search')).click();
     element.all(by.repeater('item in items')).each(function (element1, index) {
@@ -45,7 +45,7 @@ describe('Hybrent Manage Inventory Module', function () {
 
   });
 
-  it('Search items by mfr number', function () {
+  xit('Search items by mfr number', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_mfrNumber + randNumber);
     element(by.buttonText('Search')).click();
     element.all(by.repeater('item in items')).each(function (element1, index) {
@@ -56,7 +56,7 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  it('Search items by sku', function () {
+  xit('Search items by sku', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     element(by.buttonText('Search')).click();
     element.all(by.repeater('vendor in ::item.itemVendors')).each(function (element1, index) {
@@ -67,7 +67,7 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  it('Vendor filter should display items for selected vendor only.', function () {
+  xit('Vendor filter should display items for selected vendor only.', function () {
     element(by.model('searchParams.search')).clear();
     element(by.model('searchParams.vendor_id')).$('[label="' + vendor + '"]').click();
     element(by.buttonText('Search')).click();
@@ -78,7 +78,21 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  it('Transfer Item', function () {
+  it('create a replenish support inventory', function () {
+    $('div.btn-group').click();
+    element(by.xpath('//div[@class="btn-group pull-right inventory-action-btn open"]//a[contains(text(),"Add Inventory")]')).click();
+    browser.sleep(2000);
+    element(by.model('inventoryFormData.name')).sendKeys('replenish' + randNumber);
+    element(by.model('inventoryFormData.mnemonic')).sendKeys(randNumber);
+    element(by.model('inventoryFormData.inventory_type_id')).click();
+    element(by.xpath('//option[contains(text(),"BinA")]')).click();
+    var Iscontainer = element.all(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).get(0);
+    Iscontainer.click();
+    element(by.buttonText('Save')).click();
+    expect($('.toast-message').getText()).toContain('Inventory added successfully.');
+  })
+
+  it('Transfer Item without track stock transfer', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
@@ -95,6 +109,8 @@ describe('Hybrent Manage Inventory Module', function () {
     // browser.wait(EC.visibilityOf(element(by.xpath('//span[contains(text(),"Select Inventory")]'))), 5000);
     element(by.buttonText('Cancel')).click();
     browser.sleep(2000);
+  });
+  it('Transfer Item with track stock transfer', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
@@ -108,15 +124,17 @@ describe('Hybrent Manage Inventory Module', function () {
     element(by.className('headtext')).getText().then(function (popup1) {
       expect(popup1).toBe('Inventory Transfer Note');
     })
-    element(by.buttonText('Cancel')).click();
+    element(by.buttonText('Create')).click();
+    browser.sleep(1000);
+    element(by.model('item.transferQuantity')).sendKeys('1');
     // element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
     // element(by.buttonText('Select')).click();
     // browser.sleep(2000);
     // element(by.model('transferInventory.transferQuantity')).sendKeys('1');
     // element(by.buttonText('Transfer')).click();
     // browser.sleep(2000);
-    // element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    // expect($('.toast-message').getText()).toEqual('Inventory transferred successfully.');
+    element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
+    expect($('.toast-message').getText()).toContain('Stock transfer request created successfully.');
 
 
   });

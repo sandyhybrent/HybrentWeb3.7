@@ -96,7 +96,7 @@ describe('Patient module', function () {
     element(by.xpath('//span[contains(text(),"Recurring Charges")]')).click();
     element(by.buttonText('Add Recurring Charge')).click();
     browser.sleep(1000);
-    element(by.model('searchParams.search')).sendKeys('GS1570637970631');
+    element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(2000);

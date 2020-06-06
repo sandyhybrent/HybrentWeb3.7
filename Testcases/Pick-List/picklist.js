@@ -47,7 +47,7 @@ describe('Picklist module', function () {
 
   it('open and add normal notes in newly created case', function () {
 
-    element(by.partialLinkText('00000003')).click();
+    element(by.partialLinkText('00000000')).click();
     browser.sleep(2000);
     element(by.model('CaseDetail.gloves_size')).clear().sendKeys('glove' + randNumber);
     element(by.model('CaseDetail.surgeon_notes')).clear().sendKeys('surgeon' + randNumber);
@@ -72,12 +72,12 @@ describe('Picklist module', function () {
   });
 
   it('move case to execute case', function () {
-    browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).getWebElement()).then(function () {
-      element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).click();
-    });
-    expect($('.toast-message').getText()).toEqual('All Items stock attached successfully.');
-    browser.sleep(3000);
-    element(by.buttonText('Save')).click();
+    // browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).getWebElement()).then(function () {
+    //   element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).click();
+    // });
+    // expect($('.toast-message').getText()).toEqual('All Items stock attached successfully.');
+    // browser.sleep(3000);
+    // element(by.buttonText('Save')).click();
     browser.sleep(2000);
     element(by.xpath('//button[contains(text(),"Move to Execute")]')).click();
     expect($('.toast-message').getText()).toEqual('Case moved to execute successfully.');

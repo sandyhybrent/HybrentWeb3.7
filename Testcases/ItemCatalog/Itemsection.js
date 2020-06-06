@@ -31,6 +31,8 @@ describe('Hybrent Item Catalog Module', function () {
   var Dme_Alias = browser.params.itemCatalog.Dme_Alias;
   var Dme_mfr = browser.params.itemCatalog.Dme_mfr;
   var ARC = browser.params.AR_Code.Code;
+  var Consignment = browser.params.itemCatalog.Consignment;
+  var Con_sku = browser.params.itemCatalog.Con_sku;
   var randomnumber = browser.params.Vendor_price_tier.randompricetier;
 
 
@@ -74,7 +76,7 @@ describe('Hybrent Item Catalog Module', function () {
     all(by.tagName('option')).getText().then(function (status) {
       console.log(status);
       var myoption = status;
-      expect(myoption).toEqual(jasmine.arrayContaining(['All Categories', 'Amenity', 'Crona11', 'hybrent technology', 'Service', 'Tester']))
+      expect(myoption).toEqual(jasmine.arrayContaining(['All Categories', 'Amenity', 'Consignment', 'HYBRENT1', 'Kit']));
     });
 
   });
@@ -84,7 +86,7 @@ describe('Hybrent Item Catalog Module', function () {
     all(by.tagName('option')).getText().then(function (status) {
       console.log(status);
       var myoption = status;
-      expect(myoption).toEqual(['All', 'Amenity', 'General', 'Service', 'Free-Hand', 'Bill-Only', 'DME', 'KIT']);
+      expect(myoption).toEqual(['All', 'Amenity', 'Bill-Only', 'Consignment', 'DME', 'Free-Hand', 'General', 'KIT', 'Service']);
     });
 
   });
@@ -107,7 +109,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 10000);
     element(by.buttonText('Select')).click();
-    element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[6]')).click();
+    element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[4]')).click();
     element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]').click();
     browser.sleep(2000);
     element(by.model('item.item_type')).$('[label="' + Item_Type + '"]').click();
@@ -209,7 +211,7 @@ describe('Hybrent Item Catalog Module', function () {
 
   });
 
-  it('Verify that "Map Facility for item Sku --- pop up appears on the screen.', function () {
+  it('Verify that "Map Facility for item Sku --- pop up appears for general item on the screen.', function () {
     browser.sleep(2000);
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     element(by.linkText('Items Catalog')).click();
@@ -246,6 +248,82 @@ describe('Hybrent Item Catalog Module', function () {
     });
   });
 
+  it('Add consignment Item', function () {
+    element(by.xpath('//span[@class="fa fa-caret-down"]')).click();
+    element(by.xpath('//a[contains(text(),"Add Item")]')).click();
+    element(by.model('item.description')).sendKeys(Consignment + randNumber);
+    element(by.model('item.alias')).sendKeys('consignment' + randNumber);
+    element(by.model('item.mfr_number')).sendKeys("cmfr" + randNumber);
+    browser.sleep(1000);
+    element(by.css('button > i.fa-ellipsis-h')).click();
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 5000);
+    element(by.buttonText('Select')).click();
+    browser.sleep(2000);
+    var lot = element.all(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).get(0);
+    lot.click();
+    browser.sleep(1000);
+    var serial = element.all(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).get(1);
+    serial.click();
+    browser.sleep(1000);
+    var expiration_date = element.all(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).get(2);
+    expiration_date.click();
+    browser.sleep(1000);
+    element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[3]')).click();
+    element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]').click();
+    browser.sleep(2000);
+    element(by.model('item.item_type')).$('[label="' + Item_Type + '"]').click();
+    element(by.linkText('Vendors')).click();
+    element(by.css('.btn-success')).click();
+    element(by.model('v.vselected')).click();
+    element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
+    element(by.model('v.sku')).sendKeys(Con_sku + randNumber);
+    element(by.buttonText('Save')).click();
+    browser.sleep(1000);
+    expect($('.toast-message').getText()).toEqual('Item added successfully.');
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
+    browser.sleep(1000);
+    element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
+
+
+  });
+
+  it('Verify that "Map Facility for item Sku --- pop up appears on the screen.', function () {
+    browser.sleep(2000);
+    element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    element(by.linkText('Items Catalog')).click();
+    expect(browser.getTitle()).toEqual('Items Catalog : List');
+    browser.sleep(1000);
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
+    element(by.buttonText('Search')).click();
+    element.all(by.repeater('item in items')).each(function (element1, index) {
+      element1.element(by.binding('item.mfr_number')).getText().then(function (text) {
+
+        expect(text).toEqual("cmfr" + randNumber);
+
+      })
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Map Facility/Update Price'))), 5000);
+      element(by.buttonText('Map Facility/Update Price')).click();
+      expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
+      element(by.model('searchForm.search')).clear().sendKeys(browser.params.user.fac_name);
+      element(by.buttonText('Search')).click();
+      browser.sleep(2000);
+      element(by.binding('itemVendorFacility.name')).getText().then(function (text) {
+        expect(text).toEqual(browser.params.user.fac_name);
+      })
+      expect(element(by.buttonText('Add to facility')).isPresent()).toBeTruthy();
+      element(by.buttonText('Add to facility')).click();
+      element(by.name('purchase_price')).sendKeys('12.52');
+      element(by.name('billable_price')).sendKeys('0.20');
+      element(by.buttonText('Save')).click();
+      expect($('.toast-message').getText()).toEqual('Item added successfully.');
+      expect(element(by.buttonText('Edit')).isPresent()).toBeTruthy();
+      element(by.model('itemVendorFacility.purchase_price')).getAttribute('value').then(function (text) {
+        expect(text).toEqual('12.52');
+      });
+      element(by.xpath('//i[@class="fa fa-2x fa-times"]')).click();
+    });
+  });
+
 
   it('Add Bill only Item', function () {
     element(by.xpath('//span[@class="fa fa-caret-down"]')).click();
@@ -255,7 +333,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 5000);
     element(by.buttonText('Select')).click();
-    element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[5]')).click();
+    element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[2]')).click();
     element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]').click();
     browser.sleep(2000);
     element(by.model('item.item_type')).$('[label="' + 'Non Inventory' + '"]').click();

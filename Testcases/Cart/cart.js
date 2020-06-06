@@ -23,7 +23,8 @@ describe('Hybrent Cart Module', function () {
   });
 
   it('Generate PO', function () {
-    element(by.model('cartParams.vendorParams[key].is_receive_only')).click();
+    var receive_only = element(by.model('cartParams.vendorParams[key].is_receive_only'));
+    receive_only.click();
     browser.sleep(1000);
     element(by.model('cartParams.vendorParams[key].is_use_my_po_num')).click();
     browser.sleep(1000);
@@ -44,7 +45,8 @@ describe('Hybrent Cart Module', function () {
 
     });
 
-    expect(browser.getTitle()).toEqual('My Orders');
+    expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
+
   });
 
 
