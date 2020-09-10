@@ -39,10 +39,11 @@ describe('Hybrent Templates Module', function () {
   });
 
   it('Search template by name', function () {
+    browser.sleep(1000);
     element(by.model('searchForm.searchFilter')).sendKeys(templateName + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    expect(element(by.repeater('template in templates')).getText()).toContain(templateName + randNumber);
+    expect(element.all(by.repeater('template in templates')).getText()).toContain(templateName + randNumber);
   });
 
 

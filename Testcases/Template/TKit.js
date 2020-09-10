@@ -1,3 +1,7 @@
+const {
+  get
+} = require("lodash");
+
 describe('Hybrent Templates Module for Kit', function () {
   var EC = protractor.ExpectedConditions;
   var templateName = browser.params.Templates.scanout_tempate_name;
@@ -15,7 +19,7 @@ describe('Hybrent Templates Module for Kit', function () {
   it('KIt List page should display templates search filter', function () {
     browser.sleep(2000);
     expect(element(by.model('searchForm.searchFilter')).isPresent()).toBeTruthy();
-    element(by.model('searchForm.searchFilter')).clear();
+    element(by.model('searchForm.searchFilter')).get(2).clear();
 
   });
 
@@ -23,8 +27,8 @@ describe('Hybrent Templates Module for Kit', function () {
     element(by.buttonText('Add Template')).click();
     element(by.model('tempData.template_name')).sendKeys('Kit' + randNumber);
     element(by.buttonText('Create Template')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Template created successfully.');
-    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 5000);
   });
 
   it('Add item to newly created kit template', function () {
@@ -49,12 +53,12 @@ describe('Hybrent Templates Module for Kit', function () {
     let search_button = element.all(by.buttonText('Search')).get(2);
     search_button.click();
     browser.sleep(2000);
-    var scanouttemplate = element(by.repeater('template in templates')).get(2);
+    var scanouttemplate = element(by.repeater('template in templates'));
     expect(scanouttemplate.getText()).toContain('Kit' + randNumber);
   });
 
   it('update newly created Kit template', function () {
-    let edit_scanout = element.all(by.className('fa fa-edit')).get(2);
+    let edit_scanout = element(by.className("fa fa-edit")).get(2);
     edit_scanout.click();
     browser.sleep(2000);
     element(by.buttonText('+')).click();
@@ -91,7 +95,7 @@ describe('Hybrent Templates Module for Kit', function () {
 
   it('delete newly created Kit template', function () {
     browser.sleep(1000);
-    let delete_template = element.all(by.className('fa fa-trash-o')).get(1);
+    let delete_template = element(by.className("fa fa-trash-o")).get(2);
     delete_template.click();
     browser.sleep(1000);
     element(by.buttonText('Yes')).click();

@@ -1,4 +1,4 @@
-xdescribe('Cycle count module', function () {
+describe('Cycle count module', function () {
   var EC = protractor.ExpectedConditions;
   var fac_name = browser.params.user.fac_name;
   var randNumber = browser.params.itemCatalog.randNumber;
@@ -35,13 +35,26 @@ xdescribe('Cycle count module', function () {
     browser.sleep(2000);
     // var select_inventory = element.all(by.tagName('hyb-tree-select')).get(0);
     // select_inventory.click();
-    element(by.xpath('//div[@class="col-sm-12"]//hyb-tree-select[@class="form-control"]//a//span//span[contains(text(),"Select")]')).click();
+    element(by.id("btnAdd")).click();
+    browser.sleep(3000);
+    element(by.xpath("//div[@class='modal-body']//span[1]/span[contains(.,'Select')]")).click();
     browser.sleep(2000);
-    element(by.buttonText('Select')).click();
     element(by.model('cycleCountParams.is_blind_count')).click();
     element(by.buttonText('Initiate')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Cycle count started successfully.');
   });
+
+  it('Verify that user should able to start cycle count', function () {
+    element(by.css(".fa-play")).click();
+    browser.sleep(2000);
+    expect(browser.getTitle()).toBe('Start Cycle Count');
+  });
+
+  it('Verify that user should able to select New item tab and complete the cycle count', function () {
+    element(by.xpath("//a[.='New Item']")).click();
+
+  })
 
 
 });

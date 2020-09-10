@@ -3,10 +3,11 @@ describe('Hybrent Login Module', function () {
   var errorElem = element(by.css('.showSweetAlert>p'));
   var EC = protractor.ExpectedConditions;
   beforeEach(function () {
+    browser.waitForAngularEnabled(false);
     browser.get(browser.params.url + '/login');
   });
 
-  it('Login: Try login without any credentials.', function () {
+  xit('Login: Try login without any credentials.', function () {
     // Waits for loading popup to be no longer visible on the dom.
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     //loginLink.click();
@@ -14,7 +15,7 @@ describe('Hybrent Login Module', function () {
     expect(errorElem.getText()).toEqual('Invalid Credentials.');
   });
 
-  it('Login: Try login with wrong credentials.', function () {
+  xit('Login: Try login with wrong credentials.', function () {
     // Waits for loading popup to be no longer visible on the dom.
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     //loginLink.click();

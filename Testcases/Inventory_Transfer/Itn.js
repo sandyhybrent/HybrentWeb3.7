@@ -41,5 +41,21 @@ describe('Inventory Transfer Module', function () {
     element(by.xpath('//div[@id="reqListing_info"]')).getText().then(function (test) {
       expect(test).toBe('Showing 1 to 1 of 1 entries');
     })
-  })
+  });
+
+  it('open newly created ITN detail page', function () {
+    element(by.partialLinkText('ITN00000000')).click();
+    browser.sleep(2000);
+    expect(browser.getTitle()).toBe('Inventory Transfer Note details');
+  });
+
+  it('cancel the newly created ITN', function () {
+    element(by.css(".fa-caret-down")).click();
+    browser.sleep(2000);
+    element(by.xpath("//ul[@class='dropdown-menu dropdown-menu-right width-100']/li[6]/a[.='Cancel ITN']")).click();
+    element(by.id("btnAdd")).click();
+    browser.sleep(2000);
+    expect($('.toast-message').getText()).toEqual('Inventory transfer request cancelled successfully.');
+  });
+
 });

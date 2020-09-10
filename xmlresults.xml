@@ -1,93 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="3" tests="13" time="54.245">
- <testsuite name="Hybrent Login Module" timestamp="2020-06-06T14:34:36" hostname="localhost" time="33.488" errors="0" tests="3" skipped="0" disabled="0" failures="0">
-  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="21.617" />
-  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="3.63" />
-  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="8.239" />
+<testsuites disabled="0" errors="0" failures="15" tests="161" time="987.797">
+ <testsuite name="Hybrent Login Module" timestamp="2020-08-13T14:10:45" hostname="localhost" time="23.122" errors="0" tests="3" skipped="2" disabled="0" failures="0">
+  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="0.002">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="23.118" />
  </testsuite>
- <testsuite name="Hybrent Manage Inventory Module" timestamp="2020-06-06T14:35:10" hostname="localhost" time="20.757" errors="0" tests="10" skipped="5" disabled="0" failures="3">
-  <testcase classname="Hybrent Manage Inventory Module" name="Manage Inventory page should open" time="4.494" />
-  <testcase classname="Hybrent Manage Inventory Module" name="List page should display list of items and manage inventory filters" time="0.113" />
-  <testcase classname="Hybrent Manage Inventory Module" name="Search items by Name" time="0.001">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Search items by alise" time="0">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Search items by mfr number" time="0.001">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Search items by sku" time="0.001">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Vendor filter should display items for selected vendor only." time="0">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="create a replenish support inventory" time="0.04">
-   <failure type="exception" message="Failed: No element found using locator: By(css selector, div.btn-group pull-right inventory-action-btn)"><![CDATA[NoSuchElementError: No element found using locator: By(css selector, div.btn-group pull-right inventory-action-btn)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:814:27
+ <testsuite name="user default facility" timestamp="2020-08-13T14:11:08" hostname="localhost" time="2.74" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="user default facility" name="user default facility is" time="2.74" />
+ </testsuite>
+ <testsuite name="Hybrent Item Catalog Module" timestamp="2020-08-13T14:11:11" hostname="localhost" time="130.776" errors="0" tests="15" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Item Catalog Module" name="Item Catalog page should open" time="1.804" />
+  <testcase classname="Hybrent Item Catalog Module" name="List page should display list of items and IC filters" time="0.222" />
+  <testcase classname="Hybrent Item Catalog Module" name="verify that all the status option appear under the status dropdown" time="0.143" />
+  <testcase classname="Hybrent Item Catalog Module" name="verify that Both, Inventory Item, Non-inventoryitem option appear under the type dropdown" time="0.088" />
+  <testcase classname="Hybrent Item Catalog Module" name="verify all category option appear under the category dropdown" time="0.691" />
+  <testcase classname="Hybrent Item Catalog Module" name="verify all ordering_type option appear under the ordering_type dropdown" time="0.168" />
+  <testcase classname="Hybrent Item Catalog Module" name="verify all consumption_type option appear under the consumption_type dropdown" time="0.14" />
+  <testcase classname="Hybrent Item Catalog Module" name="Add Dme Item" time="24.82" />
+  <testcase classname="Hybrent Item Catalog Module" name="Add General Item" time="18.119" />
+  <testcase classname="Hybrent Item Catalog Module" name="Verify that &quot;Map Facility for item Sku --- pop up appears for general item on the screen." time="12.363" />
+  <testcase classname="Hybrent Item Catalog Module" name="Add consignment Item" time="19.289" />
+  <testcase classname="Hybrent Item Catalog Module" name="Verify that &quot;Map Facility for item Sku --- pop up appears on the screen." time="12.651" />
+  <testcase classname="Hybrent Item Catalog Module" name="Add Bill only Item" time="23.169" />
+  <testcase classname="Hybrent Item Catalog Module" name="Add Amenity item" time="6.719" />
+  <testcase classname="Hybrent Item Catalog Module" name="Map amenity item with facility" time="10.388" />
+ </testsuite>
+ <testsuite name="Hybrent Shop Module" timestamp="2020-08-13T14:13:22" hostname="localhost" time="9.679" errors="0" tests="5" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Shop Module" name="Verify that user default facility appear selected in shop page" time="3.666" />
+  <testcase classname="Hybrent Shop Module" name="Verify that only General ACTIVE items are appearing on page and add them to cart" time="3.719" />
+  <testcase classname="Hybrent Shop Module" name="Shop: Shows recently ordered items appear on page on selecting Recently ordered radio button" time="1.066" />
+  <testcase classname="Hybrent Shop Module" name="Shop: Shows Most ordered items with Po count column sort descending if default layout is selected." time="0.64" />
+  <testcase classname="Hybrent Shop Module" name="Shop: Shows all items that are marked as Favorite." time="0.587" />
+ </testsuite>
+ <testsuite name="Hybrent Cart Module" timestamp="2020-08-13T14:13:32" hostname="localhost" time="23.733" errors="0" tests="3" skipped="0" disabled="0" failures="1">
+  <testcase classname="Hybrent Cart Module" name="Open cart page" time="1.82" />
+  <testcase classname="Hybrent Cart Module" name="add item to cart" time="6.927" />
+  <testcase classname="Hybrent Cart Module" name="Generate PO" time="14.985">
+   <failure type="exception" message="Failed: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: unknown"><![CDATA[WebDriverError: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11'
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
+    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
+    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
+    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
+    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
+    at Array.map (<anonymous>)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
     at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
     at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
     at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)Error
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
     at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
     at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
     at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
-    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:82:56)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
-    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
-    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
-    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
-    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
-    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
-From: Task: Run it("create a replenish support inventory") in control flow
-    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
-    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
-    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
-    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
-    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
-    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
-    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
-    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
-    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
-    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
-From asynchronous test: 
-Error
-    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:81:3)
-    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
-    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
-    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
-    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
-    at Module._compile (internal/modules/cjs/loader.js:1158:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
-    at Module.load (internal/modules/cjs/loader.js:1002:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
-   </failure>
-  </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item without track stock transfer" time="7.957">
-   <failure type="exception" message="Failed: Wait timed out after 5040ms"><![CDATA[TimeoutError: Wait timed out after 5040ms
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2201:17
+    at F:\protractor\Hybrent3.2RC4\Testcases\Cart\cart.js:41:39
     at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
     at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
     at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
     at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
     at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
     at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-From: Task: <anonymous wait>
-    at scheduleWait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2188:20)
-    at ControlFlow.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2517:12)
-    at thenableWebDriverProxy.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:934:29)
-    at run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:59:33)
-    at ProtractorBrowser.to.<computed> [as wait] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:67:16)
-    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:100:13)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
-    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
-    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
-    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
-From: Task: Run it("Transfer Item without track stock transfer") in control flow
+From: Task: Run it("Generate PO") in control flow
     at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
     at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
     at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
@@ -100,39 +88,482 @@ From: Task: Run it("Transfer Item without track stock transfer") in control flow
     at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
 From asynchronous test: 
 Error
-    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:95:3)
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Cart\cart.js:25:3)
     at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
     at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
     at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
-    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Cart\cart.js:1:1)
     at Module._compile (internal/modules/cjs/loader.js:1158:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
     at Module.load (internal/modules/cjs/loader.js:1002:32)
     at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
    </failure>
   </testcase>
-  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item with track stock transfer" time="8.148">
-   <failure type="exception" message="Failed: Wait timed out after 5011ms"><![CDATA[TimeoutError: Wait timed out after 5011ms
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2201:17
+ </testsuite>
+ <testsuite name="Hybrent Order Module" timestamp="2020-08-13T14:13:55" hostname="localhost" time="79.368" errors="0" tests="9" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Order Module" name="Open order module" time="3.902" />
+  <testcase classname="Hybrent Order Module" name="List page should display list of filters" time="2.316" />
+  <testcase classname="Hybrent Order Module" name="Order list page search with PO# Found" time="6.669" />
+  <testcase classname="Hybrent Order Module" name="open order detail page" time="11.66" />
+  <testcase classname="Hybrent Order Module" name="update item price on order detail page" time="11.62" />
+  <testcase classname="Hybrent Order Module" name="verify that all option edit item, Price change history, Purchase History and Stock info should appear in item drop-down" time="11.907" />
+  <testcase classname="Hybrent Order Module" name="update item gpo contract price by clicking edit button" time="4.772" />
+  <testcase classname="Hybrent Order Module" name="verify that all option appears in Order drop down" time="8.665" />
+  <testcase classname="Hybrent Order Module" name="add invoice for newly created order" time="17.857" />
+ </testsuite>
+ <testsuite name="Request service module" timestamp="2020-08-13T14:15:15" hostname="localhost" time="2.659" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Request service module" name="Navigate to Request service module" time="2.543" />
+  <testcase classname="Request service module" name="verify that all search filter should appear on request service module" time="0.114" />
+ </testsuite>
+ <testsuite name="Hybrent Receive Module" timestamp="2020-08-13T14:15:17" hostname="localhost" time="11.52" errors="0" tests="4" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Receive Module" name="Navigate to Receive module" time="4.679" />
+  <testcase classname="Hybrent Receive Module" name="verify that all search filter appear on listing page" time="0.285" />
+  <testcase classname="Hybrent Receive Module" name="verify that po search functionality is working fine" time="3.433" />
+  <testcase classname="Hybrent Receive Module" name="verify that all option appears in order drop down on listing page" time="3.122" />
+ </testsuite>
+ <testsuite name="Hybrent Receive order" timestamp="2020-08-13T14:15:29" hostname="localhost" time="40.547" errors="0" tests="3" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Receive order" name="Open order detail page" time="8.847" />
+  <testcase classname="Hybrent Receive order" name="verify that all option appear in order drop down" time="2.748" />
+  <testcase classname="Hybrent Receive order" name="open order detail page to receive corresponding order" time="28.952" />
+ </testsuite>
+ <testsuite name="Hybrent Invoice Module" timestamp="2020-08-13T14:16:09" hostname="localhost" time="27.695" errors="0" tests="6" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Invoice Module" name="Navigate to Invoice module" time="3.397" />
+  <testcase classname="Hybrent Invoice Module" name="verify that all search filter and drop down should appear on invoice listing page" time="0.357" />
+  <testcase classname="Hybrent Invoice Module" name="Verify that user is able to search invoice by invoice number" time="3.559" />
+  <testcase classname="Hybrent Invoice Module" name="Open invoice detail page" time="2.853" />
+  <testcase classname="Hybrent Invoice Module" name="update invoice" time="11.68" />
+  <testcase classname="Hybrent Invoice Module" name="delete newly created invoice" time="5.849" />
+ </testsuite>
+ <testsuite name="Hybrent Templates Module" timestamp="2020-08-13T14:16:37" hostname="localhost" time="21.302" errors="0" tests="6" skipped="0" disabled="0" failures="1">
+  <testcase classname="Hybrent Templates Module" name="Templates List page should open" time="1.426" />
+  <testcase classname="Hybrent Templates Module" name="List page should display templates search filter" time="0.05" />
+  <testcase classname="Hybrent Templates Module" name="Add Template" time="2.63" />
+  <testcase classname="Hybrent Templates Module" name="Add item to newly created template" time="5.311" />
+  <testcase classname="Hybrent Templates Module" name="Search template by name" time="3.737">
+   <failure type="toContain" message="Expected [ &apos;template1597308042190 Not shared (Sunny Vayu with the large facility name to test the UI functionality) Sandeep Aug, 13th 2020 03:46
+Order&apos;, &apos;&apos;, &apos;&apos; ] to contain &apos;template1597308042190&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist.js:46:73)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module" name="delete newly created template" time="8.147" />
+ </testsuite>
+ <testsuite name="Hybrent Templates Module for scan out" timestamp="2020-08-13T14:16:58" hostname="localhost" time="22.239" errors="0" tests="7" skipped="0" disabled="0" failures="3">
+  <testcase classname="Hybrent Templates Module for scan out" name="Templates scanout List page should open" time="3.264" />
+  <testcase classname="Hybrent Templates Module for scan out" name="scan out List page should display templates search filter" time="2.07" />
+  <testcase classname="Hybrent Templates Module for scan out" name="Add scanout Template" time="3.561" />
+  <testcase classname="Hybrent Templates Module for scan out" name="Add item to newly created template" time="6.573" />
+  <testcase classname="Hybrent Templates Module for scan out" name="Search template by name" time="6.174">
+   <failure type="toContain" message="Expected &apos;&apos; to contain &apos;sct1597308042190&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:51:69)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for scan out" name="update newly created scanout template" time="0.297">
+   <failure type="exception" message="Failed: element(...).get is not a function"><![CDATA[TypeError: element(...).get is not a function
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:55:60)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+From: Task: Run it("update newly created scanout template") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:54:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:1:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for scan out" name="delete newly created scanout template" time="0.298">
+   <failure type="exception" message="Failed: element(...).get is not a function"><![CDATA[TypeError: element(...).get is not a function
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:66:66)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+From: Task: Run it("delete newly created scanout template") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:64:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\Templatelist1_scanout.js:1:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Hybrent Templates Module for Kit" timestamp="2020-08-13T14:17:21" hostname="localhost" time="20.65" errors="0" tests="8" skipped="0" disabled="0" failures="5">
+  <testcase classname="Hybrent Templates Module for Kit" name="Templates Kit page should open" time="2.644" />
+  <testcase classname="Hybrent Templates Module for Kit" name="KIt List page should display templates search filter" time="0.003">
+   <failure type="exception" message="Failed: element(...).get is not a function"><![CDATA[TypeError: element(...).get is not a function
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:22:50)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+From: Task: Run it("KIt List page should display templates search filter") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:19:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:5:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for Kit" name="Add Kit Template" time="3.84" />
+  <testcase classname="Hybrent Templates Module for Kit" name="Add item to newly created kit template" time="7.516" />
+  <testcase classname="Hybrent Templates Module for Kit" name="Search Kit template by name" time="3.42">
+   <failure type="toContain" message="Expected &apos;&apos; to contain &apos;Kit1597308042190&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:57:39)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for Kit" name="update newly created Kit template" time="0.304">
+   <failure type="exception" message="Failed: element(...).get is not a function"><![CDATA[TypeError: element(...).get is not a function
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:61:60)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: Run it("update newly created Kit template") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:60:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:5:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for Kit" name="make a kit template" time="2.619">
+   <failure type="exception" message="Failed: element click intercepted: Element &lt;a class=&quot;btn btn-default btn-xs disabled ng-scope&quot; ng-if=&quot;template.is_use_access==1 &amp;amp;&amp;amp; template.kit_item_id == 0&quot; data-toggle=&quot;tooltip&quot; uib-tooltip=&quot;Kit item not exists in item catalog, you need to create the kit item in item catalog from edit kit template to make kit.&quot; data-tooltip-placement=&quot;top&quot; tooltip-animation=&quot;false&quot; tooltip-trigger=&quot;mouseenter&quot; style=&quot;cursor:not-allowed;float: right;&quot;&gt;...&lt;/a&gt; is not clickable at point (1294, 370). Other element would receive the click: &lt;div ng-if=&quot;template.is_use_access==1 &amp;amp;&amp;amp; template.kit_item_id == 0&quot; data-toggle=&quot;tooltip&quot; uib-tooltip=&quot;Kit item not exists in item catalog, you need to create the kit item in item catalog from edit kit template to make kit.&quot; data-tooltip-placement=&quot;bottom&quot; tooltip-animation=&quot;false&quot; tooltip-trigger=&quot;mouseenter&quot; style=&quot;cursor:not-allowed; display: inline-block;&quot; class=&quot;ng-scope pull-right&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=84.0.4147.125)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: unknown"><![CDATA[WebDriverError: element click intercepted: Element <a class="btn btn-default btn-xs disabled ng-scope" ng-if="template.is_use_access==1 &amp;&amp; template.kit_item_id == 0" data-toggle="tooltip" uib-tooltip="Kit item not exists in item catalog, you need to create the kit item in item catalog from edit kit template to make kit." data-tooltip-placement="top" tooltip-animation="false" tooltip-trigger="mouseenter" style="cursor:not-allowed;float: right;">...</a> is not clickable at point (1294, 370). Other element would receive the click: <div ng-if="template.is_use_access==1 &amp;&amp; template.kit_item_id == 0" data-toggle="tooltip" uib-tooltip="Kit item not exists in item catalog, you need to create the kit item in item catalog from edit kit template to make kit." data-tooltip-placement="bottom" tooltip-animation="false" tooltip-trigger="mouseenter" style="cursor:not-allowed; display: inline-block;" class="ng-scope pull-right">...</div>
+  (Session info: chrome=84.0.4147.125)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11'
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
+    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
+    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
+    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
+    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
+    at Array.map (<anonymous>)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
+    at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:75:41)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+From: Task: Run it("make a kit template") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:73:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:5:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Hybrent Templates Module for Kit" name="delete newly created Kit template" time="0.303">
+   <failure type="exception" message="Failed: element(...).get is not a function"><![CDATA[TypeError: element(...).get is not a function
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:98:66)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: Run it("delete newly created Kit template") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:96:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Template\TKit.js:5:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Patient module" timestamp="2020-08-13T14:17:41" hostname="localhost" time="41.62" errors="0" tests="6" skipped="0" disabled="0" failures="1">
+  <testcase classname="Patient module" name="Navigate to patient module" time="2.815" />
+  <testcase classname="Patient module" name="Verify that search patient By filter appear on patient detail page" time="0.158" />
+  <testcase classname="Patient module" name="verify that user is able to add patient by clicking on add patient button" time="14.428" />
+  <testcase classname="Patient module" name="Patient: Update Patient." time="5.249" />
+  <testcase classname="Patient module" name="search newly created patient by name" time="1.87">
+   <failure type="exception" message="Failed: element click intercepted: Element &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;...&lt;/button&gt; is not clickable at point (1118, 16). Other element would receive the click: &lt;div class=&quot;collapse navbar-collapse navbar-ex1-collapse&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=84.0.4147.125)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: unknown"><![CDATA[WebDriverError: element click intercepted: Element <button type="submit" class="btn btn-primary">...</button> is not clickable at point (1118, 16). Other element would receive the click: <div class="collapse navbar-collapse navbar-ex1-collapse">...</div>
+  (Session info: chrome=84.0.4147.125)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11'
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
+    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
+    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
+    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
+    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
+    at Array.map (<anonymous>)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
+    at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:85:38)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+From: Task: Run it("search newly created patient by name") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:83:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Patient\patient.js:2:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Patient module" name="add charges to patient" time="17.1" />
+ </testsuite>
+ <testsuite name="Hybrent Scan IN Module" timestamp="2020-08-13T14:18:23" hostname="localhost" time="110.308" errors="0" tests="10" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Scan IN Module" name="Open scan in module" time="7.756" />
+  <testcase classname="Hybrent Scan IN Module" name="List page should display Scan In filters and refresh button" time="0.191" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In - Search items by item Name, sku, mfr" time="5.729" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In - Add general items for scan In by click on scan In button" time="23.906" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In - Add DME items for scan In by click on scan In button" time="26.701" />
+  <testcase classname="Hybrent Scan IN Module" name="add consignment item in scanin" time="19.356" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In - Search general item added for scan in by item Name, sku, mfr" time="4.611" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In - Search consignement item added for scan in by item Name, sku, mfr" time="4.258" />
+  <testcase classname="Hybrent Scan IN Module" name="add stock status for vendor stock item" time="6.538" />
+  <testcase classname="Hybrent Scan IN Module" name="Scan In items - Complete scan In and item should display on inventory transaction page" time="11.261" />
+ </testsuite>
+ <testsuite name="Hybrent Scanout Module" timestamp="2020-08-13T14:20:13" hostname="localhost" time="62.308" errors="0" tests="12" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Scanout Module" name="Scan Out List page should open" time="1.104" />
+  <testcase classname="Hybrent Scanout Module" name="List page should display Scan out filters and refresh button" time="0.088" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out - Search items by item Name, sku, mfr" time="5.563" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out - Add items for scan out by click on scan Out button" time="7.15" />
+  <testcase classname="Hybrent Scanout Module" name="scan Out - delete a single item added in scanout" time="5.372" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out - Again Add items for scan out by click on scan Out button" time="10.051" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out - List of items added for scan out" time="1.174" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out items - Attach stock info" time="3.761" />
+  <testcase classname="Hybrent Scanout Module" name="Scan Out items - Remove attached stock info" time="9.041" />
+  <testcase classname="Hybrent Scanout Module" name="add amenities item in scanout" time="7.735" />
+  <testcase classname="Hybrent Scanout Module" name="scan Out - attach Charge Center for the added item" time="6.94" />
+  <testcase classname="Hybrent Scanout Module" name="Scan out items - Complete scan Out and item should display on inventory transaction page" time="4.327" />
+ </testsuite>
+ <testsuite name="Hybrent Bill &amp; Replace Module" timestamp="2020-08-13T14:21:16" hostname="localhost" time="23.914" errors="0" tests="4" skipped="0" disabled="0" failures="1">
+  <testcase classname="Hybrent Bill &amp; Replace Module" name="Open Bill and Replace module" time="2.299" />
+  <testcase classname="Hybrent Bill &amp; Replace Module" name="Verify that add item search filter appear on top of the page" time="0.044" />
+  <testcase classname="Hybrent Bill &amp; Replace Module" name="Search item by SKU, MFR and Name " time="5.013" />
+  <testcase classname="Hybrent Bill &amp; Replace Module" name="add item for Bill and replace to generate B&amp;R PO" time="16.558">
+   <failure type="exception" message="Failed: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: unknown"><![CDATA[WebDriverError: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11'
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
+    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
+    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
+    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
+    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
+    at Array.map (<anonymous>)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
+    at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
+    at F:\protractor\Hybrent3.2RC4\Testcases\Bill_and_Replace\Bill_and_Replace.js:76:39
     at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
     at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
     at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
     at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
     at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
     at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-From: Task: <anonymous wait>
-    at scheduleWait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2188:20)
-    at ControlFlow.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2517:12)
-    at thenableWebDriverProxy.wait (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:934:29)
-    at run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:59:33)
-    at ProtractorBrowser.to.<computed> [as wait] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\browser.js:67:16)
-    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:118:13)
-    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
-    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
-    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
-    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
-From: Task: Run it("Transfer Item with track stock transfer") in control flow
+From: Task: Run it("add item for Bill and replace to generate B&R PO") in control flow
     at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
     at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
     at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
@@ -145,16 +576,689 @@ From: Task: Run it("Transfer Item with track stock transfer") in control flow
     at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
 From asynchronous test: 
 Error
-    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:113:3)
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Bill_and_Replace\Bill_and_Replace.js:51:3)
     at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
     at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
     at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
-    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:1:1)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Bill_and_Replace\Bill_and_Replace.js:1:1)
     at Module._compile (internal/modules/cjs/loader.js:1158:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
     at Module.load (internal/modules/cjs/loader.js:1002:32)
     at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
    </failure>
   </testcase>
+ </testsuite>
+ <testsuite name="Hybrent ReplenishBin Module" timestamp="2020-08-13T14:21:40" hostname="localhost" time="14.982" errors="0" tests="3" skipped="0" disabled="0" failures="1">
+  <testcase classname="Hybrent ReplenishBin Module" name="Open ReplenishBin module" time="3.345" />
+  <testcase classname="Hybrent ReplenishBin Module" name="Verify that drop down and search filter appear on the page" time="0.063" />
+  <testcase classname="Hybrent ReplenishBin Module" name="Add item to ReplenishBin cart by search filter" time="11.573">
+   <failure type="exception" message="Failed: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:25:53&apos;
+System info: host: &apos;LAPTOP-QSN8IM2G&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11&apos;
+Driver info: driver.version: unknown"><![CDATA[WebDriverError: element not interactable
+  (Session info: chrome=84.0.4147.125)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'LAPTOP-QSN8IM2G', ip: '192.168.1.8', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11'
+Driver info: driver.version: unknown
+    at Object.checkLegacyResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\error.js:546:15)
+    at parseHttpResponse (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\http.js:441:30
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:807:17)
+    at WebElement.schedule_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2010:25)
+    at WebElement.click (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\webdriver.js:2092:17)
+    at actionFn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:89:44)
+    at Array.map (<anonymous>)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:461:65
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27Error
+    at ElementArrayFinder.applyAction_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.<computed> [as click] (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\built\element.js:831:22)
+    at F:\protractor\Hybrent3.2RC4\Testcases\Replenish_Bin\Replenish_bin.js:44:39
+    at ManagedPromise.invokeCallback_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2927:27
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at runMicrotasks (<anonymous>)
+From: Task: Run it("Add item to ReplenishBin cart by search filter") in control flow
+    at UserContext.<anonymous> (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:94:19)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Replenish_Bin\Replenish_bin.js:25:3)
+    at addSpecsToSuite (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Replenish_Bin\Replenish_bin.js:1:1)
+    at Module._compile (internal/modules/cjs/loader.js:1158:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1178:10)
+    at Module.load (internal/modules/cjs/loader.js:1002:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:901:14)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Approve unapproved items" timestamp="2020-08-13T14:21:54" hostname="localhost" time="24.521" errors="0" tests="5" skipped="0" disabled="0" failures="0">
+  <testcase classname="Approve unapproved items" name="approve items" time="2.959" />
+  <testcase classname="Approve unapproved items" name="select user default facility" time="9.227" />
+  <testcase classname="Approve unapproved items" name="verify that search with status and vendor drop down field appear on page" time="0.168" />
+  <testcase classname="Approve unapproved items" name="verify that user is able to search item with item name, alias, sku and vendor name" time="6.83" />
+  <testcase classname="Approve unapproved items" name="Approve item after search" time="5.337" />
+ </testsuite>
+ <testsuite name="Hybrent Manage Inventory Module" timestamp="2020-08-13T14:22:19" hostname="localhost" time="72.591" errors="0" tests="12" skipped="1" disabled="0" failures="1">
+  <testcase classname="Hybrent Manage Inventory Module" name="Manage Inventory page should open" time="11.461" />
+  <testcase classname="Hybrent Manage Inventory Module" name="List page should display list of items and manage inventory filters" time="0.129" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by Name" time="1.497" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by alise" time="1.133" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by mfr number" time="3.83" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Search items by sku" time="1.322" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Vendor filter should display items for selected vendor only." time="1.939" />
+  <testcase classname="Hybrent Manage Inventory Module" name="create a replenish support inventory" time="14.053" />
+  <testcase classname="Hybrent Manage Inventory Module" name="add item to replenish bin inventory" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item without track stock transfer" time="13.979" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Transfer Item with track stock transfer" time="17.853" />
+  <testcase classname="Hybrent Manage Inventory Module" name="Verify that consignment items appear under the vendor stock" time="5.391">
+   <failure type="toContain" message="Expected [ ElementFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::139720
+| | (pending) Task::139719&lt;Run it(&quot;Verify that consignment items appear under the vendor stock&quot;) in control flow&gt;
+| | | TaskQueue::139723
+| | | | (pending) Task::139824&lt;then&gt;
+| | | | | (active) TaskQueue::140552
+| | Task::139722&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), then: null, parentElementArrayFinder: ElementArrayFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::139720
+| | (pending) Task::139719&lt;Run it(&quot;Verify that consignment items appear under the vendor stock&quot;) in control flow&gt;
+| | | TaskQueue::139723
+| | | | (pending) Task::139824&lt;then&gt;
+| | | | | (active) TaskQueue::140552
+| | Task::139722&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), getWebElements: Function, locator_: by.repeater(&quot;item in items&quot;), actionResults_: null, click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }), elementArrayFinder_: ElementArrayFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::139720
+| | (pending) Task::139719&lt;Run it(&quot;Verify that consignment items appear under the vendor stock&quot;) in control flow&gt;
+| | | TaskQueue::139723
+| | | | (pending) Task::139824&lt;then&gt;
+| | | | | (active) TaskQueue::140552
+| | Task::139722&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), getWebElements: Function, locator_: by.repeater(&quot;item in items&quot;), actionResults_: null, click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }), click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }) ] to contain &apos;Consignment test item1597308042190&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Manage Inventory\manageinventory.js:183:55)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Inventory Transfer Module" timestamp="2020-08-13T14:23:32" hostname="localhost" time="6.247" errors="0" tests="4" skipped="1" disabled="0" failures="0">
+  <testcase classname="Inventory Transfer Module" name="Open Inventory Transfer" time="2.255" />
+  <testcase classname="Inventory Transfer Module" name="verify that user default facility appear selected on ITN listing page" time="0.001">
+   <skipped message="Temporarily disabled with xit" />
+  </testcase>
+  <testcase classname="Inventory Transfer Module" name="List page should display all search and status filter" time="0.185" />
+  <testcase classname="Inventory Transfer Module" name="search newly created ITN through manage inventory" time="3.805" />
+ </testsuite>
+ <testsuite name="Shipment Module" timestamp="2020-08-13T14:23:38" hostname="localhost" time="2.434" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Shipment Module" name="Open Shipment module" time="2.282" />
+  <testcase classname="Shipment Module" name="List page should display all search and status filter" time="0.152" />
+ </testsuite>
+ <testsuite name="physician module" timestamp="2020-08-13T14:23:40" hostname="localhost" time="8.287" errors="0" tests="3" skipped="0" disabled="0" failures="0">
+  <testcase classname="physician module" name="Add a physician" time="7.134" />
+  <testcase classname="physician module" name="verify that physican and facilities filter appear on page" time="0.058" />
+  <testcase classname="physician module" name="verify that searching with Physician name, NPI and Facility wise working properly" time="1.095" />
+ </testsuite>
+ <testsuite name="operating room module" timestamp="2020-08-13T14:23:49" hostname="localhost" time="15.328" errors="0" tests="3" skipped="0" disabled="0" failures="0">
+  <testcase classname="operating room module" name="Navigate to operating room" time="1.38" />
+  <testcase classname="operating room module" name="List page should display list of items and IC filters" time="0.034" />
+  <testcase classname="operating room module" name="add new operating room" time="13.912" />
+ </testsuite>
+ <testsuite name="Procedure module" timestamp="2020-08-13T14:24:04" hostname="localhost" time="18.032" errors="0" tests="5" skipped="0" disabled="0" failures="0">
+  <testcase classname="Procedure module" name="verify that user get redirect to Procedure module on clicking procedure" time="1.975" />
+  <testcase classname="Procedure module" name="verify that search filter appear on on procedure detail page" time="1.09" />
+  <testcase classname="Procedure module" name="verify that on clicking add procedure button a new window to add procedure get opened" time="1.04" />
+  <testcase classname="Procedure module" name="Create New Procedure after opening add procedure window" time="6.676" />
+  <testcase classname="Procedure module" name="verify that user is able to Update created Procedure." time="7.251" />
+ </testsuite>
+ <testsuite name="Prefcard module" timestamp="2020-08-13T14:24:22" hostname="localhost" time="17.702" errors="0" tests="4" skipped="0" disabled="0" failures="0">
+  <testcase classname="Prefcard module" name="verify that preference card module get opened on clicking prefcard" time="2.209" />
+  <testcase classname="Prefcard module" name="verify that search filter and drop down options appear on pref card listing page" time="0.091" />
+  <testcase classname="Prefcard module" name="verify that on clicking add Preference card button a new window to add procedure get opened" time="0.805" />
+  <testcase classname="Prefcard module" name="verify that user is able to create new pref card from the add pref card window" time="14.597" />
+ </testsuite>
+ <testsuite name="Planner module" timestamp="2020-08-13T14:24:40" hostname="localhost" time="54.652" errors="0" tests="2" skipped="0" disabled="0" failures="1">
+  <testcase classname="Planner module" name="Navigate to planner module" time="2.796" />
+  <testcase classname="Planner module" name="Planner: add Cases." time="51.854">
+   <failure type="toContain" message="Expected ElementFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::154597
+| | (pending) Task::154596&lt;Run it(&quot;Planner: add Cases.&quot;) in control flow&gt;
+| | | (active) TaskQueue::154600
+| | | | Task::154603&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154605&lt;Set angular root selector to null&gt;
+| | | | Task::154607&lt;then&gt;
+| | | | Task::154609&lt;then&gt;
+| | | | Task::154611&lt;then&gt;
+| | | | Task::154613&lt;then&gt;
+| | | | Task::154615&lt;then&gt;
+| | | | Task::154617&lt;then&gt;
+| | | | Task::154620&lt;then&gt;
+| | | | Task::154622&lt;then&gt;
+| | | | Task::154624&lt;then&gt;
+| | | | Task::154626&lt;then&gt;
+| | | | Task::154628&lt;WebDriver.executeScript()&gt;
+| | | | Task::154630&lt;then&gt;
+| | | | Task::154632&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154634&lt;Set angular root selector to null&gt;
+| | | | Task::154636&lt;then&gt;
+| | | | Task::154638&lt;then&gt;
+| | | | Task::154640&lt;then&gt;
+| | | | Task::154642&lt;then&gt;
+| | | | Task::154645&lt;then&gt;
+| | | | Task::154647&lt;then&gt;
+| | | | Task::154649&lt;then&gt;
+| | | | Task::154651&lt;then&gt;
+| | | | Task::154653&lt;then&gt;
+| | | | Task::154655&lt;then&gt;
+| | | | Task::154657&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154659&lt;Set angular root selector to null&gt;
+| | | | Task::154661&lt;then&gt;
+| | | | Task::154663&lt;then&gt;
+| | | | Task::154665&lt;then&gt;
+| | | | Task::154667&lt;then&gt;
+| | | | Task::154669&lt;then&gt;
+| | | | Task::154671&lt;then&gt;
+| | | | Task::154673&lt;then&gt;
+| | | | Task::154675&lt;then&gt;
+| | | | Task::154677&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154679&lt;Set angular root selector to null&gt;
+| | | | Task::154681&lt;then&gt;
+| | | | Task::154683&lt;then&gt;
+| | | | Task::154685&lt;then&gt;
+| | | | Task::154687&lt;then&gt;
+| | | | Task::154689&lt;then&gt;
+| | | | Task::154691&lt;then&gt;
+| | | | Task::154693&lt;then&gt;
+| | | | Task::154695&lt;then&gt;
+| | | | Task::154697&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154699&lt;Set angular root selector to null&gt;
+| | | | Task::154701&lt;then&gt;
+| | | | Task::154703&lt;then&gt;
+| | | | Task::154705&lt;then&gt;
+| | | | Task::154707&lt;then&gt;
+| | | | Task::154709&lt;then&gt;
+| | | | Task::154711&lt;then&gt;
+| | | | Task::154713&lt;then&gt;
+| | | | Task::154715&lt;then&gt;
+| | | | Task::154717&lt;WebDriver.sleep(1000)&gt;
+| | | | Task::154719&lt;Set angular root selector to null&gt;
+| | | | Task::154721&lt;then&gt;
+| | | | Task::154723&lt;then&gt;
+| | | | Task::154725&lt;then&gt;
+| | | | Task::154727&lt;then&gt;
+| | | | Task::154729&lt;then&gt;
+| | | | Task::154731&lt;then&gt;
+| | | | Task::154733&lt;then&gt;
+| | | | Task::154735&lt;then&gt;
+| | | | Task::154737&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154739&lt;Set angular root selector to null&gt;
+| | | | Task::154741&lt;then&gt;
+| | | | Task::154743&lt;then&gt;
+| | | | Task::154745&lt;then&gt;
+| | | | Task::154747&lt;then&gt;
+| | | | Task::154749&lt;then&gt;
+| | | | Task::154751&lt;then&gt;
+| | | | Task::154753&lt;then&gt;
+| | | | Task::154755&lt;then&gt;
+| | | | Task::154757&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154759&lt;Set angular root selector to null&gt;
+| | | | Task::154761&lt;then&gt;
+| | | | Task::154763&lt;then&gt;
+| | | | Task::154765&lt;then&gt;
+| | | | Task::154767&lt;then&gt;
+| | | | Task::154769&lt;then&gt;
+| | | | Task::154771&lt;then&gt;
+| | | | Task::154773&lt;then&gt;
+| | | | Task::154775&lt;then&gt;
+| | | | Task::154777&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154779&lt;Set angular root selector to null&gt;
+| | | | Task::154781&lt;then&gt;
+| | | | Task::154783&lt;then&gt;
+| | | | Task::154785&lt;then&gt;
+| | | | Task::154787&lt;then&gt;
+| | | | Task::154789&lt;then&gt;
+| | | | Task::154791&lt;then&gt;
+| | | | Task::154793&lt;then&gt;
+| | | | Task::154795&lt;then&gt;
+| | | | Task::154797&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154799&lt;Set angular root selector to null&gt;
+| | | | Task::154801&lt;then&gt;
+| | | | Task::154803&lt;then&gt;
+| | | | Task::154805&lt;then&gt;
+| | | | Task::154807&lt;then&gt;
+| | | | Task::154809&lt;then&gt;
+| | | | Task::154811&lt;then&gt;
+| | | | Task::154813&lt;then&gt;
+| | | | Task::154815&lt;then&gt;
+| | | | Task::154817&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154819&lt;Set angular root selector to null&gt;
+| | | | Task::154821&lt;then&gt;
+| | | | Task::154823&lt;then&gt;
+| | | | Task::154825&lt;then&gt;
+| | | | Task::154827&lt;then&gt;
+| | | | Task::154829&lt;then&gt;
+| | | | Task::154831&lt;then&gt;
+| | | | Task::154833&lt;then&gt;
+| | | | Task::154835&lt;then&gt;
+| | | | Task::154837&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154839&lt;Set angular root selector to null&gt;
+| | | | Task::154841&lt;then&gt;
+| | | | Task::154843&lt;then&gt;
+| | | | Task::154845&lt;then&gt;
+| | | | Task::154847&lt;then&gt;
+| | | | Task::154849&lt;then&gt;
+| | | | Task::154851&lt;then&gt;
+| | | | Task::154853&lt;then&gt;
+| | | | Task::154855&lt;then&gt;
+| | | | Task::154857&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154859&lt;Set angular root selector to null&gt;
+| | | | Task::154861&lt;then&gt;
+| | | | Task::154863&lt;then&gt;
+| | | | Task::154865&lt;then&gt;
+| | | | Task::154867&lt;then&gt;
+| | | | Task::154869&lt;then&gt;
+| | | | Task::154871&lt;then&gt;
+| | | | Task::154873&lt;then&gt;
+| | | | Task::154875&lt;then&gt;
+| | | | Task::154877&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154879&lt;Set angular root selector to null&gt;
+| | | | Task::154881&lt;then&gt;
+| | | | Task::154883&lt;then&gt;
+| | | | Task::154885&lt;then&gt;
+| | | | Task::154887&lt;then&gt;
+| | | | Task::154889&lt;then&gt;
+| | | | Task::154891&lt;then&gt;
+| | | | Task::154893&lt;then&gt;
+| | | | Task::154895&lt;then&gt;
+| | | | Task::154897&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154899&lt;Set angular root selector to null&gt;
+| | | | Task::154901&lt;then&gt;
+| | | | Task::154903&lt;then&gt;
+| | | | Task::154905&lt;then&gt;
+| | | | Task::154907&lt;then&gt;
+| | | | Task::154909&lt;then&gt;
+| | | | Task::154911&lt;then&gt;
+| | | | Task::154913&lt;then&gt;
+| | | | Task::154915&lt;then&gt;
+| | | | Task::154917&lt;WebDriver.sleep(2000)&gt;
+| | Task::154599&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), then: null, parentElementArrayFinder: ElementArrayFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::154597
+| | (pending) Task::154596&lt;Run it(&quot;Planner: add Cases.&quot;) in control flow&gt;
+| | | (active) TaskQueue::154600
+| | | | Task::154603&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154605&lt;Set angular root selector to null&gt;
+| | | | Task::154607&lt;then&gt;
+| | | | Task::154609&lt;then&gt;
+| | | | Task::154611&lt;then&gt;
+| | | | Task::154613&lt;then&gt;
+| | | | Task::154615&lt;then&gt;
+| | | | Task::154617&lt;then&gt;
+| | | | Task::154620&lt;then&gt;
+| | | | Task::154622&lt;then&gt;
+| | | | Task::154624&lt;then&gt;
+| | | | Task::154626&lt;then&gt;
+| | | | Task::154628&lt;WebDriver.executeScript()&gt;
+| | | | Task::154630&lt;then&gt;
+| | | | Task::154632&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154634&lt;Set angular root selector to null&gt;
+| | | | Task::154636&lt;then&gt;
+| | | | Task::154638&lt;then&gt;
+| | | | Task::154640&lt;then&gt;
+| | | | Task::154642&lt;then&gt;
+| | | | Task::154645&lt;then&gt;
+| | | | Task::154647&lt;then&gt;
+| | | | Task::154649&lt;then&gt;
+| | | | Task::154651&lt;then&gt;
+| | | | Task::154653&lt;then&gt;
+| | | | Task::154655&lt;then&gt;
+| | | | Task::154657&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154659&lt;Set angular root selector to null&gt;
+| | | | Task::154661&lt;then&gt;
+| | | | Task::154663&lt;then&gt;
+| | | | Task::154665&lt;then&gt;
+| | | | Task::154667&lt;then&gt;
+| | | | Task::154669&lt;then&gt;
+| | | | Task::154671&lt;then&gt;
+| | | | Task::154673&lt;then&gt;
+| | | | Task::154675&lt;then&gt;
+| | | | Task::154677&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154679&lt;Set angular root selector to null&gt;
+| | | | Task::154681&lt;then&gt;
+| | | | Task::154683&lt;then&gt;
+| | | | Task::154685&lt;then&gt;
+| | | | Task::154687&lt;then&gt;
+| | | | Task::154689&lt;then&gt;
+| | | | Task::154691&lt;then&gt;
+| | | | Task::154693&lt;then&gt;
+| | | | Task::154695&lt;then&gt;
+| | | | Task::154697&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154699&lt;Set angular root selector to null&gt;
+| | | | Task::154701&lt;then&gt;
+| | | | Task::154703&lt;then&gt;
+| | | | Task::154705&lt;then&gt;
+| | | | Task::154707&lt;then&gt;
+| | | | Task::154709&lt;then&gt;
+| | | | Task::154711&lt;then&gt;
+| | | | Task::154713&lt;then&gt;
+| | | | Task::154715&lt;then&gt;
+| | | | Task::154717&lt;WebDriver.sleep(1000)&gt;
+| | | | Task::154719&lt;Set angular root selector to null&gt;
+| | | | Task::154721&lt;then&gt;
+| | | | Task::154723&lt;then&gt;
+| | | | Task::154725&lt;then&gt;
+| | | | Task::154727&lt;then&gt;
+| | | | Task::154729&lt;then&gt;
+| | | | Task::154731&lt;then&gt;
+| | | | Task::154733&lt;then&gt;
+| | | | Task::154735&lt;then&gt;
+| | | | Task::154737&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154739&lt;Set angular root selector to null&gt;
+| | | | Task::154741&lt;then&gt;
+| | | | Task::154743&lt;then&gt;
+| | | | Task::154745&lt;then&gt;
+| | | | Task::154747&lt;then&gt;
+| | | | Task::154749&lt;then&gt;
+| | | | Task::154751&lt;then&gt;
+| | | | Task::154753&lt;then&gt;
+| | | | Task::154755&lt;then&gt;
+| | | | Task::154757&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154759&lt;Set angular root selector to null&gt;
+| | | | Task::154761&lt;then&gt;
+| | | | Task::154763&lt;then&gt;
+| | | | Task::154765&lt;then&gt;
+| | | | Task::154767&lt;then&gt;
+| | | | Task::154769&lt;then&gt;
+| | | | Task::154771&lt;then&gt;
+| | | | Task::154773&lt;then&gt;
+| | | | Task::154775&lt;then&gt;
+| | | | Task::154777&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154779&lt;Set angular root selector to null&gt;
+| | | | Task::154781&lt;then&gt;
+| | | | Task::154783&lt;then&gt;
+| | | | Task::154785&lt;then&gt;
+| | | | Task::154787&lt;then&gt;
+| | | | Task::154789&lt;then&gt;
+| | | | Task::154791&lt;then&gt;
+| | | | Task::154793&lt;then&gt;
+| | | | Task::154795&lt;then&gt;
+| | | | Task::154797&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154799&lt;Set angular root selector to null&gt;
+| | | | Task::154801&lt;then&gt;
+| | | | Task::154803&lt;then&gt;
+| | | | Task::154805&lt;then&gt;
+| | | | Task::154807&lt;then&gt;
+| | | | Task::154809&lt;then&gt;
+| | | | Task::154811&lt;then&gt;
+| | | | Task::154813&lt;then&gt;
+| | | | Task::154815&lt;then&gt;
+| | | | Task::154817&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154819&lt;Set angular root selector to null&gt;
+| | | | Task::154821&lt;then&gt;
+| | | | Task::154823&lt;then&gt;
+| | | | Task::154825&lt;then&gt;
+| | | | Task::154827&lt;then&gt;
+| | | | Task::154829&lt;then&gt;
+| | | | Task::154831&lt;then&gt;
+| | | | Task::154833&lt;then&gt;
+| | | | Task::154835&lt;then&gt;
+| | | | Task::154837&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154839&lt;Set angular root selector to null&gt;
+| | | | Task::154841&lt;then&gt;
+| | | | Task::154843&lt;then&gt;
+| | | | Task::154845&lt;then&gt;
+| | | | Task::154847&lt;then&gt;
+| | | | Task::154849&lt;then&gt;
+| | | | Task::154851&lt;then&gt;
+| | | | Task::154853&lt;then&gt;
+| | | | Task::154855&lt;then&gt;
+| | | | Task::154857&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154859&lt;Set angular root selector to null&gt;
+| | | | Task::154861&lt;then&gt;
+| | | | Task::154863&lt;then&gt;
+| | | | Task::154865&lt;then&gt;
+| | | | Task::154867&lt;then&gt;
+| | | | Task::154869&lt;then&gt;
+| | | | Task::154871&lt;then&gt;
+| | | | Task::154873&lt;then&gt;
+| | | | Task::154875&lt;then&gt;
+| | | | Task::154877&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154879&lt;Set angular root selector to null&gt;
+| | | | Task::154881&lt;then&gt;
+| | | | Task::154883&lt;then&gt;
+| | | | Task::154885&lt;then&gt;
+| | | | Task::154887&lt;then&gt;
+| | | | Task::154889&lt;then&gt;
+| | | | Task::154891&lt;then&gt;
+| | | | Task::154893&lt;then&gt;
+| | | | Task::154895&lt;then&gt;
+| | | | Task::154897&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154899&lt;Set angular root selector to null&gt;
+| | | | Task::154901&lt;then&gt;
+| | | | Task::154903&lt;then&gt;
+| | | | Task::154905&lt;then&gt;
+| | | | Task::154907&lt;then&gt;
+| | | | Task::154909&lt;then&gt;
+| | | | Task::154911&lt;then&gt;
+| | | | Task::154913&lt;then&gt;
+| | | | Task::154915&lt;then&gt;
+| | | | Task::154917&lt;WebDriver.sleep(2000)&gt;
+| | Task::154599&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), getWebElements: Function, locator_: By(css selector, .toast-message), actionResults_: null, click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }), elementArrayFinder_: ElementArrayFinder({ browser_: ProtractorBrowser({ controlFlow: Function, schedule: Function, setFileDetector: Function, getExecutor: Function, getSession: Function, getCapabilities: Function, quit: Function, actions: Function, touchActions: Function, executeScript: Function, executeAsyncScript: Function, call: Function, wait: Function, sleep: Function, getWindowHandle: Function, getAllWindowHandles: Function, getPageSource: Function, close: Function, getCurrentUrl: Function, getTitle: Function, findElementInternal_: Function, findElementsInternal_: Function, takeScreenshot: Function, manage: Function, switchTo: Function, driver: thenableWebDriverProxy({ flow_: ControlFlow::140553
+| TaskQueue::154597
+| | (pending) Task::154596&lt;Run it(&quot;Planner: add Cases.&quot;) in control flow&gt;
+| | | (active) TaskQueue::154600
+| | | | Task::154603&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154605&lt;Set angular root selector to null&gt;
+| | | | Task::154607&lt;then&gt;
+| | | | Task::154609&lt;then&gt;
+| | | | Task::154611&lt;then&gt;
+| | | | Task::154613&lt;then&gt;
+| | | | Task::154615&lt;then&gt;
+| | | | Task::154617&lt;then&gt;
+| | | | Task::154620&lt;then&gt;
+| | | | Task::154622&lt;then&gt;
+| | | | Task::154624&lt;then&gt;
+| | | | Task::154626&lt;then&gt;
+| | | | Task::154628&lt;WebDriver.executeScript()&gt;
+| | | | Task::154630&lt;then&gt;
+| | | | Task::154632&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154634&lt;Set angular root selector to null&gt;
+| | | | Task::154636&lt;then&gt;
+| | | | Task::154638&lt;then&gt;
+| | | | Task::154640&lt;then&gt;
+| | | | Task::154642&lt;then&gt;
+| | | | Task::154645&lt;then&gt;
+| | | | Task::154647&lt;then&gt;
+| | | | Task::154649&lt;then&gt;
+| | | | Task::154651&lt;then&gt;
+| | | | Task::154653&lt;then&gt;
+| | | | Task::154655&lt;then&gt;
+| | | | Task::154657&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154659&lt;Set angular root selector to null&gt;
+| | | | Task::154661&lt;then&gt;
+| | | | Task::154663&lt;then&gt;
+| | | | Task::154665&lt;then&gt;
+| | | | Task::154667&lt;then&gt;
+| | | | Task::154669&lt;then&gt;
+| | | | Task::154671&lt;then&gt;
+| | | | Task::154673&lt;then&gt;
+| | | | Task::154675&lt;then&gt;
+| | | | Task::154677&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154679&lt;Set angular root selector to null&gt;
+| | | | Task::154681&lt;then&gt;
+| | | | Task::154683&lt;then&gt;
+| | | | Task::154685&lt;then&gt;
+| | | | Task::154687&lt;then&gt;
+| | | | Task::154689&lt;then&gt;
+| | | | Task::154691&lt;then&gt;
+| | | | Task::154693&lt;then&gt;
+| | | | Task::154695&lt;then&gt;
+| | | | Task::154697&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154699&lt;Set angular root selector to null&gt;
+| | | | Task::154701&lt;then&gt;
+| | | | Task::154703&lt;then&gt;
+| | | | Task::154705&lt;then&gt;
+| | | | Task::154707&lt;then&gt;
+| | | | Task::154709&lt;then&gt;
+| | | | Task::154711&lt;then&gt;
+| | | | Task::154713&lt;then&gt;
+| | | | Task::154715&lt;then&gt;
+| | | | Task::154717&lt;WebDriver.sleep(1000)&gt;
+| | | | Task::154719&lt;Set angular root selector to null&gt;
+| | | | Task::154721&lt;then&gt;
+| | | | Task::154723&lt;then&gt;
+| | | | Task::154725&lt;then&gt;
+| | | | Task::154727&lt;then&gt;
+| | | | Task::154729&lt;then&gt;
+| | | | Task::154731&lt;then&gt;
+| | | | Task::154733&lt;then&gt;
+| | | | Task::154735&lt;then&gt;
+| | | | Task::154737&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154739&lt;Set angular root selector to null&gt;
+| | | | Task::154741&lt;then&gt;
+| | | | Task::154743&lt;then&gt;
+| | | | Task::154745&lt;then&gt;
+| | | | Task::154747&lt;then&gt;
+| | | | Task::154749&lt;then&gt;
+| | | | Task::154751&lt;then&gt;
+| | | | Task::154753&lt;then&gt;
+| | | | Task::154755&lt;then&gt;
+| | | | Task::154757&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154759&lt;Set angular root selector to null&gt;
+| | | | Task::154761&lt;then&gt;
+| | | | Task::154763&lt;then&gt;
+| | | | Task::154765&lt;then&gt;
+| | | | Task::154767&lt;then&gt;
+| | | | Task::154769&lt;then&gt;
+| | | | Task::154771&lt;then&gt;
+| | | | Task::154773&lt;then&gt;
+| | | | Task::154775&lt;then&gt;
+| | | | Task::154777&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154779&lt;Set angular root selector to null&gt;
+| | | | Task::154781&lt;then&gt;
+| | | | Task::154783&lt;then&gt;
+| | | | Task::154785&lt;then&gt;
+| | | | Task::154787&lt;then&gt;
+| | | | Task::154789&lt;then&gt;
+| | | | Task::154791&lt;then&gt;
+| | | | Task::154793&lt;then&gt;
+| | | | Task::154795&lt;then&gt;
+| | | | Task::154797&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154799&lt;Set angular root selector to null&gt;
+| | | | Task::154801&lt;then&gt;
+| | | | Task::154803&lt;then&gt;
+| | | | Task::154805&lt;then&gt;
+| | | | Task::154807&lt;then&gt;
+| | | | Task::154809&lt;then&gt;
+| | | | Task::154811&lt;then&gt;
+| | | | Task::154813&lt;then&gt;
+| | | | Task::154815&lt;then&gt;
+| | | | Task::154817&lt;WebDriver.sleep(5000)&gt;
+| | | | Task::154819&lt;Set angular root selector to null&gt;
+| | | | Task::154821&lt;then&gt;
+| | | | Task::154823&lt;then&gt;
+| | | | Task::154825&lt;then&gt;
+| | | | Task::154827&lt;then&gt;
+| | | | Task::154829&lt;then&gt;
+| | | | Task::154831&lt;then&gt;
+| | | | Task::154833&lt;then&gt;
+| | | | Task::154835&lt;then&gt;
+| | | | Task::154837&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154839&lt;Set angular root selector to null&gt;
+| | | | Task::154841&lt;then&gt;
+| | | | Task::154843&lt;then&gt;
+| | | | Task::154845&lt;then&gt;
+| | | | Task::154847&lt;then&gt;
+| | | | Task::154849&lt;then&gt;
+| | | | Task::154851&lt;then&gt;
+| | | | Task::154853&lt;then&gt;
+| | | | Task::154855&lt;then&gt;
+| | | | Task::154857&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154859&lt;Set angular root selector to null&gt;
+| | | | Task::154861&lt;then&gt;
+| | | | Task::154863&lt;then&gt;
+| | | | Task::154865&lt;then&gt;
+| | | | Task::154867&lt;then&gt;
+| | | | Task::154869&lt;then&gt;
+| | | | Task::154871&lt;then&gt;
+| | | | Task::154873&lt;then&gt;
+| | | | Task::154875&lt;then&gt;
+| | | | Task::154877&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154879&lt;Set angular root selector to null&gt;
+| | | | Task::154881&lt;then&gt;
+| | | | Task::154883&lt;then&gt;
+| | | | Task::154885&lt;then&gt;
+| | | | Task::154887&lt;then&gt;
+| | | | Task::154889&lt;then&gt;
+| | | | Task::154891&lt;then&gt;
+| | | | Task::154893&lt;then&gt;
+| | | | Task::154895&lt;then&gt;
+| | | | Task::154897&lt;WebDriver.sleep(2000)&gt;
+| | | | Task::154899&lt;Set angular root selector to null&gt;
+| | | | Task::154901&lt;then&gt;
+| | | | Task::154903&lt;then&gt;
+| | | | Task::154905&lt;then&gt;
+| | | | Task::154907&lt;then&gt;
+| | | | Task::154909&lt;then&gt;
+| | | | Task::154911&lt;then&gt;
+| | | | Task::154913&lt;then&gt;
+| | | | Task::154915&lt;then&gt;
+| | | | Task::154917&lt;WebDriver.sleep(2000)&gt;
+| | Task::154599&lt;then&gt;, session_: ManagedPromise::4 {[[PromiseStatus]]: &quot;fulfilled&quot;}, executor_: Executor({ w3c: false, customCommands_: Map( [ &apos;launchApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/launch_app&apos; }) ], [ &apos;getNetworkConditions&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;setNetworkConditions&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/network_conditions&apos; }) ], [ &apos;getNetworkConnection&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;setNetworkConnection&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/network_connection&apos; }) ], [ &apos;toggleAirplaneMode&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_airplane_mode&apos; }) ], [ &apos;toggleWiFi&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_wifi&apos; }) ], [ &apos;toggleData&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_data&apos; }) ], [ &apos;toggleLocationServices&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/toggle_location_services&apos; }) ], [ &apos;getGeolocation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;setGeolocation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/location&apos; }) ], [ &apos;getCurrentDeviceActivity&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/current_activity&apos; }) ], [ &apos;startDeviceActivity&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/start_activity&apos; }) ], [ &apos;getAppiumSettings&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;setAppiumSettings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/settings&apos; }) ], [ &apos;getCurrentContext&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;selectContext&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/context&apos; }) ], [ &apos;getScreenOrientation&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;setScreenOrientation&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/orientation&apos; }) ], [ &apos;isDeviceLocked&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/is_locked&apos; }) ], [ &apos;lockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/lock&apos; }) ], [ &apos;unlockDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/unlock&apos; }) ], [ &apos;installApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/install_app&apos; }) ], [ &apos;isAppInstalled&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/app_installed&apos; }) ], [ &apos;removeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/remove_app&apos; }) ], [ &apos;pullFileFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_file&apos; }) ], [ &apos;pullFolderFromDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/pull_folder&apos; }) ], [ &apos;pushFileToDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/push_file&apos; }) ], [ &apos;listContexts&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/contexts&apos; }) ], [ &apos;uploadFile&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/file&apos; }) ], [ &apos;switchToParentFrame&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/frame/parent&apos; }) ], [ &apos;fullscreen&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/window/fullscreen&apos; }) ], [ &apos;sendAppToBackground&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/background&apos; }) ], [ &apos;closeApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/close&apos; }) ], [ &apos;getAppStrings&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/strings&apos; }) ], [ &apos;launchSession&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/launch&apos; }) ], [ &apos;resetApp&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/app/reset&apos; }) ], [ &apos;hideSoftKeyboard&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/hide_keyboard&apos; }) ], [ &apos;getDeviceTime&apos;, Object({ method: &apos;GET&apos;, path: &apos;/session/:sessionId/appium/device/system_time&apos; }) ], [ &apos;openDeviceNotifications&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/open_notifications&apos; }) ], [ &apos;rotationGesture&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/rotate&apos; }) ], [ &apos;shakeDevice&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/appium/device/shake&apos; }) ], [ &apos;sendChromiumCommand&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command&apos; }) ], [ &apos;sendChromiumCommandAndGetResult&apos;, Object({ method: &apos;POST&apos;, path: &apos;/session/:sessionId/chromium/send_command_and_get_result&apos; }) ] ), log_: Logger({ name_: &apos;webdriver.http.Executor&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver.http&apos;, level_: null, parent_: Logger({ name_: &apos;webdriver&apos;, level_: null, parent_: Logger({ name_: &apos;&apos;, level_: OFF, parent_: null, handlers_: null }), handlers_: null }), handlers_: null }), handlers_: null }) }), fileDetector_: null, onQuit_: undefined, cancel: Function, then: Function, catch: Function, getNetworkConnection: Function, setNetworkConnection: Function, toggleAirplaneMode: Function, toggleWiFi: Function, toggleData: Function, toggleLocationServices: Function, getGeolocation: Function, setGeolocation: Function, getCurrentDeviceActivity: Function, startDeviceActivity: Function, getAppiumSettings: Function, setAppiumSettings: Function, getCurrentContext: Function, selectContext: Function, getScreenOrientation: Function, setScreenOrientation: Function, isDeviceLocked: Function, lockDevice: Function, unlockDevice: Function, installApp: Function, isAppInstalled: Function, removeApp: Function, pullFileFromDevice: Function, pullFolderFromDevice: Function, pushFileToDevice: Function, listContexts: Function, uploadFile: Function, switchToParentFrame: Function, fullscreen: Function, sendAppToBackground: Function, closeApp: Function, getAppStrings: Function, launchSession: Function, resetApp: Function, hideSoftKeyboard: Function, getDeviceTime: Function, openDeviceNotifications: Function, rotationGesture: Function, shakeDevice: Function, sendChromiumCommand: Function, sendChromiumCommandAndGetResult: Function }), element: Function, $: Function, $$: Function, baseUrl: &apos;&apos;, getPageTimeout: 10000, params: Object({ url: &apos;https://qa11.test.hybrent.com/b/#&apos;, user: Object({ username: &apos;sandy&apos;, password: &apos;goouser&apos;, fac_name: &apos;Sunny Vayu with the large facility name to test the UI functionality&apos; }), shop: Object({ sku: &apos;252523-01&apos;, reorderWarningSKU: &apos;21-2967-24&apos;, backOrderWarningSKU: &apos;257074&apos;, discontinueWarningSKU: &apos;21172&apos;, vendor: &apos;PATTERSON DENTAL&apos;, contractPriceWarningSKU: &apos;OFC333&apos;, GPOWarningSKU: &apos;501635&apos;, fac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos; }), userfacility: Object({ defaultfacility: &apos; &apos;, facility_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[1]/div/span&apos;, department_xpath: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[2]/div/span&apos;, Inventory: &apos;//*[@id=&apos;ng-view&apos;]/div/form/div[2]/div/div/div/div[2]/div/div[3]/div/span&apos; }), itemCatalog: Object({ General_item_Name: &apos;General item test for test purpose &apos;, Service_item_name: &apos;Service item for test purpose&apos;, Billonly_item_name: &apos;Bill only item for test purpose&apos;, Freehand_item_name: &apos;Free hand item for test purpose&apos;, Dme_item_name: &apos;Dme&apos;, Dme_Alias: &apos;Dme_alias&apos;, Dme_sku: &apos;DS&apos;, Dme_mfr: &apos;DM&apos;, General_alias: &apos;General alias&apos;, Service_alias: &apos;Service alias&apos;, Billonly_alias: &apos;Billonly alias&apos;, Service_sku: &apos;SS&apos;, General_sku: &apos;GS&apos;, Billonly_sku: &apos;BS&apos;, General_mfrNumber: &apos;General_mfr&apos;, Service_mfrNumber: &apos;service mfr&apos;, Billonly_mfr: &apos;Billonly mfr&apos;, vendor: &apos;PATTERSON DENTAL&apos;, Generalcategory: &apos;TESTING AUTOMATION&apos;, facility: &apos;Life Care Surgery Clinic&apos;, itemForVendorUpdate: &apos;ADAPTER,SOLID PADS&apos;, stockStatus: &apos;In Stock (Local)&apos;, consumptionType: &apos;Piece&apos;, Item_Type: &apos;Inventory&apos;, PO_Number: &apos;Test&apos;, Consignment: &apos;Consignment test item&apos;, Con_sku: &apos;consku&apos;, randNumber: 1597308042190 }), Templates: Object({ templateName: &apos;template&apos;, scanout_tempate_name: &apos;scanouttemp&apos; }), Physician: Object({ firstname: &apos;robert&apos;, lastname: &apos;mark&apos;, NPI: &apos;NPI&apos; }), OperatingRoom: Object({ OR_Name: &apos;OR&apos; }), Patients: Object({ Patientfac_xpath: &apos;//a[@ng-click=&apos;selectItem();&apos;]&apos;, Patient_fname: &apos;john&apos;, Status: &apos;Active&apos;, repeat: &apos;One Time&apos; }), Procedure: Object({ Procedure_name: &apos;test&apos; }), Prefcard: Object({ Prefcard_name: &apos;test&apos; }), Reports: Object({ from_date: &apos;09/01/2019&apos;, To_date: &apos;09/30/2019&apos; }), GlCode: Object({ code: &apos;test&apos;, Name: &apos;GL&apos; }), department: Object({ mnemonic: &apos;Dep&apos;, Name: &apos;Dpnm&apos; }), Utilities: Object({ import_facility: &apos;Import Facility.&apos;, import_department: &apos;Import Department.&apos;, import_Patient: &apos;Import Patient.&apos;, import_users: &apos;Import Users.&apos;, syncmap_item: &apos;Sync/Map items from one facility to other facilities.&apos;, templateutilities: &apos;Template utilities.&apos;, copy_template: &apos;Copy Template.&apos;, Change_temp_owner: &apos;Change Template Owner.&apos;, Assign_remove_vendor_access: &apos;Assign and remove vendor access.&apos;, Download_user_facilities_access: &apos;Download users facilities access.&apos;, Download_user_approval_access: &apos;Download user approval access.&apos;, Assign_user_facility_access: &apos;Assign users facility access.&apos;, Remove_user_facility_access: &apos;Remove users facility access.&apos; }), Identity_Provider: Object({ PO: &apos;PO&apos;, Inventory_Management: &apos;Inventory Management&apos;, Inventory_Transfer: &apos;Inventory Transfer&apos; }), Vendor_price_tier: Object({ Pricetier_name: &apos;PT1&apos;, Price_Percentage: &apos;25&apos;, newpricetier_name: &apos;PT2&apos;, newPrice_percentage: &apos;3&apos;, randompricetier: 8206 }), AR_Code: Object({ Description: &apos;TestAR&apos;, Code: &apos;ARC&apos; }), Payer_Code: Object({ Description: &apos;TestPR&apos; }) }), resetUrl: &apos;data:text/html,&lt;html&gt;&lt;/html&gt;&apos;, ready: ManagedPromise::19 {[[PromiseStatus]]: &quot;fulfilled&quot;}, trackOutstandingTimeouts_: true, mockModules_: [ Object({ name: &apos;protractorBaseModule_&apos;, script: Function, args: [ true ] }) ], ExpectedConditions: ProtractorExpectedConditions({ browser: &lt;circular reference: Object&gt; }), plugins_: Plugins({ setup: Function, onPrepare: Function, teardown: Function, postResults: Function, postTest: Function, onPageLoad: Function, onPageStable: Function, waitForPromise: Function, waitForCondition: Function, pluginObjs: [ protractorUtil({ name: &apos;jasmine2-protractor-utils&apos;, config: Object({ package: &apos;jasmine2-protractor-utils&apos;, disableHTMLReport: true, disableScreenshot: false, screenshotPath: &apos;./screenshots&apos;, screenshotOnExpectFailure: false, screenshotOnSpecFailure: true, clearFoldersBeforeTest: true }), addFailure: Function, addSuccess: Function, addWarning: Function }) ], assertions: Object({  }), resultsReported: false }), allScriptsTimeout: 999999, getProcessedConfig: Function, forkNewDriverInstance: Function, restart: Function, restartSync: Function, internalRootEl: &apos;&apos;, internalIgnoreSynchronization: false }), getWebElements: Function, locator_: By(css selector, .toast-message), actionResults_: null, click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }), click: Function, sendKeys: Function, getTagName: Function, getCssValue: Function, getAttribute: Function, getText: Function, getSize: Function, getLocation: Function, isEnabled: Function, isSelected: Function, submit: Function, clear: Function, isDisplayed: Function, getId: Function, takeScreenshot: Function }) to contain &apos;Case #  successfully created for patient &quot;john&quot;.&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (F:\protractor\Hybrent3.2RC4\Testcases\Planner\planner.js:69:33)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2974:25
+    at C:\Users\sandy\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Picklist module" timestamp="2020-08-13T14:25:34" hostname="localhost" time="36.741" errors="0" tests="6" skipped="0" disabled="0" failures="0">
+  <testcase classname="Picklist module" name="Navigate to picklist module" time="2.685" />
+  <testcase classname="Picklist module" name="Verify that all search and drop down filter appear on the pick list page" time="0.182" />
+  <testcase classname="Picklist module" name="Search newly created case" time="12.414" />
+  <testcase classname="Picklist module" name="open and add normal notes in newly created case" time="6.859" />
+  <testcase classname="Picklist module" name="increase item qty " time="8.62" />
+  <testcase classname="Picklist module" name="move case to execute case" time="5.981" />
+ </testsuite>
+ <testsuite name="Execute Case module" timestamp="2020-08-13T14:26:11" hostname="localhost" time="39.372" errors="0" tests="4" skipped="0" disabled="0" failures="0">
+  <testcase classname="Execute Case module" name="Navigate to Execute case module" time="2.577" />
+  <testcase classname="Execute Case module" name="Verify that all search and drop down filter appear on the execute case page" time="0.226" />
+  <testcase classname="Execute Case module" name="Search and open newly created case" time="13.547" />
+  <testcase classname="Execute Case module" name="increase item hold qty and move case to complete case" time="23.021" />
+ </testsuite>
+ <testsuite name="All Cases module" timestamp="2020-08-13T14:26:50" hostname="localhost" time="19.6" errors="0" tests="3" skipped="0" disabled="0" failures="0">
+  <testcase classname="All Cases module" name="Navigate to All cases module" time="2.442" />
+  <testcase classname="All Cases module" name="Verify that all search and drop down filter appear on the All case page" time="0.303" />
+  <testcase classname="All Cases module" name="Search and open newly created case" time="16.836" />
+ </testsuite>
+ <testsuite name="Hybrent Out Of stcok Module" timestamp="2020-08-13T14:27:10" hostname="localhost" time="3.128" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Hybrent Out Of stcok Module" name="Out Of stock page should open" time="3.127" />
  </testsuite>
 </testsuites>

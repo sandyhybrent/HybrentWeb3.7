@@ -16,7 +16,7 @@ describe('Approve unapproved items', function () {
     expect(browser.getTitle()).toEqual('Approve Items');
 
   });
-  xit('select user default facility', function () {
+  it('select user default facility', function () {
     element(by.xpath('//*[@id="ng-view"]/div/div[1]/hyb-facility-select/a')).click();
     browser.sleep(2000);
     element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);

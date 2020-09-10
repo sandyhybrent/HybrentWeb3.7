@@ -119,7 +119,7 @@ describe('Hybrent Scanout Module', function () {
     });
   });
 
-  xit("Scan Out items - Attach stock info", function () {
+  it("Scan Out items - Attach stock info", function () {
     element(by.linkText('Attach Stock Info')).click();
     browser.sleep(2000);
     element(by.buttonText('Attach')).click();
@@ -140,7 +140,7 @@ describe('Hybrent Scanout Module', function () {
 
   it('add amenities item in scanout', function () {
     browser.sleep(1000);
-    element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
+    element(by.model('searchParams.search')).clear().sendKeys('testAM' + randNumber);
     browser.sleep(1000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
@@ -148,18 +148,14 @@ describe('Hybrent Scanout Module', function () {
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('1');
     element(by.buttonText('Add')).click();
     browser.sleep(1000);
-    element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
+    element(by.model('search.search')).clear().sendKeys('testAM' + randNumber);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual(General_sku + randNumber);
+        expect(text).toEqual('testAM' + randNumber);
       });
     });
-    element(by.xpath('//a[contains(text(),"Attach Cost Center")]')).click();
-    browser.sleep(1000);
-    element(by.xpath('//label[contains(text(),"add patient")]')).element(by.model('item.Patient')).click();
-    element(by.buttonText('Save')).click();
 
   });
 
@@ -180,6 +176,8 @@ describe('Hybrent Scanout Module', function () {
   it("Scan out items - Complete scan Out and item should display on inventory transaction page", function () {
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Complete'))), 5000);
     element(by.buttonText('Complete')).click();
+    browser.sleep(1000);
+    element(by.css('.sa-confirm-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(1000);
     element(by.buttonText('Complete')).click();
     expect($('.toast-message').getText()).toEqual('Scan Out completed successfully.');

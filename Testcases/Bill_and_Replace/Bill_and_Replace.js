@@ -49,7 +49,7 @@ describe('Hybrent Bill & Replace Module', function () {
   });
 
   it('add item for Bill and replace to generate B&R PO', function () {
-    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randomnmbr);
+    element(by.model('searchParams.search')).clear().sendKeys(Consignment + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
@@ -69,6 +69,15 @@ describe('Hybrent Bill & Replace Module', function () {
     browser.sleep(1000);
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
+    var budget = element(by.css('.sa-button-container'));
+    budget.isPresent().then(function (present) {
+      if (present) {
+        console.log('Budget is present for corresponding facility');
+        element(by.buttonText('Yes')).click();
+      } else {
+        console.log('Budget is not present for corresponding facility');
+      }
+    })
     expect($('.toast-message').getText()).toEqual('PO(' + PO_Num + randomnmbr + ') created successfully.');
 
   });

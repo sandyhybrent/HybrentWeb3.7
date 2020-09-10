@@ -411,7 +411,34 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
   });
 
+  it('Map amenity item with facility', function () {
+    element(by.model('searchParams.search')).clear().sendKeys('testAM' + randNumber);
+    element(by.buttonText('Search')).click();
+    element.all(by.repeater('item in items')).each(function (element1, index) {
+      element1.element(by.css(".item-description")).getText().then(function (text) {
 
+        expect(text).toEqual('testAM' + randNumber);
+
+      })
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Map Facility/Update Price'))), 5000);
+      element(by.buttonText('Map Facility/Update Price')).click();
+    });
+    expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
+    element(by.model('searchForm.search')).clear().sendKeys(browser.params.user.fac_name);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.binding('itemVendorFacility.name')).getText().then(function (text) {
+      expect(text).toEqual(browser.params.user.fac_name);
+    })
+    expect(element(by.buttonText('Add to facility')).isPresent()).toBeTruthy();
+    element(by.buttonText('Add to facility')).click();
+    element(by.model('$parent.$data')).sendKeys('0.20');
+    element(by.buttonText('Save')).click();
+    expect($('.toast-message').getText()).toEqual('Item added successfully.');
+    browser.sleep(2000);
+    element(by.css(".fa-times")).click();
+
+  });
 
 
 

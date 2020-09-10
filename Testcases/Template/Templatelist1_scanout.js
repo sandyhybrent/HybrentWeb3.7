@@ -22,8 +22,8 @@ describe('Hybrent Templates Module for scan out', function () {
     element(by.buttonText('Add Template')).click();
     element(by.model('tempData.template_name')).sendKeys('sct' + randNumber);
     element(by.buttonText('Create Template')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Template created successfully.');
-    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 5000);
   });
 
   it('Add item to newly created template', function () {
@@ -48,12 +48,11 @@ describe('Hybrent Templates Module for scan out', function () {
     let search_button = element.all(by.buttonText('Search')).get(1);
     search_button.click();
     browser.sleep(2000);
-    var scanouttemplate = element(by.repeater('template in templates')).get(1);
-    expect(scanouttemplate.getText()).toContain('sct' + randNumber);
+    expect(element(by.repeater('template in templates')).getText()).toContain('sct' + randNumber);
   });
 
   it('update newly created scanout template', function () {
-    let edit_scanout = element.all(by.className('fa fa-edit')).get(1);
+    let edit_scanout = element(by.className("fa fa-edit")).get(1);
     edit_scanout.click();
     browser.sleep(2000);
     element(by.buttonText('+')).click();
@@ -64,7 +63,7 @@ describe('Hybrent Templates Module for scan out', function () {
 
   it('delete newly created scanout template', function () {
     browser.sleep(1000);
-    let delete_template = element.all(by.className('fa fa-trash-o')).get(1);
+    let delete_template = element(by.className("fa fa-trash-o")).get(1);
     delete_template.click();
     browser.sleep(1000);
     element(by.buttonText('Yes')).click();

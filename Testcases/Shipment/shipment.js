@@ -16,7 +16,7 @@ describe('Shipment Module', function () {
   it('List page should display all search and status filter', function () {
     expect(element(by.model('searchForm.search')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.status')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchForm.vendor_id')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//a[contains(.,'All Vendors')]")).isPresent()).toBeTruthy();
 
   });
 
