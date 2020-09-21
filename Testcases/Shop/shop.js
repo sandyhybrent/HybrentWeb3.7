@@ -17,6 +17,7 @@ describe('Hybrent Shop Module', function () {
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
     //navigate to shop page to check selected facility
     element(by.linkText('Shop')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Shop');
     element(by.xpath(shop_facility)).getText().then(function (shopfacility) {
       console.log('facility selected on shop page appear is', shopfacility);
@@ -33,8 +34,10 @@ describe('Hybrent Shop Module', function () {
     }
     browser.sleep(1000);
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear();
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
+    browser.sleep(2000);
     items = element.all(by.repeater('item in items'));
     if (items.count() > 0) {
       expect(items.count()).toBeGreaterThan(0);
@@ -60,7 +63,10 @@ describe('Hybrent Shop Module', function () {
     }); */
 
   it('Shop: Shows recently ordered items appear on page on selecting Recently ordered radio button', function () {
+    browser.sleep(2000);
     element(by.linkText('Shop')).click();
+    browser.sleep(2000);
+    element(by.model('searchParams.search')).clear();
     expect(browser.getTitle()).toEqual('Shop');
     $('[name="optionsRadios"][value="1"]').click();
     var items = element.all(by.repeater('item in items'));
@@ -72,6 +78,9 @@ describe('Hybrent Shop Module', function () {
 
   it('Shop: Shows Most ordered items with Po count column sort descending if default layout is selected.', function () {
     $('[name="optionsRadios"][value="2"]').click();
+    browser.sleep(2000);
+    element(by.model('searchParams.search')).clear();
+    browser.sleep(2000);
     var items = element.all(by.repeater('item in items'));
     if (items.count() > 0) {
       expect(items.count()).toBeGreaterThan(0);
@@ -81,6 +90,7 @@ describe('Hybrent Shop Module', function () {
 
   it('Shop: Shows all items that are marked as Favorite.', function () {
     $('[name="optionsRadios"][value="5"]').click();
+    browser.sleep(2000);
     expect(element(by.css('.fa .fa-star-o')).isPresent()).toBe(false);
   });
 

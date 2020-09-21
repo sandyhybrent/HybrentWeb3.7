@@ -5,6 +5,7 @@ describe('Hybrent Invoice Module', function () {
 
   it('Navigate to Invoice module', function () {
     element(by.xpath('//span[contains(text(),"Invoices")]')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
     expect(browser.getTitle()).toEqual('Manage Invoice');
     browser.sleep(1000);
@@ -16,9 +17,9 @@ describe('Hybrent Invoice Module', function () {
     expect(element(by.model('searchParams.status')).isPresent()).toBe(true);
     expect(element(by.model('$select.search')).isPresent()).toBe(true);
     expect(element(by.model('searchParams.due_date_range')).isPresent()).toBe(true);
-    expect(element(by.model('searchParams.department_id')).isPresent()).toBe(true);
-    expect(element(by.model('$ctrl.selectedValue.name')).isPresent()).toBe(true);
-    expect(element(by.model('searchParams.project_id')).isPresent()).toBe(true);
+    expect(element(by.xpath("//a[contains(.,'All departments')]")).isPresent()).toBe(true);
+    expect(element(by.xpath("//a[contains(.,'All Users')]")).isPresent()).toBe(true);
+    expect(element(by.xpath("//a[contains(.,'Select')]")).isPresent()).toBe(true);
 
   });
 
@@ -42,23 +43,38 @@ describe('Hybrent Invoice Module', function () {
   it('update invoice', function () {
     browser.sleep(2000);
     element(by.model('vm.InvTaxAmount')).clear().sendKeys('10.00');
+    browser.sleep(1000);
     element(by.model('vm.InvFreightCharges')).clear().sendKeys('10.00');
+    browser.sleep(1000);
     element(by.model('vm.InvMiscCharges')).clear().sendKeys('10.00');
+    browser.sleep(1000);
     element(by.model('vm.InvDiscountAmount')).clear().sendKeys('10.00');
+    browser.sleep(1000);
     element(by.xpath('//span[contains(@class,"pull-right")]')).getText().then(function (test) {
       expect(test).toEqual('$68.00');
     })
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
-    element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
+    var YesPopUo = element(by.css('.sa-button-container')).element(by.buttonText('Yes'));
+    YesPopUo.isPresent().then(function (present) {
+      if (present) {
+        console.log('popup appear');
+        YesPopUo.click();
+      } else {
+        console.log('popup does not appear');
+      }
+    });
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Invoice saved successfully.');
+    element(by.css(".toast-close-button")).click();
   });
 
   it('delete newly created invoice', function () {
     browser.sleep(2000);
-    element(by.xpath('//i[contains(@class,"glyphicon glyphicon-trash text-danger action-button")]')).click();
+    element(by.xpath("//table[@class='table']//tr[1]//i[@class='glyphicon glyphicon-trash text-danger action-button']")).click();
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Invoice deleted successfully.');
   })
 

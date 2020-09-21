@@ -9,6 +9,7 @@ describe('Hybrent Templates Module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.template')).getWebElement()).then(function () {
       element((by.linkText('Templates'))).click();
     });
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Templates');
   });
   it('List page should display templates search filter', function () {
@@ -16,40 +17,48 @@ describe('Hybrent Templates Module', function () {
 
   });
   it('Add Template', function () {
+    browser.sleep(2000);
     element(by.buttonText('Add Template')).click();
+    browser.sleep(2000);
     element(by.model('tempData.template_name')).sendKeys(templateName + randNumber);
     element(by.buttonText('Create Template')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Template created successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 5000);
   });
 
   it('Add item to newly created template', function () {
+    browser.sleep(1000);
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
-    element(by.buttonText('Add')).click();
+    browser.sleep(2000);
+    element(by.id("btnAdd")).click();
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in vendor.items')).each(function (element1, index) {
-      element1.element(by.binding('item.sku')).getText().then(function (text) {
+      element1.element(by.css("td[xpath='1']")).getText().then(function (text) {
         browser.sleep(2000);
         expect(text).toEqual(General_sku + randNumber);
       });
     });
-    element(by.buttonText('Close')).click();
+    element(by.xpath("//button[.='Close']")).click();
   });
 
   it('Search template by name', function () {
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('searchForm.searchFilter')).sendKeys(templateName + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    expect(element.all(by.repeater('template in templates')).getText()).toContain(templateName + randNumber);
+    expect(elements(by.repeater('template in templates')).getText()).toContain(templateName + randNumber);
   });
 
 
   it('delete newly created template', function () {
     element(by.model('searchForm.searchFilter')).clear().sendKeys(templateName + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     let template = element(by.repeater('template in templates'));
     template.element(by.xpath('//i[@class="fa fa-trash-o"]')).click();
     browser.sleep(2000);

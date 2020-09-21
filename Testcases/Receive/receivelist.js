@@ -7,6 +7,7 @@ describe('Hybrent Receive Module', function () {
 
     element(by.xpath('//span[contains(text(),"Receive")]')).click();
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Receive PO');
     browser.sleep(1000);
   });
@@ -15,10 +16,10 @@ describe('Hybrent Receive Module', function () {
     expect(element(by.model('searchForm.search')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.statusFilter')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.typeFilter')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchForm.project')).isPresent()).toBeTruthy();
-    // expect(element(by.model('searchForm.facilityId')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchForm.departmentId')).isPresent()).toBeTruthy();
-    expect(element(by.model('$ctrl.selectedValue.name')).isPresent()).toBeTruthy();
+    expect(element(by.model('searchForm.typeFilter')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//div[@class='panel-body padding-10']//div[9]//a[contains(.,'All')]")).isPresent()).toBeTruthy();
+    expect(element(by.css(".icon-disabled")).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//div[@class='panel-body padding-10']//div[12]//a[contains(.,'All')]")).isPresent()).toBeTruthy();
 
 
   });

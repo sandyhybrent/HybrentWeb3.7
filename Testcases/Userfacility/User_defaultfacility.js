@@ -6,6 +6,7 @@ describe('user default facility', function () {
   var randNumber = browser.params.itemCatalog.randNumber;
   var fac_name = "";
   it('user default facility is', function () {
+    browser.sleep(2000);
     userdropdown.click();
     user_profile.click();
     element(by.xpath(userfacility)).getText().then(function (facility_name) {

@@ -48,7 +48,8 @@ describe('Dashboard test cases', function () {
         element(by.xpath('//i[@class="fa fa-2x fa-times"]')).click();
       } else {
         console.log('survey does not exist on page');
-        element(by.xpath('//i[@class="fa fa-2x fa-times"]')).click();
+        browser.sleep(2000);
+        element(by.css(".fa-times")).click();
       }
 
     });

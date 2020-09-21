@@ -6,6 +6,7 @@ describe('Hybrent Cart Module', function () {
 
   it('Open cart page', function () {
     element(by.css('.fa-shopping-cart')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('My Cart');
   });
 
@@ -23,6 +24,7 @@ describe('Hybrent Cart Module', function () {
   });
 
   it('Generate PO', function () {
+    browser.sleep(2000);
     var receive_only = element(by.model('cartParams.vendorParams[key].is_receive_only'));
     receive_only.click();
     browser.sleep(1000);
@@ -33,7 +35,7 @@ describe('Hybrent Cart Module', function () {
     element(by.xpath('//span[@id="btnAdd"]')).click();
     browser.sleep(1000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(2000);
+    browser.sleep(3000);
     var budget = element(by.css('.sa-button-container'));
     budget.isPresent().then(function (present) {
       if (present) {
@@ -45,7 +47,7 @@ describe('Hybrent Cart Module', function () {
 
     });
 
-    expect($('.toast-message').getText()).toContain('PO created successfully.');
+    expect(browser.getTitle()).toEqual('My Orders');
 
   });
 

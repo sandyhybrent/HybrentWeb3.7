@@ -32,6 +32,7 @@ describe('Hybrent Login Module', function () {
     element(by.model('model.userName')).sendKeys(browser.params.user.username);
     element(by.model('model.password')).sendKeys(browser.params.user.password);
     element(by.buttonText('Login')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Dashboard');
   });
 

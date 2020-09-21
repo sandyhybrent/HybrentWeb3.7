@@ -13,6 +13,7 @@ describe('Hybrent Templates Module for Kit', function () {
     browser.sleep(2000);
     var Kit = element.all(by.className('nav-link')).get(2);
     Kit.click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Templates');
   });
 
@@ -25,6 +26,7 @@ describe('Hybrent Templates Module for Kit', function () {
 
   it('Add Kit Template', function () {
     element(by.buttonText('Add Template')).click();
+    browser.sleep(2000);
     element(by.model('tempData.template_name')).sendKeys('Kit' + randNumber);
     element(by.buttonText('Create Template')).click();
     browser.sleep(2000);
@@ -40,6 +42,7 @@ describe('Hybrent Templates Module for Kit', function () {
     element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
     browser.sleep(1000);
     element(by.buttonText('Select')).click();
+    browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Item added/updated for kit template successfully.');
@@ -54,6 +57,7 @@ describe('Hybrent Templates Module for Kit', function () {
     search_button.click();
     browser.sleep(2000);
     var scanouttemplate = element(by.repeater('template in templates'));
+    browser.sleep(2000);
     expect(scanouttemplate.getText()).toContain('Kit' + randNumber);
   });
 
@@ -62,11 +66,14 @@ describe('Hybrent Templates Module for Kit', function () {
     edit_scanout.click();
     browser.sleep(2000);
     element(by.buttonText('+')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Template updated successfully.');
     browser.sleep(1000);
     element(by.buttonText('Create Kit Item')).click();
     element(by.css('.sa-confirm-button-container')).element(by.buttonText('Yes')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Kit item created/updated successfully.');
+    browser.sleep(2000);
     element(by.buttonText('Close')).click();
   });
 

@@ -5,6 +5,7 @@ describe('Hybrent Receive order', function () {
 
   it('Open order detail page', function () {
     element(by.linkText(PO_Num + randNumber)).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Purchase Order');
     browser.sleep(2000);
   });
@@ -26,6 +27,7 @@ describe('Hybrent Receive order', function () {
   it('open order detail page to receive corresponding order', function () {
     var selectInventory = element(by.linkText('Apply inventory location for all items'));
     selectInventory.click();
+    browser.sleep(1000);
     browser.wait(EC.elementToBeClickable($('.close')), 5000);
     element(by.buttonText('Select')).click();
     browser.wait(EC.elementToBeClickable(element(by.model('allCheck.itemSelectAll'))), 5000);

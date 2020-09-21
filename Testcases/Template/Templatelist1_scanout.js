@@ -9,6 +9,7 @@ describe('Hybrent Templates Module for scan out', function () {
     browser.sleep(2000);
     var scanout = element.all(by.className('nav-link')).get(1);
     scanout.click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Templates');
   });
 
@@ -20,20 +21,24 @@ describe('Hybrent Templates Module for scan out', function () {
 
   it('Add scanout Template', function () {
     element(by.buttonText('Add Template')).click();
+    browser.sleep(2000);
     element(by.model('tempData.template_name')).sendKeys('sct' + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Create Template')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Template created successfully.');
   });
 
   it('Add item to newly created template', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
-    element(by.buttonText('Add')).click();
+    browser.sleep(2000);
+    element(by.id("btnAdd")).click();
     browser.sleep(1000);
     element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
     browser.sleep(1000);
     element(by.buttonText('Select')).click();
+    browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Item added for scan out template successfully.');
@@ -45,6 +50,7 @@ describe('Hybrent Templates Module for scan out', function () {
     browser.sleep(3000);
     let search = element.all(by.model('searchForm.searchFilter')).get(1);
     search.clear().sendKeys('sct' + randNumber);
+    browser.sleep(2000);
     let search_button = element.all(by.buttonText('Search')).get(1);
     search_button.click();
     browser.sleep(2000);
