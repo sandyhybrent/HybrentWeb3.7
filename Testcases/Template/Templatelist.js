@@ -36,12 +36,12 @@ describe('Hybrent Templates Module', function () {
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in vendor.items')).each(function (element1, index) {
-      element1.element(by.css("td[xpath='1']")).getText().then(function (text) {
+      element1.element(by.css("tr[ng-repeat='item in vendor.items'] > td:nth-of-type(3)")).getText().then(function (text) {
         browser.sleep(2000);
         expect(text).toEqual(General_sku + randNumber);
       });
     });
-    element(by.xpath("//button[.='Close']")).click();
+    element(by.buttonText('Close')).click();
   });
 
   it('Search template by name', function () {
@@ -50,7 +50,10 @@ describe('Hybrent Templates Module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    expect(elements(by.repeater('template in templates')).getText()).toContain(templateName + randNumber);
+    element.all(by.repeater('template in templates')).getText().then(function (text) {
+      expect(text).toMatch(templateName + randNumber);
+    });
+
   });
 
 

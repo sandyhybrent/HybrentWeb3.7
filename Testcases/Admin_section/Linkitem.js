@@ -8,7 +8,9 @@ describe('Link item', function () {
 
   it('Open link item module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Link Items')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Link Items : List');
   });
@@ -22,23 +24,24 @@ describe('Link item', function () {
     element(by.buttonText('Add Link Item')).click();
     browser.sleep(2000);
     element(by.model('linkItem.description')).sendKeys('desc' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('linkItem.alias')).sendKeys('alias' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('searchParams.search')).sendKeys(General_mfrNumber + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('linkItem.link_item_key')).sendKeys(randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Create')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
   });
 
   it('search newly created link item by description', function () {
     element(by.model('searchParams.search')).clear().sendKeys('desc' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.repeater('item in linkItems')).getText().then(function (text) {
@@ -48,7 +51,7 @@ describe('Link item', function () {
 
   it('search newly created link item by linkitem key', function () {
     element(by.model('searchParams.search')).clear().sendKeys(randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.repeater('item in linkItems')).getText().then(function (text) {
@@ -58,7 +61,7 @@ describe('Link item', function () {
 
   it('search newly created link item by alias', function () {
     element(by.model('searchParams.search')).clear().sendKeys('alias' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.repeater('item in linkItems')).getText().then(function (text) {
@@ -68,26 +71,27 @@ describe('Link item', function () {
 
   it('update link item', function () {
     element(by.model('searchParams.search')).clear().sendKeys('desc' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     let linkitem = element(by.repeater('item in linkItems'));
     linkitem.element(by.xpath('//i[@class="fa fa-edit"]')).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item updated successfully.');
   });
 
   it('delete link item', function () {
     element(by.model('searchParams.search')).clear().sendKeys('desc' + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     let linkitem = element(by.repeater('item in linkItems'));
     linkitem.element(by.xpath('//i[@class="glyphicon glyphicon-trash text-danger action-button"]')).click();
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Link Item deleted successfully.');
   });
 

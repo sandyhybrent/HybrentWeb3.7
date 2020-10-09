@@ -22,14 +22,18 @@ describe('Care type', function () {
 
   it('add new care type', function () {
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('careTypeData.type')).sendKeys('care' + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Care type created successfully.');
   });
 
   it('search newly created care type', function () {
     browser.sleep(2000);
     element(by.model('searchFilter')).clear().sendKeys('care' + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('Data in careTypeData')).getText()).toContain('Care' + randNumber);
@@ -38,17 +42,20 @@ describe('Care type', function () {
 
   it('update newly created care type', function () {
     element(by.buttonText('Edit')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.className('bootstrap-switch-handle-on bootstrap-switch-primary')).click();
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Care type updated successfully');
   });
 
   it('delete newly created care type', function () {
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Delete')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Yes')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual("Care type deleted successfully.");
   });
 

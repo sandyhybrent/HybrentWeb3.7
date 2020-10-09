@@ -10,7 +10,9 @@ describe('Items Change Log', function () {
 
   it('Open Items Change Log module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Items Change Log')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Item Change Log');
   });
@@ -21,6 +23,7 @@ describe('Items Change Log', function () {
   });
 
   it('search item by description', function () {
+    browser.sleep(2000);
     element(by.model('searchFilter')).clear().sendKeys(General_item_Name + randNumber);
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
@@ -31,7 +34,7 @@ describe('Items Change Log', function () {
   });
   it('search item by alias', function () {
     element(by.model('searchFilter')).clear().sendKeys(General_mfrNumber + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.repeater('itemLog in itemChangeLogData.rows')).getText().then(function (test) {

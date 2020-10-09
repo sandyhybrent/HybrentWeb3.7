@@ -2,6 +2,8 @@ describe('Hybrent Receive order', function () {
   var EC = protractor.ExpectedConditions;
   var PO_Num = browser.params.itemCatalog.PO_Number;
   var randNumber = browser.params.itemCatalog.randNumber;
+  var fac_name = browser.params.user.fac_name;
+  var Inventory_name = browser.params.user.Inv_name;
 
   it('Open order detail page', function () {
     element(by.linkText(PO_Num + randNumber)).click();
@@ -27,10 +29,13 @@ describe('Hybrent Receive order', function () {
   it('open order detail page to receive corresponding order', function () {
     var selectInventory = element(by.linkText('Apply inventory location for all items'));
     selectInventory.click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     browser.wait(EC.elementToBeClickable($('.close')), 5000);
+    element(by.model('$ctrl.search.search')).clear().sendKeys(browser.params.user.Inv_name);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     element(by.buttonText('Select')).click();
-    browser.wait(EC.elementToBeClickable(element(by.model('allCheck.itemSelectAll'))), 5000);
     browser.sleep(2000);
     element(by.model('allCheck.itemSelectAll')).click();
     browser.sleep(2000);
@@ -39,12 +44,11 @@ describe('Hybrent Receive order', function () {
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
-    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add To Inventory'))), 5000);
     element(by.model('inventoryItem.min')).clear().sendKeys('2');
     element(by.model('inventoryItem.max')).clear().sendKeys('5');
     element(by.model('inventoryItem.par_level')).clear().sendKeys('3');
     element(by.buttonText('Add To Inventory')).click();
-    browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
+    browser.sleep(2000);
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
     browser.wait(EC.elementToBeClickable(element(by.buttonText('No'))), 5000);
@@ -55,7 +59,15 @@ describe('Hybrent Receive order', function () {
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.cssContainingText('.table-content-valign-center tr td', 'No Order Found')).isPresent()).toBeTruthy();
-
+    var closetoast = element(by.css(".toast-close-button"));
+    closetoast.isPresent().then(function (present) {
+      if (present) {
+        console.log('toast notification appear on page');
+        closetoast.click();
+      } else {
+        console.log('toast notification does not appear on page');
+      }
+    });
   });
 
 });

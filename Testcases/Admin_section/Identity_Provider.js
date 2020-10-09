@@ -9,9 +9,11 @@ describe('Identity Provider moudle', function () {
 
   it('Open Identity Provider module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     browser.sleep(2000);
     element(by.linkText('Identity Provider')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('Identity Provider');
   });
@@ -23,6 +25,7 @@ describe('Identity Provider moudle', function () {
 
   it('search Identity Provider by PO name', function () {
     element(by.model('search.searchProcess')).clear().sendKeys(PO);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.xpath('//td[contains(text(),"PO")]')).getText().then(function (test) {
@@ -32,6 +35,7 @@ describe('Identity Provider moudle', function () {
 
   it('search Identity Provider by Inventory_Management name', function () {
     element(by.model('search.searchProcess')).clear().sendKeys(Inventory_Management);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.xpath('//td[contains(text(),"Inventory Management")]')).getText().then(function (test) {
@@ -41,6 +45,7 @@ describe('Identity Provider moudle', function () {
 
   it('search Identity Provider by Inventory Transfer name', function () {
     element(by.model('search.searchProcess')).clear().sendKeys(Inventory_Transfer);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.xpath('//td[contains(text(),"Inventory Transfer")]')).getText().then(function (test) {
@@ -58,8 +63,10 @@ describe('Identity Provider moudle', function () {
 
   it('verify that user get redirect to Dashboard on clicking close button appear in drop down', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     element(by.linkText('Identity Provider')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     element(by.className('btn btn-default dropdown-toggle no-margin')).click();
     browser.sleep(2000);

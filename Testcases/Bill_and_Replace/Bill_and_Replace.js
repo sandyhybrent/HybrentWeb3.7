@@ -16,7 +16,7 @@ describe('Hybrent Bill & Replace Module', function () {
 
       element(by.xpath('//span[contains(text(),"Bill & Replace")]')).click();
     });
-
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Bill And Replace');
     browser.sleep(1000);
   });
@@ -27,18 +27,18 @@ describe('Hybrent Bill & Replace Module', function () {
 
   it('Search item by SKU, MFR and Name ', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Consignment + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', Consignment + randNumber)).isPresent()).toBeTruthy();
     });
     element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         expect(text).toEqual(Con_sku + randNumber);
       });
     });
-
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys("cmfr" + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
@@ -49,7 +49,8 @@ describe('Hybrent Bill & Replace Module', function () {
   });
 
   it('add item for Bill and replace to generate B&R PO', function () {
-    element(by.model('searchParams.search')).clear().sendKeys(Consignment + randNumber);
+    browser.sleep(2000);
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
@@ -78,7 +79,8 @@ describe('Hybrent Bill & Replace Module', function () {
         console.log('Budget is not present for corresponding facility');
       }
     })
-    expect($('.toast-message').getText()).toEqual('PO(' + PO_Num + randomnmbr + ') created successfully.');
+    browser.sleep(3000);
+    expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randomnmbr + ') created successfully.');
 
   });
 

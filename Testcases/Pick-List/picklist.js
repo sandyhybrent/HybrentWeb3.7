@@ -18,20 +18,38 @@ describe('Picklist module', function () {
 
   it('Verify that all search and drop down filter appear on the pick list page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.procedure_id')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.physician_id')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.operating_room_id')).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.procedure_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.physician_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.operating_room_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.date_range')).isPresent()).toBeTruthy();
   });
 
   it('Search newly created case', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
     browser.sleep(2000);
-    element(by.model('searchParams.procedure_id')).$('[label="' + Procedure_name + randNumber + '"]').click();
+    element(by.css("hyb-dropdown[selected-id='searchParams.procedure_id'] > [ng-click='selectItem();']")).click();
     browser.sleep(2000);
-    element(by.model('searchParams.physician_id')).$('[label="' + Physician_first_name + " " + randNumber + '"]').click();
+    element(by.model('search.searchKeyword')).clear().sendKeys(Procedure_name + randNumber);
     browser.sleep(2000);
-    element(by.model('searchParams.operating_room_id')).$('[label="' + OR_Name + randNumber + '"]').click();
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
+    browser.sleep(2000);
+    element(by.css("hyb-dropdown[selected-id='searchParams.physician_id'] > [ng-click='selectItem();']")).click();
+    browser.sleep(2000);
+    element(by.model('search.searchKeyword')).clear().sendKeys(Physician_first_name + " " + randNumber);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
+    browser.sleep(2000);
+    element(by.css("hyb-dropdown[selected-id='searchParams.operating_room_id'] > [ng-click='selectItem();']")).click();
+    browser.sleep(2000);
+    element(by.model('search.searchKeyword')).clear().sendKeys(OR_Name + randNumber);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.model('searchParams.date_range')).sendKeys('-- All Dates --');
     browser.sleep(1000);
@@ -47,23 +65,31 @@ describe('Picklist module', function () {
 
   it('open and add normal notes in newly created case', function () {
 
-    element(by.partialLinkText('00000002')).click();
+    element(by.partialLinkText('00000000')).click();
     browser.sleep(2000);
     element(by.model('CaseDetail.gloves_size')).clear().sendKeys('glove' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.surgeon_notes')).clear().sendKeys('surgeon' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.interruptions')).clear().sendKeys('intrer' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.preparation_notes')).clear().sendKeys('notes' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.music')).clear().sendKeys('music' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.position')).clear().sendKeys('position' + randNumber);
+    browser.sleep(1000);
     element(by.model('CaseDetail.instructions')).clear().sendKeys('instruction' + randNumber);
     browser.sleep(1000);
   });
 
   it('increase item qty ', function () {
     element.all(by.className('item-qty-editable-label')).first().click();
+    browser.sleep(2000);
     element(by.model('$parent.$data')).clear().sendKeys('1.000');
     browser.sleep(2000);
     element(by.xpath('//button[@class="btn btn-primary"]//span[@class="glyphicon glyphicon-ok"]')).click();
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
       browser.sleep(2000);
       element(by.buttonText('Save')).click();
@@ -80,6 +106,7 @@ describe('Picklist module', function () {
     // element(by.buttonText('Save')).click();
     browser.sleep(2000);
     element(by.xpath('//button[contains(text(),"Move to Execute")]')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Case moved to execute successfully.');
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Pick list');

@@ -1,4 +1,4 @@
-describe('News moudle', function () {
+describe('News module', function () {
   var EC = protractor.ExpectedConditions;
   var fac_name = browser.params.user.fac_name;
   var randNumber = browser.params.itemCatalog.randNumber;
@@ -7,8 +7,10 @@ describe('News moudle', function () {
 
   it('Open News module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     element(by.linkText('News')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('Manage News');
   });
@@ -20,7 +22,9 @@ describe('News moudle', function () {
   });
 
   it('Add new News', function () {
+    browser.sleep(2000);
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('newsData.title')).sendKeys(news_title + randNumber);
     browser.sleep(1000);
     element(by.buttonText('Save')).click();
@@ -29,12 +33,14 @@ describe('News moudle', function () {
     element(by.model('html')).sendKeys('test news description');
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('News created successfully.');
 
   });
 
   it('verify that user is able to search news by title', function () {
     element(by.model('searchFilter')).clear().sendKeys(news_title + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     expect(element(by.repeater('NewsData in NewsDatas')).getText()).toContain(news_title + randNumber);
@@ -42,16 +48,19 @@ describe('News moudle', function () {
 
   it('verify that user is able to edit the newly created news', function () {
     element(by.model('searchFilter')).clear().sendKeys(news_title + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     element(by.buttonText('Edit')).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('News updated successfully.');
   });
 
   it('verify that user can delete newly created news', function () {
     element(by.model('searchFilter')).clear().sendKeys(news_title + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     element(by.buttonText('Delete')).click();

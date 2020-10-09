@@ -18,9 +18,9 @@ describe('All Cases module', function () {
 
   it('Verify that all search and drop down filter appear on the All case page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.procedure_id')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.physician_id')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.operating_room_id')).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.procedure_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.physician_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[selected-id='searchParams.operating_room_id'] > [ng-click='selectItem();']")).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.status')).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.date_range')).isPresent()).toBeTruthy();
 
@@ -29,18 +29,54 @@ describe('All Cases module', function () {
   it('Search and open newly created case', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
     browser.sleep(2000);
-    element(by.model('searchParams.procedure_id')).$('[label="' + Procedure_name + randNumber + '"]').click();
-    browser.sleep(2000);
-    element(by.model('searchParams.physician_id')).$('[label="' + Physician_first_name + " " + randNumber + '"]').click();
-    browser.sleep(2000);
-    element(by.model('searchParams.operating_room_id')).$('[label="' + OR_Name + randNumber + '"]').click();
-    browser.sleep(2000);
-    element(by.model('searchParams.status')).click();
-    browser.sleep(1000);
-    element(by.xpath('//option[contains(text(),"Completed")]'));
-    browser.sleep(2000);
-    element(by.model('searchParams.date_range')).sendKeys('-- All Dates --');
-    browser.sleep(2000);
+    // element(by.css("hyb-dropdown[selected-id='searchParams.procedure_id'] > [ng-click='selectItem();']")).click();
+    // browser.sleep(2000);
+    // element(by.model('search.searchKeyword')).clear().sendKeys(Procedure_name + randNumber);
+    // browser.sleep(2000);
+    // element(by.buttonText('Search')).click();
+    // browser.sleep(2000);
+    // var default_inv_selected = element(by.buttonText('Selected'));
+    // default_inv_selected.isPresent().then(function (present) {
+    //   if (present) {
+    //     element(by.buttonText('Close')).click();
+    //   } else {
+    //     element(by.buttonText('Select')).click();
+    //   }
+    // })
+    // element(by.css("hyb-dropdown[selected-id='searchParams.physician_id'] > [ng-click='selectItem();']")).click();
+    // browser.sleep(2000);
+    // element(by.model('search.searchKeyword')).clear().sendKeys(Physician_first_name + randNumber);
+    // browser.sleep(2000);
+    // element(by.buttonText('Search')).click();
+    // browser.sleep(2000);
+    // var default_inv_selected = element(by.buttonText('Selected'));
+    // default_inv_selected.isPresent().then(function (present) {
+    //   if (present) {
+    //     element(by.buttonText('Close')).click();
+    //   } else {
+    //     element(by.buttonText('Select')).click();
+    //   }
+    // })
+    // element(by.css("hyb-dropdown[selected-id='searchParams.operating_room_id'] > [ng-click='selectItem();']")).click();
+    // browser.sleep(2000);
+    // element(by.model('search.searchKeyword')).clear().sendKeys(OR_Name + randNumber);
+    // browser.sleep(2000);
+    // element(by.buttonText('Search')).click();
+    // browser.sleep(2000);
+    // var default_inv_selected = element(by.buttonText('Selected'));
+    // default_inv_selected.isPresent().then(function (present) {
+    //   if (present) {
+    //     element(by.buttonText('Close')).click();
+    //   } else {
+    //     element(by.buttonText('Select')).click();
+    //   }
+    // })
+    // element(by.model('searchParams.status')).click();
+    // browser.sleep(1000);
+    // element(by.xpath('//option[contains(text(),"Completed")]'));
+    // browser.sleep(2000);
+    // element(by.model('searchParams.date_range')).sendKeys('-- All Dates --');
+    // browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
 

@@ -3,6 +3,7 @@ describe('user default facility', function () {
   var userdropdown = element(by.xpath('//*[@id="wrapper"]/div/div/div[2]/ul[1]/li/a'));
   var user_profile = element(by.xpath('//a[contains(text(),"Profile")]'));
   var userfacility = browser.params.userfacility.facility_xpath;
+  var userInventory = browser.params.userfacility.Inventory;
   var randNumber = browser.params.itemCatalog.randNumber;
   var fac_name = "";
   it('user default facility is', function () {
@@ -16,5 +17,14 @@ describe('user default facility', function () {
       console.log(browser.params.user.fac_name);
       expect(browser.getTitle()).toEqual('User Profile');
     })
-  })
-})
+
+    element(by.xpath(userInventory)).getText().then(function (InventoryName) {
+      console.log('user default facility is', InventoryName);
+      browser.params.user.Inv_name = InventoryName;
+      browser.sleep(2000);
+      console.log(browser.params.user.fac_name);
+      expect(browser.getTitle()).toEqual('User Profile');
+    })
+  });
+
+});

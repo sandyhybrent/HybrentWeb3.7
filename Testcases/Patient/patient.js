@@ -18,6 +18,7 @@ describe('Patient module', function () {
     browser.sleep(2000);
 
     expect(browser.getTitle()).toEqual('Patients');
+    browser.sleep(2000);
     element(by.xpath(Patient_defaultfacility)).getText().then(function (default_facility) {
       console.log('facility selected on patient page appear as', default_facility);
       expect(default_facility).toBe(browser.params.user.fac_name);
@@ -27,7 +28,7 @@ describe('Patient module', function () {
   it('Verify that search patient By filter appear on patient detail page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
     expect(element(by.model('$select.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.building_id')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//a[contains(.,'Select Building')]")).isPresent()).toBeTruthy();
     expect(element(by.model('$select.search')).isPresent()).toBeTruthy();
   });
 
@@ -45,14 +46,20 @@ describe('Patient module', function () {
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     element(by.model('patient.last_name')).sendKeys(randNumber);
+    browser.sleep(1000);
     element(by.model('patient.mrn_number')).sendKeys(randNumber);
+    browser.sleep(1000);
     element(by.model('patient.account_number')).sendKeys(randNumber);
+    browser.sleep(1000);
     element(by.model('patient.resident_id')).sendKeys(randNumber);
+    browser.sleep(1000);
     element(by.model('patient.patient_barcode')).sendKeys(randNumber);
+    browser.sleep(1000);
     element(by.id('dob')).clear().sendKeys("01/01/2018");
     browser.sleep(2000);
     // element(by.xpath('//select[@id="status"]//option[3]')).click();
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Patient successfully created.');
 
 
@@ -65,35 +72,46 @@ describe('Patient module', function () {
     // element(by.buttonText('Select')).click();
 
     element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     element.all(by.repeater('patient in patients')).each(function (element1, index) {
       element1.element(by.binding('patient.full_name')).getText().then(function (text) {
         expect(text.trim()).toContain(Patient_fname + " " + randNumber);
       });
     });
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//a[contains(text(),"Edit Patient")]')).getWebElement()).then(function () {
       element(by.xpath('//a[contains(text(),"Edit Patient")]')).click();
     })
-    expect(element(by.css('.modal-header > div.headtext > span')).getText()).toContain('Edit Patient');
+    browser.sleep(1000);
+    expect(element(by.css(".text-capitalize")).getText()).toContain('Edit Patient');
+    browser.sleep(2000);
     element(by.model('patient.address1')).sendKeys("test");
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual("Patient successfully updated.");
   });
 
   it('search newly created patient by name', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.repeater('patient in patients.rows')).getText().then(function (patient_name) {
-      expect(patient_name).toContain(Patient_fname + " " + randNumber);
+    element.all(by.repeater('reportsRow in $ctrl.reportData.rows')).each(function (element1, index) {
+      element1.element(by.css("tr.bg-info > td:nth-of-type(3) > [ng-if='key != \\'PONUM\\' && key != \\'vendor\\' && key != \\'user\\' && key != \\'invoice_number\\'']")).getText().then(function (text) {
+        expect(text).toEqual(randNumber);
+      });
     });
   });
 
   it('add charges to patient', function () {
+    browser.sleep(2000);
     element(by.linkText('Charges')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Patients Charges');
     element(by.xpath('//span[contains(text(),"Recurring Charges")]')).click();
+    browser.sleep(2000);
     element(by.buttonText('Add Recurring Charge')).click();
     browser.sleep(1000);
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
@@ -101,15 +119,21 @@ describe('Patient module', function () {
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
     element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
+    browser.sleep(2000);
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.xpath('//div[@class="modal-footer"]//span[@id="btnAdd"]')).click();
+    browser.sleep(2000);
     element(by.model('$ctrl.scheduler.schedule_type')).click();
+    browser.sleep(2000);
     element(by.xpath('//option[contains(text(),"One Time")]')).click();
     browser.sleep(1000);
     element(by.model('hours')).clear().sendKeys('23');
+    browser.sleep(2000);
     element(by.model('minutes')).clear().sendKeys('45');
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual("Schedule added successfully.");
   });
 

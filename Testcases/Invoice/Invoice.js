@@ -66,7 +66,6 @@ describe('Hybrent Invoice Module', function () {
     });
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Invoice saved successfully.');
-    element(by.css(".toast-close-button")).click();
   });
 
   it('delete newly created invoice', function () {

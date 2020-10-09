@@ -6,20 +6,38 @@ describe('Print Barcodes/QRCodes', function () {
   var General_alias = browser.params.itemCatalog.General_alias;
   var General_mfrNumber = browser.params.itemCatalog.General_mfrNumber;
   var randNumber = browser.params.itemCatalog.randNumber;
+  var Inventory_name = browser.params.user.Inv_name;
 
 
   it('Open Print Barcodes/QRCodes module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.sleep(2000);
     element(by.linkText('Print Barcodes/QRCodes')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Print Barcodes/QRCodes');
   });
 
   it('verify that search and status filter appear on the page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.vendorId')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.addSubInvItems')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//a[contains(.,'All Vendors')]")).isPresent()).toBeTruthy();
+    expect(element(by.css("span[ng-if='!$ctrl.multiSelect']")).isPresent()).toBeTruthy();
+  });
+
+  it('verify the user is able to select user default inventory in inventory drop down', function () {
+    element(by.css("span[ng-if='!$ctrl.multiSelect']")).click();
+    browser.sleep(2000);
+    element(by.model('$ctrl.search.search')).sendKeys(browser.params.user.Inv_name);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.repeater('item in items')).getText().then(function (text) {
+      expect(text).toContain(browser.params.user.Inv_name);
+    })
   });
 
   it('search item by description', function () {

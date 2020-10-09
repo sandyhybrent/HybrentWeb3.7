@@ -73,7 +73,7 @@ describe('Hybrent Shop Module', function () {
     if (items.count() > 0) {
       expect(items.count()).toBeGreaterThan(0);
     }
-    expect(element(by.linkText('Last Ordered')).isPresent()).toBe(true);
+    browser.sleep(2000);
   });
 
   it('Shop: Shows Most ordered items with Po count column sort descending if default layout is selected.', function () {
@@ -85,13 +85,13 @@ describe('Hybrent Shop Module', function () {
     if (items.count() > 0) {
       expect(items.count()).toBeGreaterThan(0);
     }
-    expect(element(by.linkText('PO Count')).isPresent()).toBe(true);
   });
 
   it('Shop: Shows all items that are marked as Favorite.', function () {
+    browser.sleep(2000);
     $('[name="optionsRadios"][value="5"]').click();
     browser.sleep(2000);
-    expect(element(by.css('.fa .fa-star-o')).isPresent()).toBe(false);
+    expect(element(by.className("fa fa-star")).isPresent()).toBe(true);
   });
 
   /*it('shop: backorder warning', function () {

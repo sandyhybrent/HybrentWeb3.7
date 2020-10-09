@@ -10,7 +10,9 @@ describe('Inventory Transactions', function () {
 
   it('Open Inventory Transactions module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Inventory Transactions')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Inventory Item Transaction');
   });
@@ -18,7 +20,8 @@ describe('Inventory Transactions', function () {
   it('verify that search and status filter appear on the page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.stock_info')).isPresent()).toBeTruthy();
-    expect(element(by.model('$ctrl.selectedValue.name')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//a[contains(.,'Select')]")).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//hyb-tree-select[@class='form-control']//span[1]/span[contains(.,'All Inventories')]")).isPresent()).toBeTruthy();
   });
 
   it('search item by description', function () {

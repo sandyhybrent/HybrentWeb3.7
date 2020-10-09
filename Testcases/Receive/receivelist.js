@@ -2,6 +2,8 @@ describe('Hybrent Receive Module', function () {
   var EC = protractor.ExpectedConditions;
   var PO_Num = browser.params.itemCatalog.PO_Number;
   var randNumber = browser.params.itemCatalog.randNumber;
+  var fac_name = browser.params.user.fac_name;
+  var Inventory_name = browser.params.user.Inv_name;
 
   it('Navigate to Receive module', function () {
 
@@ -27,6 +29,7 @@ describe('Hybrent Receive Module', function () {
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
     element(by.model('searchForm.search')).sendKeys(PO_Num + randNumber);
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Search'))), 5000);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.linkText(PO_Num + randNumber)).isPresent()).toBeTruthy();

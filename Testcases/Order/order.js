@@ -2,6 +2,8 @@ describe('Hybrent Order Module', function () {
   var EC = protractor.ExpectedConditions;
   var PO_Num = browser.params.itemCatalog.PO_Number;
   var randNumber = browser.params.itemCatalog.randNumber;
+  var fac_name = browser.params.user.fac_name;
+  var Inventory_name = browser.params.user.Inv_name;
   it('Open order module', function () {
     element(by.linkText('Orders')).click();
     browser.sleep(2000);
@@ -13,9 +15,10 @@ describe('Hybrent Order Module', function () {
     expect(element(by.model('searchForm.search')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.statusFilter')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.typeFilter')).isPresent()).toBeTruthy();
-    expect(element(by.xpath("//div[@class='panel-body padding-10']//div[9]//a[contains(.,'All')]")).isPresent()).toBeTruthy();
-    expect(element(by.css(".icon-disabled")).isPresent()).toBeTruthy();
-    expect(element(by.xpath("//div[@class='panel-body padding-10']//div[12]//a[contains(.,'All')]")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-vendor-select")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[title='Select Project']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[title='Select Department']")).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-dropdown[title='Select user']")).isPresent()).toBe(true);
   });
 
   it('Order list page search with PO# Found', function () {
@@ -85,7 +88,15 @@ describe('Hybrent Order Module', function () {
 
   it('verify that all option appears in Order drop down', function () {
     browser.sleep(1000);
-    element(by.css(".toast-close-button")).click();
+    var closetoast = element(by.css(".toast-close-button"));
+    closetoast.isPresent().then(function (present) {
+      if (present) {
+        console.log('toast notification appear on page');
+        closetoast.click();
+      } else {
+        console.log('toast notification does not appear on page');
+      }
+    });
     browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
       browser.sleep(2000);
@@ -119,13 +130,13 @@ describe('Hybrent Order Module', function () {
 
   it('add invoice for newly created order', function () {
     // element(by.buttonText('Close')).click();
-    // browser.sleep(2000);
+    browser.sleep(2000);
     // let order = element(by.repeater('order in ordersData.purchaseOrders'));
     // browser.wait(EC.elementToBeClickable(order.element(by.css('.dropdown-toggle'))), 5000);
     // order.element(by.css('.dropdown-toggle')).click();
     browser.actions().mouseMove(element(by.linkText('Invoices'))).perform();
     browser.wait(EC.elementToBeClickable(element(by.linkText('Add Invoice'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.linkText('Add Invoice')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Invoice Detail');

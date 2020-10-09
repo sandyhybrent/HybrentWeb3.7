@@ -10,14 +10,16 @@ describe('Import Vendor Bill Only Items', function () {
 
   it('Open Import Vendor Bill Only Items module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Import Vendor Bill Only Items')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Import Vendor Items');
   });
 
   it('verify that search and status filter appear on the page', function () {
-    expect(element(by.model('vendor_id')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
+    expect(element(by.css("hyb-vendor-select")).isPresent()).toBeTruthy();
+    expect(element(by.model("searchParams.search")).isPresent()).toBeTruthy();
   });
 
 

@@ -10,7 +10,9 @@ describe('UOU Management', function () {
 
   it('Open UOU Management module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('UOU Management')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('UOU Management');
   });

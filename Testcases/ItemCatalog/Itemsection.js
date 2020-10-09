@@ -34,6 +34,7 @@ describe('Hybrent Item Catalog Module', function () {
   var Consignment = browser.params.itemCatalog.Consignment;
   var Con_sku = browser.params.itemCatalog.Con_sku;
   var randomnumber = browser.params.Vendor_price_tier.randompricetier;
+  var Inventory_name = browser.params.user.Inv_name;
 
 
   it('Item Catalog page should open', function () {
@@ -48,10 +49,13 @@ describe('Hybrent Item Catalog Module', function () {
     browser.sleep(2000);
     expect(element.all(by.repeater('item in items')).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.vendor_id')).isPresent()).toBeTruthy();
+    expect(element(by.model('searchParams.stock_info')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//form[@class='form-inline ng-pristine ng-valid']/div[3]//a[contains(.,'Select')]")).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.is_active')).isPresent()).toBeTruthy();
     expect(element(by.model('searchParams.type')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.category_id')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//form[@class='form-inline ng-pristine ng-valid']/div[6]//a[contains(.,'Select')]")).isPresent()).toBeTruthy();
+    expect(element(by.model('searchParams.ordering_type')).isPresent()).toBeTruthy();
+    expect(element(by.model('searchParams.consumption_type')).isPresent()).toBeTruthy();
   });
 
   it('verify that all the status option appear under the status dropdown', function () {
@@ -104,7 +108,7 @@ describe('Hybrent Item Catalog Module', function () {
 
   });
 
-  xit('Add Dme Item', function () {
+  it('Add Dme Item', function () {
     browser.sleep(3000);
     element(by.className("btn btn-default dropdown-toggle margin-r-0")).click();
     browser.sleep(2000);
@@ -133,7 +137,7 @@ describe('Hybrent Item Catalog Module', function () {
     browser.sleep(2000);
   });
 
-  xit('Verify that "Map Facility for item Sku --- pop up appears for general item on the screen.', function () {
+  it('Verify that "Map Facility for item Sku --- pop up appears for general item on the screen.', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Dme_mfr + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
@@ -206,16 +210,17 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
     element(by.model('v.sku')).sendKeys(General_sku + randNumber);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
 
 
   });
 
   it('Verify that "Map Facility for item Sku --- pop up appears for general item on the screen.', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
@@ -256,7 +261,7 @@ describe('Hybrent Item Catalog Module', function () {
     });
   });
 
-  xit('Add consignment Item', function () {
+  it('Add consignment Item', function () {
     element(by.className("btn btn-default dropdown-toggle margin-r-0")).click();
     element(by.xpath("//a[.='Add Item']")).click();
     browser.sleep(2000);
@@ -287,16 +292,17 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
     element(by.model('v.sku')).sendKeys(Con_sku + randNumber);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
 
 
   });
 
-  xit('Verify that user should able to map consignment item with user default facility', function () {
+  it('Verify that user should able to map consignment item with user default facility', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
@@ -338,7 +344,7 @@ describe('Hybrent Item Catalog Module', function () {
   });
 
 
-  xit('Add Bill Only Item', function () {
+  it('Add Bill Only Item', function () {
     element(by.className("btn btn-default dropdown-toggle margin-r-0")).click();
     element(by.xpath("//a[.='Add Item']")).click();
     browser.sleep(2000);
@@ -360,16 +366,17 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
     element(by.model('v.sku')).sendKeys(Billonly_sku + randNumber);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
 
 
   });
 
-  xit('Verify that user should able to map Bill only item with user default facility', function () {
+  it('Verify that user should able to map Bill only item with user default facility', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Billonly_mfr + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
@@ -410,7 +417,7 @@ describe('Hybrent Item Catalog Module', function () {
     });
   });
 
-  xit('Add Amenity item', function () {
+  it('Add Amenity item', function () {
     element(by.xpath('//span[@class="fa fa-caret-down"]')).click();
     element(by.xpath("//a[.='Add Amenity']")).click();
     browser.sleep(2000);
@@ -424,17 +431,18 @@ describe('Hybrent Item Catalog Module', function () {
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Amenity saved successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
   });
 
-  xit('Verify that user should able to map Amenity item with user default facility', function () {
+  it('Verify that user should able to map Amenity item with user default facility', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys('testAM' + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
-      element1.element(by.css(".margin-r-30")).getText().then(function (text) {
+      element1.element(by.css("mark")).getText().then(function (text) {
 
         expect(text).toEqual('testAM' + randNumber);
         console.log(text);

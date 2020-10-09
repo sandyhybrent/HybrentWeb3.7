@@ -1,4 +1,4 @@
-describe('Hybrent Out Of stcok Module', function () {
+describe('Hybrent Out Of stock Module', function () {
   var EC = protractor.ExpectedConditions;
   var General_item_Name = browser.params.itemCatalog.General_item_Name;
   var General_alias = browser.params.itemCatalog.General_alias;
@@ -12,6 +12,7 @@ describe('Hybrent Out Of stcok Module', function () {
     browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Out Of Stock")]'))).perform();
     browser.sleep(2000);
     element(by.xpath('//span[contains(text(),"Out Of Stock")]')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Out Of Stock Items');
   });
 

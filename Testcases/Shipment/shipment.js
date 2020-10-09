@@ -9,6 +9,7 @@ describe('Shipment Module', function () {
     browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Shipments")]'))).perform();
     browser.sleep(1000);
     element(by.xpath('//span[contains(text(),"Shipments")]')).click();
+    browser.sleep(3000);
     expect(browser.getTitle()).toEqual('Shipment');
 
   });

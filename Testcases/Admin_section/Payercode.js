@@ -9,7 +9,9 @@ describe('Payor Code', function () {
 
   it('Open Payor Code module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Payor Code')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Payor Code');
   });
@@ -25,27 +27,34 @@ describe('Payor Code', function () {
     element(by.buttonText('Add')).click();
     browser.sleep(3000);
     element(by.model('payorCodeData.description')).sendKeys(Payer_Code);
+    browser.sleep(2000);
     element(by.model('payorCodeData.code')).sendKeys(randomnumber);
+    browser.sleep(2000);
     element(by.xpath('//a[contains(text(),"AR Code")]')).click();
-    // browser.sleep(2000);
+    browser.sleep(2000);
     // element(by.xpath('//i[@class="fa fa-ellipsis-v autocomplete-show"]')).click();
     // browser.sleep(1000);
     // element(by.model('data.items_selection')).sendKeys(randomnumber);
     // browser.sleep(2000);
     // element(by.xpath('//i[@class="glyphicon glyphicon-plus autocomplete-show"]')).click();
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Code created successfully.');
 
   });
 
   it('search newly created Payor Code by given name and code', function () {
     element(by.model('searchFilter')).clear().sendKeys(Payer_Code);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     expect(element(by.repeater('Data in prCodesData')).getText()).toContain(Payer_Code);
     browser.sleep(2000);
     //search AR code by code number
     element(by.model('searchFilter')).clear().sendKeys(randomnumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     expect(element(by.repeater('Data in prCodesData')).getText()).toContain(Payer_Code);
   });
 

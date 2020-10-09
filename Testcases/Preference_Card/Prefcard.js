@@ -12,34 +12,48 @@ describe('Prefcard module', function () {
     browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Preference Cards")]'))).perform();
     browser.sleep(1000);
     element(by.xpath('//span[contains(text(),"Preference Cards")]')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Preference Cards');
   });
 
   it('verify that search filter and drop down options appear on pref card listing page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('searchParams.physician_id')).isPresent()).toBeTruthy();
+    expect(element(by.xpath("//a[contains(.,'Select')]")).isPresent()).toBeTruthy();
   });
 
   it('verify that on clicking add Preference card button a new window to add procedure get opened', function () {
     element(by.linkText('Add Preference Card')).click();
+    browser.sleep(1000);
     expect(browser.getTitle()).toEqual('Create Preference Card');
 
   });
 
   it('verify that user is able to create new pref card from the add pref card window', function () {
     element(by.model('preferenceCard.cardName')).sendKeys(prefcard_name + randNumber);
-    element(by.model('preferenceCard.physician_id')).$('[label="' + Physician_first_name + " " + randNumber + '"]').click();
+    browser.sleep(2000);
+    element(by.xpath("//a[contains(.,'Select')]")).click();
+    browser.sleep(2000);
+    element(by.model('search.searchKeyword')).sendKeys(Physician_first_name + " " + randNumber);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.xpath('//input[@value="Add Stage"]')).click();
+    browser.sleep(1000);
     element(by.model('Ctrl.prefCardStage')).sendKeys('level1');
+    browser.sleep(1000);
     element(by.buttonText('Add Stage')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
-    var itemRow = element(by.repeater('item in items').row(0));
+    browser.sleep(2000);
+    // var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear();
+    browser.sleep(2000);
     element(by.model('preferenceCard.cardName')).click();
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
       browser.sleep(2000);
       browser.executeScript('window.scrollTo(0,0);').then(function () {
@@ -49,7 +63,7 @@ describe('Prefcard module', function () {
       });
       element(by.buttonText('Save')).click();
     });
-
+    browser.sleep(1000);
 
 
 

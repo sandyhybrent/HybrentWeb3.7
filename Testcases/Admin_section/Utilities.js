@@ -33,6 +33,7 @@ describe('Utilities', function () {
 
   it('search import facility utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(import_facility);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
 
@@ -40,6 +41,7 @@ describe('Utilities', function () {
 
   it('search import department utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(import_department);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Import Department.');
@@ -47,6 +49,7 @@ describe('Utilities', function () {
 
   it('search import_Patient utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(import_Patient);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Import Patient.');
@@ -55,6 +58,7 @@ describe('Utilities', function () {
 
   it('search import_users utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(import_users);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Import Users.');
@@ -63,6 +67,7 @@ describe('Utilities', function () {
 
   it('search syncmap_item utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(syncmap_item);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Sync/Map items from one facility to other facilities.');
@@ -71,6 +76,7 @@ describe('Utilities', function () {
 
   it('search template utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(templateutilities);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Template utilities.');
@@ -79,6 +85,7 @@ describe('Utilities', function () {
 
   it('search template utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(copy_template);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Copy Template.');
@@ -87,6 +94,7 @@ describe('Utilities', function () {
 
   it('search Change_temp_owner utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Change_temp_owner);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Change Template Owner.');
@@ -95,6 +103,7 @@ describe('Utilities', function () {
 
   it('search Assign_remove_vendor_access utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Assign_remove_vendor_access);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Assign and remove vendor access.');
@@ -103,6 +112,7 @@ describe('Utilities', function () {
 
   it('search Download_user_facilities_access utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Download_user_facilities_access);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Download users facilities access.');
@@ -111,6 +121,7 @@ describe('Utilities', function () {
 
   it('search Download_user_approval_access utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Download_user_approval_access);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Download user approval access.');
@@ -119,6 +130,7 @@ describe('Utilities', function () {
 
   it('search Assign_user_facility_access utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Assign_user_facility_access);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Assign users facility access.');
@@ -127,6 +139,7 @@ describe('Utilities', function () {
 
   it('search Remove_user_facility_access utitilites by its name', function () {
     element(by.model('searchFilter')).clear().sendKeys(Remove_user_facility_access);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('access in ReportsList')).getText()).toContain('Remove users facility access.');

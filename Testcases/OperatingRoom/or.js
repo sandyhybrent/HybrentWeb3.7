@@ -5,7 +5,9 @@ describe('operating room module', function () {
   var fac_name = browser.params.user.fac_name;
 
   it('Navigate to operating room', function () {
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-bed')).getWebElement()).then(function () {
+      browser.sleep(1000);
       element((by.linkText('Operating Rooms'))).click();
     });
     // browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Operating Rooms")]'))).perform();
@@ -25,7 +27,7 @@ describe('operating room module', function () {
     browser.sleep(1000);
     element(by.model('operatingRoom.name')).sendKeys(OR_Name + randNumber);
     browser.sleep(2000);
-    element(by.xpath('//a[contains(text(),"--Select facility--")]')).click();
+    element(by.xpath("//a[contains(.,'--Select facility--')]")).click();
     browser.sleep(2000);
     element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);
     browser.sleep(2000);
@@ -34,6 +36,7 @@ describe('operating room module', function () {
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Operating room created successfully');
 
   })

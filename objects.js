@@ -3,7 +3,8 @@ exports.url = 'https://qa5.test.hybrent.com/b/#';
 exports.user = {
   username: "sandy",
   password: "goouser",
-  fac_name: " "
+  fac_name: " ",
+  Inv_name: " "
 };
 
 

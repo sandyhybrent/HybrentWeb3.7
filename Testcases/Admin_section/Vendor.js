@@ -7,7 +7,9 @@ describe('Vendor module', function () {
 
   it('Open vendor module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Vendors')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('Vendor');
   });

@@ -13,6 +13,8 @@ describe('Hybrent Scan IN Module', function () {
   var Consignment = browser.params.itemCatalog.Consignment;
   var Con_sku = browser.params.itemCatalog.Con_sku;
   var randomnmbr = browser.params.Vendor_price_tier.randompricetier;
+  var fac_name = browser.params.user.fac_name;
+  var Inventory_name = browser.params.user.Inv_name;
 
 
   it('Open scan in module', function () {
@@ -40,8 +42,9 @@ describe('Hybrent Scan IN Module', function () {
     element.all(by.repeater('item in items')).each(function (element1, index) {
       expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', General_item_Name + randNumber)).isPresent()).toBeTruthy();
     });
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         expect(text).toEqual(General_sku + randNumber);
@@ -49,7 +52,7 @@ describe('Hybrent Scan IN Module', function () {
     });
 
     element(by.model('searchParams.search')).clear().sendKeys(General_mfrNumber + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         expect(text).toEqual(General_sku + randNumber);
@@ -60,10 +63,10 @@ describe('Hybrent Scan IN Module', function () {
   it('Scan In - Add general items for scan In by click on scan In button', function () {
     browser.sleep(1000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
@@ -71,49 +74,69 @@ describe('Hybrent Scan IN Module', function () {
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
-    element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
-    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
-    element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
-    element(by.buttonText('Select')).click();
     browser.sleep(1000);
+    element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
+    browser.sleep(2000);
+    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
+    browser.sleep(2000);
+    element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
+    browser.sleep(2000);
+    element(by.model('$ctrl.search.search')).clear().sendKeys(browser.params.user.Inv_name);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element(by.buttonText('Select')).click();
+    browser.sleep(2000);
     //element(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).click();
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.binding('htmlVal')).getText().then(function (text) {
+      element1.element(by.css("hyb-highlight")).getText().then(function (text) {
         expect(text).toEqual(General_item_Name + randNumber);
       });
     });
 
   });
 
-  it('Scan In - Add DME items for scan In by click on scan In button', function () {
-    browser.sleep(1000);
+  xit('Scan In - Add DME items for scan In by click on scan In button', function () {
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Dme_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
+    browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
+    browser.sleep(2000);
     element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
+    browser.sleep(2000);
+    element(by.model('$ctrl.search.search')).clear().sendKeys(browser.params.user.Inv_name);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('search.search')).clear().sendKeys(Dme_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.binding('htmlVal')).getText().then(function (text) {
+      element1.element(by.css("hyb-highlight")).getText().then(function (text) {
         expect(text).toEqual(Dme_item_name + randNumber);
       });
     });
@@ -121,31 +144,41 @@ describe('Hybrent Scan IN Module', function () {
   });
 
   it('add consignment item in scanin', function () {
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
+    browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
+    browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
+    browser.sleep(2000);
     element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
+    browser.sleep(2000);
+    element(by.model('$ctrl.search.search')).clear().sendKeys(browser.params.user.Inv_name);
+    browser.sleep(2000);
+    element(by.buttonText('Search')).click();
+    browser.sleep(2000);
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     //element(by.className('bootstrap-switch-handle-off bootstrap-switch-default')).click();
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.binding('htmlVal')).getText().then(function (text) {
+      element1.element(by.css("hyb-highlight")).getText().then(function (text) {
         expect(text).toEqual(Consignment + randNumber);
       });
     });
@@ -153,14 +186,16 @@ describe('Hybrent Scan IN Module', function () {
 
   it('Scan In - Search general item added for scan in by item Name, sku, mfr', function () {
     element(by.model('search.search')).clear().sendKeys(General_item_Name + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', General_item_Name + randNumber)).isPresent()).toBeTruthy();
     });
     element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         expect(text).toEqual(General_sku + randNumber);
@@ -170,14 +205,16 @@ describe('Hybrent Scan IN Module', function () {
 
   it('Scan In - Search consignement item added for scan in by item Name, sku, mfr', function () {
     element(by.model('search.search')).clear().sendKeys(Consignment + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       expect(element1.element(by.cssContainingText('hyb-highlight > span.highlight-context', Consignment + randNumber)).isPresent()).toBeTruthy();
     });
     element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.binding('item.sku')).getText().then(function (text) {
         expect(text).toEqual(Con_sku + randNumber);
@@ -187,44 +224,46 @@ describe('Hybrent Scan IN Module', function () {
 
   it('add stock status for vendor stock item', function () {
     element(by.model('search.search')).clear().sendKeys(Con_sku + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     var addstock = element(by.partialLinkText('Add'));
     addstock.click();
     browser.sleep(2000);
+    element(by.xpath("//button[@class='btn btn-primary pull-left']")).click();
+    browser.sleep(2000);
+    element(by.model('stockDetail.lot_number')).sendKeys('stock' + randNumber);
+    browser.sleep(1000);
+    element(by.css("button[ng-click='applyToAll()']")).click();
+    browser.sleep(2000);
+    element(by.buttonText('Yes')).click();
+    browser.sleep(2000);
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     // element(by.model('stockDetail.lot_number')).sendKeys('lot' + randomnmbr);
     element(by.model('stockDetail.serial_number')).sendKeys('serial' + randomnmbr);
     browser.sleep(1000);
-    // element(by.xpath('//i[@class="glyphicon glyphicon-calendar"]')).click();
-    // browser.sleep(1000);
-    // element(by.buttonText('Today')).click();
-    // browser.sleep(1000);
-    // element(by.buttonText('Add')).click();
-    // browser.sleep(1000);
-    // element(by.xpath('//i[@class="fa fa-clone"]')).click();
-    // browser.sleep(1000);
-    // var secondlot = element.all(by.model('stockDetail.serial_number')).get(1);
-    // secondlot.sendKeys('serial' + randomnmbr);
-    // element(by.buttonText('Add')).click();
-    // browser.sleep(1000);
-    // element(by.xpath('//i[@class="fa fa-clone"]')).click();
-    // browser.sleep(1000);
-    // var thirdlot = element.all(by.model('stockDetail.serial_number')).get(2);
-    // thirdlot.sendKeys('serial' + randomnmbr);
+    var secondlot = element.all(by.model('stockDetail.serial_number')).get(1);
+    secondlot.sendKeys('serial' + randomnmbr);
+    browser.sleep(1000);
+    var thirdlot = element.all(by.model('stockDetail.serial_number')).get(2);
+    thirdlot.sendKeys('serial' + randomnmbr);
+    browser.sleep(1000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Items stock info added successfully.');
 
   });
 
   it("Scan In items - Complete scan In and item should display on inventory transaction page", function () {
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Search'))), 5000);
+    browser.sleep(2000);
     element(by.model('search.search')).clear();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Complete')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Complete')).click();
     browser.sleep(2000);
     element(by.buttonText('Yes')).click();
@@ -235,13 +274,16 @@ describe('Hybrent Scan IN Module', function () {
     inventory_maximum.isPresent().then(function (present) {
       if (present) {
         console.log('Yes still wants to complete Scan In?');
+        browser.sleep(1000);
         element(by.buttonText('Yes')).click();
       } else {
         console.log('Do you still wants to complete Scan In? not appear');
       }
 
     });
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
+    expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
 
   });
 

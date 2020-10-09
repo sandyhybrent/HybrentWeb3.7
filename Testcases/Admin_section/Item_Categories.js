@@ -12,6 +12,7 @@ describe('Item Categories', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.sleep(2000);
     element(by.linkText('Item Categories')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Categories');
   });
@@ -26,7 +27,7 @@ describe('Item Categories', function () {
     browser.sleep(2000);
     element(by.model('category.name')).sendKeys('cat' + randNumber);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Category successfully created.');
   });
 
@@ -46,11 +47,13 @@ describe('Item Categories', function () {
     element(by.buttonText('Edit')).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Category successfully updated.');
   });
 
   it('verify that on clicking category name user get redirect to item master page', function () {
     element(by.model('searchParams.name')).clear().sendKeys('cat' + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.repeater('category in categories')).click();
@@ -60,14 +63,18 @@ describe('Item Categories', function () {
 
   it('delete newly create category', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Item Categories')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     element(by.model('searchParams.name')).clear().sendKeys('cat' + randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.buttonText('Delete')).click();
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
+    browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Category deleted successfully');
   });
 

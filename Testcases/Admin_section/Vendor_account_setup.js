@@ -7,7 +7,9 @@ describe('Vendors Account Setup module', function () {
 
   it('Open Vendors Account Setup module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Vendors Account Setup')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('Vendors Account Setup');
   });
@@ -17,6 +19,7 @@ describe('Vendors Account Setup module', function () {
     element(by.xpath('//a[contains(text(),"All Vendors")]')).click();
     browser.sleep(1000);
     element(by.model('search.searchKeyword')).clear().sendKeys(vendor_name);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.buttonText('Select')).click();

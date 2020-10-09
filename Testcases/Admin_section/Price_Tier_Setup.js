@@ -1,4 +1,4 @@
-describe('Price Tier Setup module', function () {
+xdescribe('Price Tier Setup module', function () {
   var EC = protractor.ExpectedConditions;
   var fac_name = browser.params.user.fac_name;
   var randNumber = browser.params.itemCatalog.randNumber;
@@ -11,9 +11,11 @@ describe('Price Tier Setup module', function () {
 
 
   it('Open Price Tier Setup module', function () {
+    browser.sleep(2000);
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.sleep(2000);
     element(by.linkText('Price Tier Setup')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('Price Tier Setup');
   });
@@ -30,6 +32,7 @@ describe('Price Tier Setup module', function () {
     element(by.model('tierData.price_percentage')).clear().sendKeys(price_tier_percentage);
     browser.sleep(1000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Price tier created successfully.');
   });
 
@@ -44,6 +47,7 @@ describe('Price Tier Setup module', function () {
     element(by.xpath('//a[contains(text(),"All Vendors")]')).click();
     browser.sleep(2000);
     element(by.model('search.searchKeyword')).clear().sendKeys(vendor_name);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.buttonText('Select')).click();
@@ -72,6 +76,7 @@ describe('Price Tier Setup module', function () {
     element(by.model('tierData.price_percentage')).clear().sendKeys(newPrice_percentage);
     browser.sleep(1000);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Price tier created successfully.');
   })
 

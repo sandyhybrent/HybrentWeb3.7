@@ -10,7 +10,9 @@ describe('Stock Adjustment Notes', function () {
 
   it('Open Stock Adjustment Notes module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('Stock Adjustment Notes')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Stock Adjustment Notes');
   });

@@ -9,6 +9,7 @@ describe('Inventory Transfer Module', function () {
     browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Inventory Transfer")]'))).perform();
     browser.sleep(1000);
     element(by.xpath('//span[contains(text(),"Inventory Transfer")]')).click();
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Inventory Transfer Notes: List');
 
   });
@@ -35,7 +36,7 @@ describe('Inventory Transfer Module', function () {
 
   it('search newly created ITN through manage inventory', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element(by.xpath('//div[@id="reqListing_info"]')).getText().then(function (test) {
@@ -44,18 +45,20 @@ describe('Inventory Transfer Module', function () {
   });
 
   it('open newly created ITN detail page', function () {
-    element(by.partialLinkText('ITN00000000')).click();
+    element(by.xpath('//*[@id="ng-view"]/div/div[3]/div/div/table/tbody/tr/td[1]/a')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toBe('Inventory Transfer Note details');
   });
 
   it('cancel the newly created ITN', function () {
-    element(by.css(".fa-caret-down")).click();
+    element(by.css(".btn-default")).click();
     browser.sleep(2000);
-    element(by.xpath("//ul[@class='dropdown-menu dropdown-menu-right width-100']/li[6]/a[.='Cancel ITN']")).click();
+    element(by.css("a[ng-click='CancelGoodTransferRequest(inventoryTransferNote.id);']")).click();
+    browser.sleep(2000);
     element(by.id("btnAdd")).click();
-    browser.sleep(2000);
+    browser.sleep(4000);
     expect($('.toast-message').getText()).toEqual('Inventory transfer request cancelled successfully.');
+    browser.sleep(2000);
   });
 
 });

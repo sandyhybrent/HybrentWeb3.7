@@ -6,7 +6,9 @@ describe('PO special instruction', function () {
 
   it('Open PO Special instruction module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
+    browser.sleep(2000);
     element(by.linkText('PO Special Instructions')).click();
+    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect(browser.getTitle()).toEqual('PO Special Instructions');
   });
@@ -18,13 +20,16 @@ describe('PO special instruction', function () {
 
   it('add new instruction', function () {
     element(by.buttonText('Add')).click();
+    browser.sleep(2000);
     element(by.model('SpecialInstructionsData.special_instruction')).sendKeys(randNumber);
     element(by.buttonText('Save')).click();
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Special Instruction created successfully.');
   });
 
   it('search newly created instruction by name', function () {
     element(by.model('searchFilter')).sendKeys(randNumber);
+    browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     expect(element(by.repeater('specialInstruction in specialInstructions')).getText()).toContain(randNumber);

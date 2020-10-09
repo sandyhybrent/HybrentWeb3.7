@@ -3,6 +3,8 @@ describe('Hybrent Cart Module', function () {
   var General_mfrNumber = browser.params.itemCatalog.General_mfrNumber;
   var randNumber = browser.params.itemCatalog.randNumber;
   var PO_Num = browser.params.itemCatalog.PO_Number;
+  var fac_name = browser.params.user.fac_name;
+  var Inventory_name = browser.params.user.Inv_name;
 
   it('Open cart page', function () {
     element(by.css('.fa-shopping-cart')).click();
@@ -46,8 +48,8 @@ describe('Hybrent Cart Module', function () {
       }
 
     });
-
-    expect(browser.getTitle()).toEqual('My Orders');
+    browser.sleep(3000);
+    expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
 
   });
 
