@@ -30,6 +30,7 @@ describe('News module', function () {
     element(by.buttonText('Save')).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Missing news description');
+    browser.sleep(2000);
     element(by.model('html')).sendKeys('test news description');
     browser.sleep(2000);
     element(by.buttonText('Save')).click();

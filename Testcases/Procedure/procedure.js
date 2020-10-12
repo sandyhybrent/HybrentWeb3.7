@@ -29,26 +29,26 @@ describe('Procedure module', function () {
 
   it('Create New Procedure after opening add procedure window', function () {
     element(by.model('procedure.name')).clear().sendKeys(Procedure_name + randNumber);
-    browser.sleep("2000");
+    browser.sleep(2000);
     console.log(Physician_first_name + randNumber);
     element(by.model('suggestPhysicians')).sendKeys(Physician_first_name + " " + randNumber);
     browser.sleep(1000);
     element.all(by.model('physician.isSelected')).click();
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.model('procedure.cpt_code')).clear().sendKeys(randNumber);
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep("2000");
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual("Procedure successfully created.");
-    browser.sleep("2000");
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Procedures');
   });
 
   it('verify that search functionality working fine on procedure module', function () {
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Procedure_name + randNumber);
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.css("tr[ng-repeat-start='procedure in procedures'] > td:nth-of-type(1)")).getText().then(function (test) {
       expect(test).toContain(Procedure_name + randNumber);
     })
@@ -61,13 +61,13 @@ describe('Procedure module', function () {
     expect(browser.getTitle()).toEqual('Procedure');
     browser.sleep(2000);
     element(by.xpath('//span[@class="bootstrap-switch-handle-off bootstrap-switch-default"]')).click();
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.model('procedure.procedure_cost')).sendKeys("800");
-    browser.sleep("2000");
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep("2000");
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual("Procedure successfully updated.");
-    browser.sleep("2000");
+    browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Procedures');
   });
 });

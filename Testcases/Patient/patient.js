@@ -98,11 +98,10 @@ describe('Patient module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element.all(by.repeater('reportsRow in $ctrl.reportData.rows')).each(function (element1, index) {
-      element1.element(by.css("tr.bg-info > td:nth-of-type(3) > [ng-if='key != \\'PONUM\\' && key != \\'vendor\\' && key != \\'user\\' && key != \\'invoice_number\\'']")).getText().then(function (text) {
-        expect(text).toEqual(randNumber);
+    element(by.repeater("(key,value) in reportsRow track by $index")).getText().then(function (text) {
+        expect(text).toMatch(randNumber);
       });
-    });
+    
   });
 
   it('add charges to patient', function () {

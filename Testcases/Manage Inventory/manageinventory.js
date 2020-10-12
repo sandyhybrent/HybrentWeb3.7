@@ -170,6 +170,7 @@ describe('Hybrent Manage Inventory Module', function () {
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toContain('Inventory transferred successfully.');
+    browser.sleep(2000);
   });
 
   it('Transfer Item with track stock transfer', function () {
@@ -199,6 +200,7 @@ describe('Hybrent Manage Inventory Module', function () {
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toContain('Stock transfer request created');
+    browser.sleep(3000);
 
   });
 

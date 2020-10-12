@@ -31,7 +31,14 @@ describe('Print Barcodes/QRCodes', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.buttonText('Select')).click();
+    var default_inv_selected = element(by.buttonText('Selected'));
+    default_inv_selected.isPresent().then(function (present) {
+      if (present) {
+        element(by.buttonText('Close')).click();
+      } else {
+        element(by.buttonText('Select')).click();
+      }
+    })
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);

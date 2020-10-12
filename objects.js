@@ -106,7 +106,7 @@ exports.Utilities = {
   import_facility: "Import Facility.",
   import_department: "Import Department.",
   import_Patient: "Import Patient.",
-  import_users: "Import Users.",
+  import_users: "Import User.",
   syncmap_item: "Sync/Map items from one facility to other facilities.",
   templateutilities: "Template utilities.",
   copy_template: "Copy Template.",

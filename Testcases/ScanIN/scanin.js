@@ -281,10 +281,9 @@ describe('Hybrent Scan IN Module', function () {
       }
 
     });
-    browser.sleep(2000);
+    browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
-    expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
-
+    browser.sleep(2000);
   });
 
 });

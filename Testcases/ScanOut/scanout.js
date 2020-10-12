@@ -191,6 +191,6 @@ describe('Hybrent Scanout Module', function () {
     element(by.buttonText('Complete')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Scan Out completed successfully.');
-
+    browser.sleep(2000);
   });
 });
