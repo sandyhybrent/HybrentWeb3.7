@@ -1,5 +1,5 @@
 {
-  "name": "Hybrent3.2",
+  "name": "Hybrent3.4",
   "version": "1.0.0",
   "main": "conf.js",
   "dependencies": {
@@ -11,6 +11,8 @@
     "lodash": "^4.17.15",
     "protractor-html-reporter-2": "^1.0.4"
   },
+  
+  
   "devDependencies": {
     "jasmine-expect": "^4.0.3",
     "protractor-jasmine2-html-reporter": "0.0.7"
