@@ -169,6 +169,7 @@ describe('Hybrent Manage Inventory Module', function () {
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(2000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect($('.toast-message').getText()).toContain('Inventory transferred successfully.');
     browser.sleep(2000);
   });
@@ -199,13 +200,16 @@ describe('Hybrent Manage Inventory Module', function () {
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(2000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect($('.toast-message').getText()).toContain('Stock transfer request created');
-    browser.sleep(3000);
+    browser.sleep(4000);
+    
 
   });
 
   it('Verify that consignment items appear under the vendor stock', function () {
     //click on vendor stock checkbox
+    browser.sleep(3000);
     element(by.model('searchParams.show_vendor_stock')).click();
     browser.sleep(2000);
     element(by.id("btnAdd")).click();
@@ -214,7 +218,9 @@ describe('Hybrent Manage Inventory Module', function () {
     browser.sleep(2000);
     element(by.id("btnAdd")).click();
     browser.sleep(2000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(element.all(by.repeater('item in items'))).toContain(Consignment + randNumber);
+
   });
 
 });

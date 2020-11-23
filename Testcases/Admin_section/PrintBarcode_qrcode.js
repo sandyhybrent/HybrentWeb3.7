@@ -42,8 +42,11 @@ describe('Print Barcodes/QRCodes', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.repeater('item in items')).getText().then(function (text) {
-      expect(text).toContain(browser.params.user.Inv_name);
+    element.all(by.repeater('item in items')).each(function (element1, index) {
+      element1.element(by.css("table#print-barcode-table > tbody > tr:nth-of-type(1)")).getText().then(function (text) {
+        expect(text).toEqual(browser.params.user.Inv_name);
+        console.log(text);
+      })
     })
   });
 

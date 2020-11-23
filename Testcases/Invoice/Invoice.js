@@ -17,9 +17,9 @@ describe('Hybrent Invoice Module', function () {
     expect(element(by.model('searchParams.status')).isPresent()).toBe(true);
     expect(element(by.model('$select.search')).isPresent()).toBe(true);
     expect(element(by.model('searchParams.due_date_range')).isPresent()).toBe(true);
-    expect(element(by.xpath("//a[contains(.,'All departments')]")).isPresent()).toBe(true);
+    expect(element(by.xpath("//form[@class='form-inline ng-pristine ng-valid ng-valid-date']//div[9]//a[contains(.,'Select')]")).isPresent()).toBe(true);
     expect(element(by.xpath("//a[contains(.,'All Users')]")).isPresent()).toBe(true);
-    expect(element(by.xpath("//a[contains(.,'Select')]")).isPresent()).toBe(true);
+    expect(element(by.xpath("//form[@class='form-inline ng-pristine ng-valid ng-valid-date']//div[11]//a[contains(.,'Select')]")).isPresent()).toBe(true);
 
   });
 

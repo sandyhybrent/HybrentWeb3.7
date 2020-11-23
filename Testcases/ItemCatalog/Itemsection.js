@@ -119,6 +119,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 10000);
     element(by.buttonText('Select')).click();
+    // element(by.model('item.item_identifier')).sendKeys('item identy1' + randNumber);
     element(by.model('item.ordering_type')).element(by.xpath('//*[@id="ordering_type"]/option[4]')).click();
     element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]').click();
     browser.sleep(2000);
@@ -187,6 +188,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.model('item.description')).sendKeys(General_item_Name + randNumber);
     element(by.model('item.alias')).sendKeys(General_alias + randNumber);
     element(by.model('item.mfr_number')).sendKeys(General_mfrNumber + randNumber);
+    // element(by.model('item.item_identifier')).sendKeys('item identy' + randNumber);
     browser.sleep(1000);
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 5000);
@@ -268,6 +270,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.model('item.description')).sendKeys(Consignment + randNumber);
     element(by.model('item.alias')).sendKeys('consignment' + randNumber);
     element(by.model('item.mfr_number')).sendKeys("cmfr" + randNumber);
+    // element(by.model('item.item_identifier')).sendKeys('item identy2' + randNumber);
     browser.sleep(1000);
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 5000);
@@ -351,6 +354,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.model('item.description')).sendKeys(Billonly_item_name + randNumber);
     element(by.model('item.alias')).sendKeys('consignment' + randNumber);
     element(by.model('item.mfr_number')).sendKeys(Billonly_mfr + randNumber);
+    // element(by.model('item.item_identifier')).sendKeys('item identy3' + randNumber);
     browser.sleep(1000);
     element(by.css('button > i.fa-ellipsis-h')).click();
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 5000);

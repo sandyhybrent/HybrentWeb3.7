@@ -31,7 +31,7 @@ describe('Manage pattern', function () {
     element(by.xpath('//i[contains(@class,"glyphicon glyphicon-plus")]')).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect($('.toast-message').getText()).toEqual('Pattern created successfully.');
 

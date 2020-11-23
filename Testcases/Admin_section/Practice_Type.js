@@ -10,7 +10,7 @@ describe('Practice Type', function () {
   it('Open Practice Type module', function () {
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.sleep(2000);
-    element(by.linkText('Practice Type')).click();
+    element(by.xpath("//a[.='Practice Type']")).click();
     browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     expect(browser.getTitle()).toEqual('Practice Type');

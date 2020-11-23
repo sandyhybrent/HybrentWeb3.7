@@ -126,7 +126,11 @@ describe('Patient module', function () {
     element(by.model('$ctrl.scheduler.schedule_type')).click();
     browser.sleep(2000);
     element(by.xpath('//option[contains(text(),"One Time")]')).click();
+    browser.sleep(2000);
+    element(by.xpath("//div[@class='form-inline padding-lr-22']//i[@class='glyphicon glyphicon-calendar']")).click();
     browser.sleep(1000);
+    element(by.css(".uib-datepicker-current")).click();
+    browser.sleep(2000);
     element(by.model('hours')).clear().sendKeys('23');
     browser.sleep(2000);
     element(by.model('minutes')).clear().sendKeys('45');

@@ -62,8 +62,8 @@ describe('Hybrent Order Module', function () {
     browser.sleep(2000);
     element(by.linkText(PO_Num + randNumber)).click();
     browser.sleep(2000);
-    browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath("//span[@class='fa fa-chevron-down']")).getWebElement()).then(function () {
-      element(by.xpath("//span[@class='fa fa-chevron-down']")).click();
+    browser.executeScript("arguments[0].scrollIntoView();", element(by.css(".fa-chevron-down")).getWebElement()).then(function () {
+      element(by.css(".fa-chevron-down")).click();
     });
     browser.sleep(2000);
     expect(element(by.partialLinkText('Edit')).isPresent()).toBeTruthy();

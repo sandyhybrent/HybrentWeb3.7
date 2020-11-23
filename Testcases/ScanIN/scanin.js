@@ -102,7 +102,7 @@ describe('Hybrent Scan IN Module', function () {
 
   });
 
-  xit('Scan In - Add DME items for scan In by click on scan In button', function () {
+  it('Scan In - Add DME items for scan In by click on scan In button', function () {
     browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Dme_sku + randNumber);
     browser.sleep(2000);
@@ -238,9 +238,7 @@ describe('Hybrent Scan IN Module', function () {
     browser.sleep(2000);
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
-    element(by.buttonText('Add')).click();
-    browser.sleep(2000);
-    // element(by.model('stockDetail.lot_number')).sendKeys('lot' + randomnmbr);
+        // element(by.model('stockDetail.lot_number')).sendKeys('lot' + randomnmbr);
     element(by.model('stockDetail.serial_number')).sendKeys('serial' + randomnmbr);
     browser.sleep(1000);
     var secondlot = element.all(by.model('stockDetail.serial_number')).get(1);
@@ -281,8 +279,8 @@ describe('Hybrent Scan IN Module', function () {
       }
 
     });
-    browser.sleep(1000);
-    expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
+    browser.sleep(2000);
+    expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
     browser.sleep(2000);
   });
 

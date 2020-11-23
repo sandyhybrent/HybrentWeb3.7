@@ -12,6 +12,7 @@ describe('Hybrent Scanout Module', function () {
 
 
   it('Scan Out List page should open', function () {
+    browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-sign-out')).getWebElement()).then(function () {
       element(by.css('a > span.menu-icon > i.fa-sign-out')).click();
     });
@@ -125,9 +126,10 @@ describe('Hybrent Scanout Module', function () {
     element(by.buttonText('Attach')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item attached successfully.');
+    element(by.xpath('//i[@class="fa fa-2x fa-times"]')).click();
   });
 
-  it("Scan Out items - Remove attached stock info", function () {
+  xit("Scan Out items - Remove attached stock info", function () {
     // element(by.className('padding-top-5')).click();
     browser.sleep(1000);
     element(by.buttonText('Remove')).click();

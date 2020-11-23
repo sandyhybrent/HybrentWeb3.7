@@ -7,7 +7,7 @@ describe('Inventory Transfer Module', function () {
   it('Open Inventory Transfer', function () {
 
     browser.actions().mouseMove(element(by.xpath('//span[contains(text(),"Inventory Transfer")]'))).perform();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//span[contains(text(),"Inventory Transfer")]')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Inventory Transfer Notes: List');
@@ -53,11 +53,11 @@ describe('Inventory Transfer Module', function () {
   it('cancel the newly created ITN', function () {
     element(by.css(".btn-default")).click();
     browser.sleep(2000);
-    element(by.css("a[ng-click='CancelGoodTransferRequest(inventoryTransferNote.id);']")).click();
+    element(by.css("a[ng-click='RejectGoodTransferRequest(inventoryTransferNote.id);']")).click();
     browser.sleep(2000);
     element(by.id("btnAdd")).click();
-    browser.sleep(4000);
-    expect($('.toast-message').getText()).toEqual('Inventory transfer request cancelled successfully.');
+    browser.sleep(2000);
+    expect($('.toast-message').getText()).toEqual('Inventory transfer request rejected successfully.');
     browser.sleep(2000);
   });
 

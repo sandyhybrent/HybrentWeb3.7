@@ -23,6 +23,7 @@ describe('Vendor module', function () {
     element(by.model('searchFilter')).clear().sendKeys(vendor_name);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     browser.sleep(2000);
     expect(element(by.repeater('VendorData in VendorDatas')).getText()).toContain(vendor_name);
 

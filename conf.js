@@ -12,10 +12,10 @@ exports.config = {
   //   { browserName: 'firefox' },
   //   { browserName: 'chrome' }
   // ],
-  capabilities: {
-    'directConnect': true,
-    'browserName': 'chrome'
-  },
+
+    multiCapabilities: [
+      {'browserName': 'chrome'}
+    ],
 
   specs: [
     'Testcases/login/*.js',
@@ -34,7 +34,7 @@ exports.config = {
     'Testcases/ScanOut/*.js',
     'Testcases/Bill_and_Replace/*.js',
     'Testcases/Replenish_Bin/*js',
-    'Testcases/ApproveItem/*.js',
+    // 'Testcases/ApproveItem/*.js',
     'Testcases/Manage Inventory/*.js',
     'Testcases/Inventory_Transfer/*js',
     'Testcases/Shipment/*js',
@@ -48,7 +48,7 @@ exports.config = {
     'Testcases/All_cases/*js',
     'Testcases/Out_Of_Stock/*js',
     'Testcases/Admin_section/*js',
-    // 'Testcases/DME/*js',
+    'Testcases/DME/*js',
     // // 'Testcases/All_Reports/*js',
     // 'Testcases/Patient1/*.js'
   ],
