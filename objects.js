@@ -1,4 +1,4 @@
-exports.url = 'https://qa35.test.hybrent.com/b/#';
+exports.url = 'https://qa40.test.hybrent.com/b/#/login/';
 
 exports.user = {
   username: "sandy",

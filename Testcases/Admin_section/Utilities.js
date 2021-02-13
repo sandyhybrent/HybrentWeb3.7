@@ -61,7 +61,7 @@ describe('Utilities', function () {
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    expect(element(by.repeater('access in ReportsList')).getText()).toBe('Import User. Bulk import multiple Users from excel file Go');
+    expect(element(by.repeater('access in ReportsList')).getText()).toContain('Import User.');
 
   });
 

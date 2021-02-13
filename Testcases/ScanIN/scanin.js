@@ -16,6 +16,9 @@ describe('Hybrent Scan IN Module', function () {
   var fac_name = browser.params.user.fac_name;
   var Inventory_name = browser.params.user.Inv_name;
 
+  beforeEach(function () {
+    browser.waitForAngularEnabled(false);
+  })
 
   it('Open scan in module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-sign-in')).getWebElement()).then(function () {
@@ -277,11 +280,11 @@ describe('Hybrent Scan IN Module', function () {
       } else {
         console.log('Do you still wants to complete Scan In? not appear');
       }
-
     });
     browser.sleep(2000);
-    expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
-    browser.sleep(2000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
+    expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
+    browser.sleep(1000);
   });
 
 });

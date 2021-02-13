@@ -82,7 +82,7 @@ describe('Planner module', function () {
     browser.sleep(2000);
     element(by.buttonText('Schedule Case')).click();
     browser.sleep(2000);
-    expect($('.toast-message')).toMatch('Case #  successfully created for patient "john".');
+    expect($('.toast-message')).toContain('Case #  successfully created for patient "john".');
     browser.sleep(7000);
   });
 

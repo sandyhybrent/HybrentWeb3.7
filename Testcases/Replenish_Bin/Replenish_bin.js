@@ -11,6 +11,10 @@ describe('Hybrent ReplenishBin Module', function () {
   var fac_name = browser.params.user.fac_name;
   var Inventory_name = browser.params.user.Inv_name;
 
+  beforeEach(function () {
+    browser.waitForAngularEnabled(false);
+  })
+
   it('Open ReplenishBin module', function () {
     browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-retweet')).getWebElement()).then(function () {
@@ -51,6 +55,9 @@ describe('Hybrent ReplenishBin Module', function () {
     var itemRow = element.all(by.repeater('suggestion in $ctrl.suggestions'));
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
+  });
+
+  it('Generate Replenish Bin PO', function(){
     browser.sleep(3000);
     element(by.xpath('//button[@class="button button-sm"]')).click();
     browser.sleep(2000);
@@ -74,8 +81,9 @@ describe('Hybrent ReplenishBin Module', function () {
       }
 
     });
-    browser.sleep(3000);
-    expect($('.toast-message').getText()).toEqual('PO(' + 'RP' + randomnmbr + ') created successfully.');
+    browser.sleep(1000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
+    expect(element(by.css(".toast-message")).getText()).toEqual('PO(' + 'RP' + randomnmbr + ') created successfully.');
 
   });
 

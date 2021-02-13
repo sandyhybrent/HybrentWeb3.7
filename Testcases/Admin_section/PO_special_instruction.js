@@ -44,9 +44,9 @@ describe('PO special instruction', function () {
   });
 
   it('delete newly created special instruction', function () {
-    element(by.xpath('//i[contains(@class,"fa fa-trash")]')).click();
+    element(by.css(".fa-trash")).click();
     browser.sleep(2000);
-    element(by.buttonText('Yes')).click();
+    element(by.css(".confirm")).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Special Instruction deleted successfully.');
   });

@@ -19,7 +19,7 @@ describe('Invoice Payment Terms', function () {
   });
 
   it('add new payment term', function () {
-    element(by.buttonText('Add Payment Term')).click();
+    element(by.xpath("//button[@class='btn btn-primary pull-right']")).click();
     browser.sleep(2000);
     browser.wait(EC.elementToBeClickable(element(by.model('Ctrl.form.description'))), 5000);
     browser.sleep(2000);
@@ -29,7 +29,7 @@ describe('Invoice Payment Terms', function () {
     browser.sleep(2000);
     element(by.model('Ctrl.form.discount')).sendKeys(10);
     browser.sleep(2000);
-    element(by.buttonText('Add')).click();
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect($('.toast-message').getText()).toEqual('Payment term created successfully.');

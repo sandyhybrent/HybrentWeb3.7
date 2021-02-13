@@ -138,7 +138,7 @@ describe('Hybrent Item Catalog Module', function () {
     browser.sleep(2000);
   });
 
-  it('Verify that "Map Facility for item Sku --- pop up appears for general item on the screen.', function () {
+  it('Verify that "Map Facility for item Sku --- pop up appears for DME item on the screen.', function () {
     element(by.model('searchParams.search')).clear().sendKeys(Dme_mfr + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();

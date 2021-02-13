@@ -62,7 +62,7 @@ describe('Hybrent Scanout Module', function () {
     browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(2000);
-    element(by.buttonText('Add')).click();
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(2000);
@@ -72,15 +72,23 @@ describe('Hybrent Scanout Module', function () {
     browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('1');
     browser.sleep(2000);
-    element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
+    element(by.css("a[data-toggle='tooltip']")).click();
     browser.sleep(2000);
     element(by.model('search.searchKeyword')).clear().sendKeys(browser.params.user.Inv_name);
     browser.sleep(2000);
-    element(by.buttonText('Select')).click();
+    var default_inv_selected = element(by.buttonText('Selected'));
+    default_inv_selected.isPresent().then(function (present) {
+      if (present) {
+        element(by.buttonText('Close')).click();
+      } else {
+        element(by.buttonText('Select')).click();
+      }
+    })
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
-
+    expect($('.toast-message').getText()).toEqual('Item added for Scan Out successfully.');
+    
   });
 
   it('scan Out - delete a single item added in scanout', function () {
@@ -97,28 +105,33 @@ describe('Hybrent Scanout Module', function () {
     browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(2000);
-    var itemRow = element(by.repeater('item in items').row(0));
-    element(by.buttonText('Add')).click();
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
-    element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
+    element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
+    browser.sleep(2000);
+    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('2');
+    browser.sleep(2000);
+    element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
+    browser.sleep(2000);
+    expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('1');
+    browser.sleep(2000);
+    element(by.css("a[data-toggle='tooltip']")).click();
     browser.sleep(2000);
     element(by.model('search.searchKeyword')).clear().sendKeys(browser.params.user.Inv_name);
     browser.sleep(2000);
-    element(by.buttonText('Select')).click();
+    var default_inv_selected = element(by.buttonText('Selected'));
+    default_inv_selected.isPresent().then(function (present) {
+      if (present) {
+        element(by.buttonText('Close')).click();
+      } else {
+        element(by.buttonText('Select')).click();
+      }
+    })
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
-    element(by.model('search.search')).clear().sendKeys(General_sku + randNumber);
-    browser.sleep(2000);
-    element(by.buttonText('Search')).click();
-    browser.sleep(2000);
-    element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual(General_sku + randNumber);
-      });
+    expect($('.toast-message').getText()).toEqual('Item added for Scan Out successfully.');
     });
-
-  });
 
   it("Scan Out items - Attach stock info", function () {
     element(by.linkText('Attach Stock Info')).click();
@@ -126,12 +139,11 @@ describe('Hybrent Scanout Module', function () {
     element(by.buttonText('Attach')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item attached successfully.');
-    element(by.xpath('//i[@class="fa fa-2x fa-times"]')).click();
-  });
+      });
 
-  xit("Scan Out items - Remove attached stock info", function () {
+  it("Scan Out items - Remove attached stock info", function () {
     // element(by.className('padding-top-5')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Remove')).click();
     browser.sleep(2000);
     element(by.css('.sa-confirm-button-container')).element(by.buttonText('Yes')).click();
@@ -147,22 +159,13 @@ describe('Hybrent Scanout Module', function () {
     element(by.model('searchParams.search')).clear().sendKeys('testAM' + randNumber);
     browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
-    element(by.buttonText('Add')).click();
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('1');
     browser.sleep(2000);
-    element(by.buttonText('Add')).click();
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
-    element(by.model('search.search')).clear().sendKeys('testAM' + randNumber);
-    browser.sleep(2000);
-    element(by.buttonText('Search')).click();
-    browser.sleep(2000);
-    element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.binding('item.sku')).getText().then(function (text) {
-        expect(text).toEqual('testAM' + randNumber);
-      });
-    });
-
+    
   });
 
   it('scan Out - attach Charge Center for the added item', function () {
@@ -190,8 +193,8 @@ describe('Hybrent Scanout Module', function () {
     browser.sleep(2000);
     element(by.css('.sa-confirm-button-container')).element(by.buttonText('Yes')).click();
     browser.sleep(2000);
-    element(by.buttonText('Complete')).click();
-    browser.sleep(2000);
+    element(by.buttonText("Complete")).click();
+    browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Scan Out completed successfully.');
     browser.sleep(2000);
   });

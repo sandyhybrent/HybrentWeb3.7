@@ -10,6 +10,9 @@ describe('Hybrent Bill & Replace Module', function () {
   var PO_Num = browser.params.itemCatalog.PO_Number;
   var Con_sku = browser.params.itemCatalog.Con_sku;
   var Consignment = browser.params.itemCatalog.Consignment;
+  beforeEach(function () {
+    browser.waitForAngularEnabled(false);
+  })
 
   it('Open Bill and Replace module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.css('a > span.menu-icon > i.fa-retweet')).getWebElement()).then(function () {
@@ -79,7 +82,8 @@ describe('Hybrent Bill & Replace Module', function () {
         console.log('Budget is not present for corresponding facility');
       }
     })
-    browser.sleep(3000);
+    browser.sleep(1000);
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randomnmbr + ') created successfully.');
 
   });

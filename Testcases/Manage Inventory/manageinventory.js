@@ -26,12 +26,12 @@ describe('Hybrent Manage Inventory Module', function () {
     expect(element(by.xpath("//a[contains(.,'All Vendors')]")).isPresent()).toBeTruthy();
   });
 
-  xit('Search items by Name', function () {
+  it('Search items by Name', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_item_Name + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element.all(by.repeater('item in items')).each(function (element1, index) {
+    element.all(by.repeater('vendor in ::item.itemVendors')).each(function (element1, index) {
       element1.element(by.binding('vendor.sku')).getText().then(function (text) {
         browser.sleep(2000);
         expect(text).toEqual(General_sku + randNumber);
@@ -39,26 +39,25 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  xit('Search items by alise', function () {
+  it('Search items by alise', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_alias + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element.all(by.repeater('item in items')).each(function (element1, index) {
+    element.all(by.repeater('vendor in ::item.itemVendors')).each(function (element1, index) {
       element1.element(by.binding('vendor.sku')).getText().then(function (text) {
         browser.sleep(2000);
         expect(text).toEqual(General_sku + randNumber);
       });
     });
-
   });
 
-  xit('Search items by mfr number', function () {
+  it('Search items by mfr number', function () {
     element(by.model('searchParams.search')).clear().sendKeys(General_mfrNumber + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element.all(by.repeater('item in items')).each(function (element1, index) {
+    element.all(by.repeater('vendor in ::item.itemVendors')).each(function (element1, index) {
       element1.element(by.binding('vendor.sku')).getText().then(function (text) {
         browser.sleep(2000);
         expect(text).toEqual(General_sku + randNumber);
@@ -208,18 +207,19 @@ describe('Hybrent Manage Inventory Module', function () {
   });
 
   it('Verify that consignment items appear under the vendor stock', function () {
-    //click on vendor stock checkbox
-    browser.sleep(3000);
+    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
+    browser.sleep(2000);
     element(by.model('searchParams.show_vendor_stock')).click();
     browser.sleep(2000);
     element(by.id("btnAdd")).click();
     browser.sleep(2000);
-    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
-    browser.sleep(2000);
-    element(by.id("btnAdd")).click();
-    browser.sleep(2000);
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
-    expect(element.all(by.repeater('item in items'))).toContain(Consignment + randNumber);
+    element.all(by.repeater('vendor in ::item.itemVendors')).each(function (element1, index) {
+      element1.element(by.binding('vendor.sku')).getText().then(function (text) {
+        browser.sleep(2000);
+        expect(text).toEqual(Con_sku + randNumber);
+      });
+    });
 
   });
 

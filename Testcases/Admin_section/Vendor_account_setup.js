@@ -16,19 +16,20 @@ describe('Vendors Account Setup module', function () {
 
   it('select vendor by select vendor list and verify the account number of user default facility', function () {
     browser.sleep(2000);
-    element(by.xpath('//a[contains(text(),"All Vendors")]')).click();
+    element(by.xpath("//a[contains(.,'All Vendors')]")).click();
     browser.sleep(1000);
     element(by.model('search.searchKeyword')).clear().sendKeys(vendor_name);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.buttonText('Select')).click();
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
+    element(by.xpath("//button[@class='btn btn-primary']")).click();
+    browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(browser.params.user.fac_name);
-    element(by.buttonText('Search')).click();
+    browser.sleep(1000);
+    element(by.xpath("//button[.='Search']")).click();
     browser.sleep(2000);
     element(by.model('facility.facilityVendor.account_number')).getText().then(function (accountnmber) {
-      console.log('facility account number mapped with vendor' + accountnmber);
+      console.log('facility account number mapped with vendor is' + accountnmber);
     })
 
   });

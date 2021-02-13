@@ -9,6 +9,7 @@ describe('Contract Management', function () {
 
 
   it('Open Contract Management module', function () {
+    browser.sleep(2000);
     element(by.cssContainingText('a.hybrent-blue', 'Admin')).click();
     browser.sleep(2000);
     element(by.linkText('Contract Management')).click();

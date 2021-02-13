@@ -60,7 +60,7 @@ describe('Patient module', function () {
     // element(by.xpath('//select[@id="status"]//option[3]')).click();
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
-    expect($('.toast-message').getText()).toEqual('Patient successfully created.');
+    expect($('.toast-message').getText()).toEqual('Patient created successfully.');
 
 
 
@@ -90,7 +90,7 @@ describe('Patient module', function () {
     element(by.model('patient.address1')).sendKeys("test");
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
-    expect($('.toast-message').getText()).toEqual("Patient successfully updated.");
+    expect($('.toast-message').getText()).toEqual("Patient updated successfully.");
   });
 
   it('search newly created patient by name', function () {
@@ -98,8 +98,8 @@ describe('Patient module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.repeater("(key,value) in reportsRow track by $index")).getText().then(function (text) {
-        expect(text).toMatch(randNumber);
+    element(by.repeater("reportsRow in $ctrl.reportData.rows")).getText().then(function (text) {
+        expect(text).toContain(randNumber);
       });
     
   });

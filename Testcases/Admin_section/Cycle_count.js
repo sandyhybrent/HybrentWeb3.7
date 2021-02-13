@@ -45,8 +45,8 @@ describe('Cycle count module', function () {
     browser.sleep(2000);
     element(by.model('cycleCountParams.is_blind_count')).click();
     browser.sleep(2000);
-    element(by.buttonText('Initiate')).click();
-    browser.sleep(4000);
+    element(by.id("btnAdd")).click();
+    browser.sleep(3000);
     expect($('.toast-message').getText()).toEqual('Cycle count started successfully.');
   });
 

@@ -21,22 +21,24 @@ describe('News module', function () {
     expect(element(by.buttonText('Search')).isPresent()).toBeTruthy();
   });
 
-  it('Add new News', function () {
+  it('Verify that "Missing news description" error toast appear if user tries to add new news without description', function () {
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
     element(by.model('newsData.title')).sendKeys(news_title + randNumber);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Missing news description');
+  });
+
+  it('Verify that user should able to add new news with news title and description', function(){
     browser.sleep(2000);
     element(by.model('html')).sendKeys('test news description');
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('News created successfully.');
-
   });
 
   it('verify that user is able to search news by title', function () {
@@ -44,7 +46,7 @@ describe('News module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
-    expect(element(by.repeater('NewsData in NewsDatas')).getText()).toContain(news_title + randNumber);
+    expect(element(by.css(".grid-heading")).getText()).toEqual(news_title + randNumber);
   });
 
   it('verify that user is able to edit the newly created news', function () {
@@ -52,7 +54,7 @@ describe('News module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
-    element(by.buttonText('Edit')).click();
+    element(by.xpath("//button[contains(text(),'Edit')]")).click();
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
     browser.sleep(1000);
@@ -64,9 +66,9 @@ describe('News module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
-    element(by.buttonText('Delete')).click();
+    element(by.xpath('//button[contains(text(),"Delete")]')).click();
     browser.sleep(2000);
-    element(by.buttonText('Yes')).click();
+    element(by.css(".sweet-alert")).element(by.buttonText('Yes')).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('News deleted successfully.');
 

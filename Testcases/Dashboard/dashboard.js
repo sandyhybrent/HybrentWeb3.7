@@ -184,6 +184,8 @@ describe('Dashboard test cases', function () {
       }
     })
     element(by.linkText('Dashboard')).click();
+  });
+  xit('Verify that news section should appear on dashboard page', function(){
     element(by.xpath(dashbrd.dash.News_event_section_xpath)).isPresent().then(function (present) {
       if (present) {
         console.log('News & Event section appear on page');

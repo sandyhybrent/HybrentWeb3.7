@@ -119,7 +119,7 @@ describe('Hybrent Order Module', function () {
     expect(element(by.linkText('Print Items')).isPresent()).toBe(true);
     expect(element(by.linkText('Invoices')).isPresent()).toBe(true);
     expect(element(by.linkText('PO Log')).isPresent()).toBe(true);
-    expect(element(by.linkText('PO Approval Log')).isPresent()).toBe(true);
+    // expect(element(by.linkText('PO Approval Log')).isPresent()).toBe(true);
     expect(element(by.linkText('Notes')).isPresent()).toBe(true);
     expect(element(by.linkText('Documents')).isPresent()).toBe(true);
     expect(element(by.linkText('Mark as Non Receive Only')).isPresent()).toBe(true);
