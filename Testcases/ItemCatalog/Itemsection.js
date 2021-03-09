@@ -352,7 +352,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.xpath("//a[.='Add Item']")).click();
     browser.sleep(2000);
     element(by.model('item.description')).sendKeys(Billonly_item_name + randNumber);
-    element(by.model('item.alias')).sendKeys('consignment' + randNumber);
+    element(by.model('item.alias')).sendKeys(Billonly_alias + randNumber);
     element(by.model('item.mfr_number')).sendKeys(Billonly_mfr + randNumber);
     // element(by.model('item.item_identifier')).sendKeys('item identy3' + randNumber);
     browser.sleep(1000);

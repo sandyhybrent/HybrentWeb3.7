@@ -71,7 +71,7 @@ describe('Approve unapproved items', function () {
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
-      element1.element(by.binding('item.sku')).getText().then(function (text) {
+      element1.element(by.css("tr[ng-if='items.length'] > td:nth-of-type(3)")).getText().then(function (text) {
         expect(text).toEqual(Billonly_sku + randNumber);
       });
     });
@@ -87,7 +87,7 @@ describe('Approve unapproved items', function () {
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
-      element1.element(by.className('text-with-tooltip')).getText().then(function (text) {
+      element1.element(by.tagName("vendor-info")).getText().then(function (text) {
         expect(text).toEqual(vendor);
       });
     });
