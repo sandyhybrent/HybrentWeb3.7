@@ -43,7 +43,7 @@ describe('Invoice Payment Terms', function () {
     });
   });
 
-  it('update the newly special instruction', function () {
+  it('update the newly created payment term', function () {
     element(by.xpath('//i[@class="fa fa-edit"]')).click();
     browser.sleep(2000);
     element(by.buttonText('Update')).click();
@@ -51,8 +51,9 @@ describe('Invoice Payment Terms', function () {
     expect($('.toast-message').getText()).toEqual('Payment term updated successfully.');
   });
 
-  it('delete newly created special instruction', function () {
-    element(by.xpath('//i[contains(@class,"fa fa-trash")]')).click();
+  it('delete newly created payment term', function () {
+    browser.sleep(2000);
+    element(by.css(".fa-trash-o")).click();
     browser.sleep(1000);
     element(by.buttonText('Yes')).click();
     browser.sleep(1000);
