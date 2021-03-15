@@ -82,10 +82,9 @@ describe('Hybrent Bill & Replace Module', function () {
         console.log('Budget is not present for corresponding facility');
       }
     })
-    browser.sleep(1000);
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randomnmbr + ') created successfully.');
-
+    browser.sleep(2000);
   });
 
 });

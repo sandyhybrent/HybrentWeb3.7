@@ -81,10 +81,9 @@ describe('Hybrent ReplenishBin Module', function () {
       }
 
     });
-    browser.sleep(1000);
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
-    expect(element(by.css(".toast-message")).getText()).toEqual('PO(' + 'RP' + randomnmbr + ') created successfully.');
-
+    browser.sleep(2000);
+    expect($('.toast-message').getText()).toEqual('PO(' + 'RP' + randomnmbr + ') created successfully.');
+    browser.sleep(2000);
   });
 
 });

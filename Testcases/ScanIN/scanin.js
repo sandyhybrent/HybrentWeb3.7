@@ -281,10 +281,9 @@ describe('Hybrent Scan IN Module', function () {
         console.log('Do you still wants to complete Scan In? not appear');
       }
     });
-    browser.sleep(2000);
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
-    expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
     browser.sleep(1000);
+    expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
+    browser.sleep(2000);
   });
 
 });

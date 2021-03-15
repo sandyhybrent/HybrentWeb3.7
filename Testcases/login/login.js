@@ -7,7 +7,7 @@ describe('Hybrent Login Module', function () {
     browser.get(browser.params.url);
   });
 
-  it('Login: Try login without any credentials.', function () {
+  xit('Login: Try login without any credentials.', function () {
     // Waits for loading popup to be no longer visible on the dom.
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     //loginLink.click();
@@ -17,7 +17,7 @@ describe('Hybrent Login Module', function () {
   
   });
 
-  it('Login: Try login with wrong credentials.', function () {
+  xit('Login: Try login with wrong credentials.', function () {
     // Waits for loading popup to be no longer visible on the dom.
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     //loginLink.click();

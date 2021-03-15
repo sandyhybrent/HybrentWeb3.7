@@ -13,10 +13,10 @@ describe('Hybrent Invoice Module', function () {
 
   it('verify that all search filter and drop down should appear on invoice listing page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBe(true);
-    expect(element(by.xpath("//a[contains(.,'All Vendors')]")).isPresent()).toBe(true);
+    expect(element(by.css("hyb-vendor-select")).isPresent()).toBe(true);
     expect(element(by.model('searchParams.status')).isPresent()).toBe(true);
     expect(element(by.model('$select.search')).isPresent()).toBe(true);
-    expect(element(by.model('searchParams.due_date_range')).isPresent()).toBe(true);
+    expect(element(by.model('searchParams.date_range')).isPresent()).toBe(true);
     expect(element(by.xpath("//hyb-dropdown[contains(.,'Select')]")).isPresent()).toBe(true);
     expect(element(by.xpath("//a[contains(.,'All Users')]")).isPresent()).toBe(true);
     expect(element(by.xpath("//a[contains(.,'All projects')]")).isPresent()).toBe(true);
