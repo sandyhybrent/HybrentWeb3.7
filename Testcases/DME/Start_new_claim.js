@@ -29,7 +29,7 @@ describe('Hybrent DME Module', function () {
     browser.sleep(3000);
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
-    expect($('.toast-message').getText()).toMatch('Claim code created successfully');
+    expect($('.toast-message').getText()).toContain('Claim code created successfully');
   });
 
   it('Verify that user is able add Dme item into the newly created claim', function(){

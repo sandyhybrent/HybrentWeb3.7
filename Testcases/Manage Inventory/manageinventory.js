@@ -95,30 +95,6 @@ describe('Hybrent Manage Inventory Module', function () {
     });
   });
 
-  xit('create a replenish support inventory', function () {
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
-    browser.sleep(2000);
-    browser.actions().mouseMove(element(by.css('li[ng-repeat="facility in facilities"] > .tree-node'))).perform();
-    var create_inventoy = element(by.css('li[ng-repeat="facility in facilities"] > .tree-node > .btn-group'));
-    create_inventoy.click();
-    browser.sleep(2000);
-    element(by.xpath("//div[@class='btn-group pull-right inventory-action-btn open']//a[.='Add Inventory']")).click();
-    browser.sleep(2000);
-    element(by.model('inventoryFormData.name')).clear().sendKeys('replenish' + randNumber);
-    browser.sleep(2000);
-    element(by.model('inventoryFormData.mnemonic')).clear().sendKeys('mne' + randNumber);
-    browser.sleep(2000);
-    element(by.model('inventoryFormData.inventory_type_id')).click();
-    browser.sleep(2000);
-    element(by.css("option[value='1']")).click();
-    browser.sleep(2000);
-    element(by.css("div.bootstrap-switch-off .bootstrap-switch-handle-off")).click();
-    browser.sleep(2000);
-    element(by.buttonText('Save')).click();
-    browser.sleep(2000);
-    expect($('.toast-message').getText()).toContain('Inventory added successfully.');
-  });
-
   it('create a test inventory', function () {
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 5000);
     browser.sleep(2000);
