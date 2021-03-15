@@ -98,10 +98,7 @@ describe('Patient module', function () {
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.repeater("reportsRow in $ctrl.reportData.rows")).getText().then(function (text) {
-        expect(text).toContain(randNumber);
-      });
-    
+    expect(element(by.xpath("//td[4]")).getText()).toContain(randNumber);    
   });
 
   it('add charges to patient', function () {

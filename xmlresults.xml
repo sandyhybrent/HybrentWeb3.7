@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites disabled="0" errors="0" failures="0" tests="9" time="11.759">
- <testsuite name="Hybrent Login Module" timestamp="2021-03-15T14:41:55" hostname="localhost" time="8.194" errors="0" tests="3" skipped="2" disabled="0" failures="0">
-  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="0.003">
+<testsuites disabled="0" errors="0" failures="0" tests="10" time="26.126">
+ <testsuite name="Hybrent Login Module" timestamp="2021-03-15T14:50:44" hostname="localhost" time="10.932" errors="0" tests="3" skipped="2" disabled="0" failures="0">
+  <testcase classname="Hybrent Login Module" name="Login: Try login without any credentials." time="0.002">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="0.001">
+  <testcase classname="Hybrent Login Module" name="Login: Try login with wrong credentials." time="0">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="8.188" />
+  <testcase classname="Hybrent Login Module" name="Login: Try login with correct credentials." time="10.926" />
  </testsuite>
- <testsuite name="Hybrent Invoice Module" timestamp="2021-03-15T14:42:03" hostname="localhost" time="3.565" errors="0" tests="6" skipped="4" disabled="0" failures="0">
-  <testcase classname="Hybrent Invoice Module" name="Navigate to Invoice module" time="3.301" />
-  <testcase classname="Hybrent Invoice Module" name="verify that all search filter and drop down should appear on invoice listing page" time="0.257" />
-  <testcase classname="Hybrent Invoice Module" name="Verify that user is able to search invoice by invoice number" time="0.001">
+ <testsuite name="user default facility" timestamp="2021-03-15T14:50:55" hostname="localhost" time="6.408" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="user default facility" name="user default facility is" time="6.407" />
+ </testsuite>
+ <testsuite name="Patient module" timestamp="2021-03-15T14:51:01" hostname="localhost" time="8.786" errors="0" tests="6" skipped="3" disabled="0" failures="0">
+  <testcase classname="Patient module" name="Navigate to patient module" time="4.245" />
+  <testcase classname="Patient module" name="Verify that search patient By filter appear on patient detail page" time="0.147" />
+  <testcase classname="Patient module" name="verify that user is able to add patient by clicking on add patient button" time="0.001">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Invoice Module" name="Open invoice detail page" time="0">
+  <testcase classname="Patient module" name="Patient: Update Patient." time="0.016">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
-  <testcase classname="Hybrent Invoice Module" name="update invoice" time="0.001">
-   <skipped message="Temporarily disabled with xit" />
-  </testcase>
-  <testcase classname="Hybrent Invoice Module" name="delete newly created invoice" time="0.005">
+  <testcase classname="Patient module" name="search newly created patient by name" time="4.376" />
+  <testcase classname="Patient module" name="add charges to patient" time="0.001">
    <skipped message="Temporarily disabled with xit" />
   </testcase>
  </testsuite>
