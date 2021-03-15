@@ -95,7 +95,7 @@ describe('Print Barcodes/QRCodes', function () {
     expect(element(by.model('printType.printWith.parlevel')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.mfr_number')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.quick_code')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.cross_walk_id')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.cross_walk_id')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.categories')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.inventory_path')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.averyTemplate')).isPresent()).toBeTruthy();
