@@ -185,26 +185,8 @@ describe('Dashboard test cases', function () {
     })
     element(by.linkText('Dashboard')).click();
   });
-  xit('Verify that news section should appear on dashboard page', function(){
-    element(by.xpath(dashbrd.dash.News_event_section_xpath)).isPresent().then(function (present) {
-      if (present) {
-        console.log('News & Event section appear on page');
-        var items = element.all(by.repeater('recentNewsDetails in dashboardData.recentNews'));
-        if (items.count() > 0) {
-          expect(items.count()).toBe(3);
-        }
-        var rows = element.all(by.repeater("recentNewsDetails in dashboardData.recentNews"));
-        rows.first().element(by.tagName("a")).click();
-        expect(browser.getTitle()).toEqual('News');
-        element(by.linkText('Dashboard')).click();
-        browser.sleep(2000);
-
-      } else {
-        console.log('News & Event does not appear on page');
-      }
-    })
-
-  });
-
+  
 
 });
+
+

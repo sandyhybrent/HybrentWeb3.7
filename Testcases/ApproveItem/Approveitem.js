@@ -94,7 +94,7 @@ describe('Approve unapproved items', function () {
   });
 
   it('Approve item after search', function () {
-    element(by.model('searchParams.search')).clear().sendKeys(Billonly_item_name);
+    element(by.model('searchParams.search')).clear().sendKeys(Billonly_item_name + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);

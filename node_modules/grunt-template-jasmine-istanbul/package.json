@@ -1,0 +1,51 @@
+{
+  "name": "grunt-template-jasmine-istanbul",
+  "description": "Code coverage template mix-in for grunt-contrib-jasmine, using istanbul",
+  "version": "0.5.0",
+  "keywords": [
+    "grunt",
+    "template",
+    "jasmine",
+    "istanbul"
+  ],
+  "author": {
+    "name": "maenu"
+  },
+  "contributors": [
+    "Gyandeep Singh <gyandeeps@gmail.com>",
+    "Radu Micu <radu.micu@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maenu/grunt-template-jasmine-istanbul.git"
+  },
+  "main": "src/main/js/template.js",
+  "dependencies": {
+    "istanbul": "^0.4.3",
+    "lodash.template": "^4.2.5"
+  },
+  "peerDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jasmine": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint-config-ideal": "^1.0.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-contrib-yuidoc": "^1.0.0",
+    "gruntify-eslint": "^1.0.0"
+  },
+  "scripts": {
+    "test": "grunt test",
+    "lint": "grunt check"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/maenu/grunt-template-jasmine-istanbul/master/LICENSE.txt"
+    }
+  ]
+}

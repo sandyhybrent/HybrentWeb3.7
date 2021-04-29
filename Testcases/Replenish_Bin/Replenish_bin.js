@@ -81,9 +81,8 @@ describe('Hybrent ReplenishBin Module', function () {
       }
 
     });
-    browser.sleep(2000);
-    expect($('.toast-message').getText()).toEqual('PO(' + 'RP' + randomnmbr + ') created successfully.');
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + 'RP' + randomnmbr + ') created successfully.'),5000);
+    expect($('.toast-message').getText()).toContain('PO(' + 'RP' + randomnmbr + ') created successfully.');
   });
 
 });

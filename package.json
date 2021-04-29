@@ -4,23 +4,32 @@
   "main": "conf.js",
   "dependencies": {
     "fs-extra": "^8.1.0",
-    "jasmine": "^3.5.0",
     "jasmine-allure-reporter": "^1.0.2",
+    "jasmine-istanbul-reporter": "^0.0.0",
     "jasmine-reporters": "^2.3.2",
     "jasmine2-protractor-utils": "^1.3.0",
     "lodash": "^4.17.15",
-    "protractor-html-reporter-2": "^1.0.4"
+    "protractor-html-reporter-2": "^1.0.4",
+    "protractor-istanbul-plugin": "^2.0.0",
+    "q": "^1.5.1"
   },
-  
-  
   "devDependencies": {
+    "grunt-template-jasmine-istanbul": "^0.5.0",
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.7.0",
+    "jasmine-console-reporter": "^3.1.0",
     "jasmine-expect": "^4.0.3",
-    "protractor-jasmine2-html-reporter": "0.0.7"
+    "jasmine-node": "^3.0.0",
+    "jasmine-supertest": "^1.0.0",
+    "nyc": "^15.1.0",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "supertest": "^6.1.3"
   },
   "scripts": {
     "pretest": "rm -rf allure-report",
     "protractortest": "protractor conf.js",
-    "report": "allure generate allure-results --clean -o allure-report || true"
+    "report": "allure generate allure-results --clean -o allure-report || true",
+    "coverage" : "nyc --reporter=lcov --reporter=text npm run protractortest"
   },
   "repository": {
     "type": "git",

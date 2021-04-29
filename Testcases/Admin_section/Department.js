@@ -38,7 +38,7 @@ describe('Department', function () {
     element(by.model('departmentData.name')).sendKeys(name + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Save')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Department created successfully.');
   });
 

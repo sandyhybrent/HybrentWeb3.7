@@ -60,7 +60,6 @@ describe('Hybrent Bill & Replace Module', function () {
         expect(text).toEqual(Con_sku + randNumber);
       });
     });
-
     browser.sleep(1000);
     var itemRow = element(by.repeater('item in items').row(0));
     element(by.buttonText('Add')).click();
@@ -82,9 +81,8 @@ describe('Hybrent Bill & Replace Module', function () {
         console.log('Budget is not present for corresponding facility');
       }
     })
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randomnmbr + ') created successfully.'),5000);
     expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randomnmbr + ') created successfully.');
-    browser.sleep(2000);
   });
 
 });

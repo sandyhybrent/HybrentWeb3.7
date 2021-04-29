@@ -2,6 +2,7 @@ var object = require('./objects');
 
 var HTMLReport = require('protractor-html-reporter-2');
 var jasmineReporters = require('jasmine-reporters');
+var istanbulPlugin = require('protractor-istanbul-plugin');
 //var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 
@@ -39,13 +40,7 @@ exports.config = {
     'Testcases/Inventory_Transfer/*js',
     'Testcases/Shipment/*js',
     'Testcases/Physician/*.js',
-    'Testcases/OperatingRoom/*.js',
-    'Testcases/Procedure/*js',
-    'Testcases/Preference_Card/*js',
-    'Testcases/Planner/*js',
-    'Testcases/Pick-List/*js',
-    'Testcases/Executecase/*js',
-    'Testcases/All_cases/*js',
+    'Testcases/Preference_Card/*.js',
     'Testcases/Out_Of_Stock/*js',
     'Testcases/Admin_section/*js',
     'Testcases/DME/*js',
@@ -56,6 +51,7 @@ exports.config = {
   onPrepare: function () {
     browser.manage().window().maximize();
     var jasmineReporters = require('jasmine-reporters');
+    
 
     //protractor html reporter-2
 
@@ -64,6 +60,10 @@ exports.config = {
       savePath: './',
       filePrefix: 'xmlresults'
     }));
+
+    
+
+    
     /*var AllureReporter = require('jasmine-allure-reporter');
     jasmine.getEnv().addReporter(new AllureReporter({
       resultsDir: 'allure-results'
@@ -85,7 +85,7 @@ exports.config = {
     screenshotPath: './screenshots',
     screenshotOnExpectFailure: false,
     screenshotOnSpecFailure: true,
-    clearFoldersBeforeTest: true
+    clearFoldersBeforeTest: true,
   }],
 
   onComplete: function () {
@@ -100,7 +100,7 @@ exports.config = {
       var HTMLReport = require('protractor-html-reporter-2');
 
       testConfig = {
-        reportTitle: 'Hybrent Web 3.5.2-RC2',
+        reportTitle: 'Hybrent Web 3.6.0-RC1',
         outputPath: './',
         outputFilename: 'Protractor Test Execution Report for web 3.5.2-RC2',
         screenshotPath: './screenshots',
@@ -112,6 +112,7 @@ exports.config = {
       };
       new HTMLReport().from('xmlresults.xml', testConfig);
     });
+    
   },
   // increased time out for debugging
   allScriptsTimeout: 999999,

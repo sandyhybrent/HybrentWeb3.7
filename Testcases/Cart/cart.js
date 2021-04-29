@@ -54,9 +54,9 @@ describe('Hybrent Cart Module', function () {
       }
 
     });
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randNumber + ') created successfully.'),5000);
     expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
-    browser.sleep(2000);
+    
   });
 
 

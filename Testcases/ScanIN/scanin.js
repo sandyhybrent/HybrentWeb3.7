@@ -282,7 +282,13 @@ describe('Hybrent Scan IN Module', function () {
       }
     });
     browser.sleep(1000);
-    expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
+    // var toast_message = $('.toast-message').getText();
+    // expect(EC.textToBePresentInElement(toast_message, "Item successfully mapped with inventory.")).toBe(true);
+    expect($('.toast-message').getText()).toBe('Item successfully mapped with inventory.');
+    browser.sleep(1000);
+    var toastnew = element.all($('.toast-message')).get(1);
+    expect(toastnew.getText()).toBe('Scan in completed successfully.');
+    // expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
     browser.sleep(2000);
   });
 
