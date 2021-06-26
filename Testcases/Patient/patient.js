@@ -66,7 +66,7 @@ describe('Patient module', function () {
 
   });
 
-  it('Patient: Update Patient.', function () {
+  it('Search and update the patient', function () {
     // element(by.css('div.pagehead > hyb-select > a')).click();
     // element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);
     // element(by.buttonText('Select')).click();
@@ -89,17 +89,19 @@ describe('Patient module', function () {
     browser.sleep(2000);
     element(by.model('patient.address1')).sendKeys("test");
     element(by.buttonText('Save')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Patient updated successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual("Patient updated successfully.");
   });
 
-  it('search newly created patient by name', function () {
-    element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
-    browser.sleep(2000);
-    element(by.buttonText('Search')).click();
-    browser.sleep(2000);
-    expect(element(by.xpath("//td[4]")).getText()).toContain(randNumber);    
-  });
+  // it('search newly created patient by name', function () {
+  //   element(by.model('searchParams.search')).clear().sendKeys(Patient_fname + " " + randNumber);
+  //   browser.sleep(2000);
+  //   element(by.buttonText('Search')).click();
+  //   browser.sleep(2000);
+  //   element(by.xpath("//span[contains(.,'john')]")).getText().then(function(patient){
+  //     expect(patient).toContain('john')
+  //   })
+  // });
 
   it('add charges to patient', function () {
     browser.sleep(2000);
@@ -107,17 +109,17 @@ describe('Patient module', function () {
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Patients Charges');
     element(by.xpath('//span[contains(text(),"Recurring Charges")]')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add Recurring Charge'))),20000);
     element(by.buttonText('Add Recurring Charge')).click();
     browser.sleep(1000);
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Add')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//a[contains(text(),"Select Inventory")]'))),20000);
     element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
     browser.sleep(2000);
     element(by.buttonText('Select')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//div[@class="modal-footer"]//span[@id="btnAdd"]'))),20000);
     element(by.xpath('//div[@class="modal-footer"]//span[@id="btnAdd"]')).click();
     browser.sleep(2000);
     element(by.model('$ctrl.scheduler.schedule_type')).click();
@@ -131,9 +133,9 @@ describe('Patient module', function () {
     element(by.model('hours')).clear().sendKeys('23');
     browser.sleep(2000);
     element(by.model('minutes')).clear().sendKeys('45');
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 20000);
     element(by.buttonText('Save')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Schedule added successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual("Schedule added successfully.");
   });
 

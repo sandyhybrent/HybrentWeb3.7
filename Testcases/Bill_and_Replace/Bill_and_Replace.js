@@ -82,6 +82,7 @@ describe('Hybrent Bill & Replace Module', function () {
       }
     })
     browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randomnmbr + ') created successfully.'),5000);
+    browser.sleep(1000);
     expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randomnmbr + ') created successfully.');
   });
 

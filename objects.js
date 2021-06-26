@@ -1,4 +1,4 @@
-exports.url = 'https://qa5.test.hybrent.com/b/#/login/';
+exports.url = 'https://qa40.test.hybrent.com/b/#/login/';
 
 exports.user = {
   username: "sandy",
@@ -54,7 +54,9 @@ exports.itemCatalog = {
   PO_Number: "Test",
   Consignment: 'Consignment test item',
   Con_sku: 'consku',
-  randNumber: Math.floor(Date.now())
+  randNumber: Math.floor(Date.now()),
+  consignment_Item_Mfr : 'conmfr',
+  consignment_Item_Alias : 'calias'
 
 }
 

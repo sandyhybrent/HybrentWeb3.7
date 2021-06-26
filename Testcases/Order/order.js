@@ -5,8 +5,9 @@ describe('Hybrent Order Module', function () {
   var fac_name = browser.params.user.fac_name;
   var Inventory_name = browser.params.user.Inv_name;
   it('Open order module', function () {
+    browser.wait(EC.elementToBeClickable(element(by.linkText('Orders'))),20000);
     element(by.linkText('Orders')).click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('My Orders'),20000);
     expect(browser.getTitle()).toEqual('My Orders');
 
   });
@@ -22,10 +23,11 @@ describe('Hybrent Order Module', function () {
   });
 
   it('Order list page search with PO# Found', function () {
+    browser.wait(EC.elementToBeClickable(element(by.model('searchForm.statusFilter'))), 20000);
     element(by.model('searchForm.statusFilter')).click();
     browser.sleep(2000);
     element(by.model('searchForm.search')).sendKeys(PO_Num + randNumber);
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.repeater('status in $select.items'))), 20000);
     element(by.repeater('status in $select.items')).click();
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
@@ -35,8 +37,9 @@ describe('Hybrent Order Module', function () {
   });
 
   it('open order detail page', function () {
+    browser.wait(EC.elementToBeClickable(element(by.linkText(PO_Num + randNumber))), 20000);
     element(by.linkText(PO_Num + randNumber)).click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Purchase Order'),5000);
     expect(browser.getTitle()).toEqual('Purchase Order');
   });
 
@@ -47,41 +50,45 @@ describe('Hybrent Order Module', function () {
     });
     browser.sleep(2000);
     element(by.model('itemForm.price')).clear().sendKeys('12');
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Update Price'))), 20000);
     element(by.buttonText('Update Price')).click();
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
-      browser.sleep(2000);
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 20000);
       element(by.buttonText('Save')).click();
     })
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Order successfully updated.'), 20000);
     expect($('.toast-message').getText()).toEqual('Order successfully updated.');
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('My Orders');
   });
 
   it('verify that all option edit item, Price change history, Purchase History and Stock info should appear in item drop-down', function () {
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.linkText(PO_Num + randNumber))), 20000);
     element(by.linkText(PO_Num + randNumber)).click();
     browser.sleep(2000);
-    browser.executeScript("arguments[0].scrollIntoView();", element(by.css(".fa-chevron-down")).getWebElement()).then(function () {
-      element(by.css(".fa-chevron-down")).click();
+    browser.wait(EC.presenceOf(element(by.id("optionMenu"))), 20000);
+    browser.executeScript("arguments[0].scrollIntoView();", element(by.id("optionMenu")).getWebElement()).then(function () {
+      element(by.id("optionMenu")).click();
     });
     browser.sleep(2000);
+    browser.wait(EC.presenceOf(element(by.partialLinkText('Edit'))), 20000);
     expect(element(by.partialLinkText('Edit')).isPresent()).toBeTruthy();
     expect(element(by.partialLinkText('Price Change History')).isPresent()).toBeTruthy();
     expect(element(by.partialLinkText('Purchase History')).isPresent()).toBeTruthy();
+    browser.wait(EC.presenceOf(element(by.partialLinkText('Stock Info'))), 20000);
     expect(element(by.partialLinkText('Stock Info')).isPresent()).toBeTruthy();
   });
 
   it('update item gpo contract price by clicking edit button', function () {
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.partialLinkText('Edit'))), 40000);
     element(by.partialLinkText('Edit')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.linkText('Vendors'))), 40000);
     element(by.linkText('Vendors')).click();
     browser.sleep(2000);
     element(by.model('v.facilityItemVendors.gpo_contract_price')).clear().sendKeys('0.11');
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 40000);
     element(by.buttonText('Save')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item successfully updated.'), 20000);
     expect($('.toast-message').getText()).toEqual('Item successfully updated.');
 
   });
@@ -105,11 +112,6 @@ describe('Hybrent Order Module', function () {
         browser.sleep(2000);
       });
     });
-    // let order = element(by.repeater('order in ordersData.purchaseOrders'));
-    // browser.wait(EC.elementToBeClickable(order.element(by.css('.dropdown-toggle'))), 5000);
-    // order.element(by.css('.dropdown-toggle')).click();
-    // browser.actions().mouseMove(order.element(by.css('li.po-print'))).perform();
-    // browser.wait(EC.elementToBeClickable(order.element(by.css('li.po-print'))), 5000);
     browser.wait(EC.elementToBeClickable($('div.btn-group > .dropdown-toggle')), 5000);
     $('div.btn-group > button.dropdown-toggle').click();
     browser.sleep(2000);
@@ -129,36 +131,28 @@ describe('Hybrent Order Module', function () {
 
 
   it('add invoice for newly created order', function () {
-    // element(by.buttonText('Close')).click();
     browser.sleep(2000);
-    // let order = element(by.repeater('order in ordersData.purchaseOrders'));
-    // browser.wait(EC.elementToBeClickable(order.element(by.css('.dropdown-toggle'))), 5000);
-    // order.element(by.css('.dropdown-toggle')).click();
     browser.actions().mouseMove(element(by.linkText('Invoices'))).perform();
-    browser.wait(EC.elementToBeClickable(element(by.linkText('Add Invoice'))), 5000);
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.linkText('Add Invoice'))), 20000);
     element(by.linkText('Add Invoice')).click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Invoice Detail'), 20000);
     expect(browser.getTitle()).toEqual('Invoice Detail');
     element(by.model('vm.InvNo')).sendKeys(PO_Num + randNumber);
+    browser.wait(EC.elementToBeClickable(element(by.model('vm.InvoicePaymentTerm'))), 20000);
     element(by.model('vm.InvoicePaymentTerm')).$('[label="' + 'Other' + '"]').click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.model('vm.SelectedItem'))), 20000);
     element(by.model('vm.SelectedItem')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath("//option[.='All']"))), 20000);
     element(by.xpath("//option[.='All']")).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath("//button[contains(.,'Add Item')]"))), 20000);
     element(by.xpath("//button[contains(.,'Add Item')]")).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 20000);
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Invoice saved successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Invoice saved successfully.');
-    browser.sleep(1000);
+    browser.wait(EC.titleIs('PO Invoice'), 20000);
     expect(browser.getTitle()).toEqual('PO Invoice');
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
-    element(by.xpath('//span[contains(text(),"Receive")]')).click();
-    browser.sleep(2000);
-    expect(browser.getTitle()).toEqual('Receive PO');
   })
 });

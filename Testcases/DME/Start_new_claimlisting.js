@@ -20,14 +20,14 @@ describe('Hybrent DME Module', function () {
   it('Search and open newly created cliam for the patient',function(){
     element(by.css(".btn-default")).click();
     browser.sleep(2000);
-    // element(by.model('search.search')).sendKeys('john 1612946816419');
+    // element(by.model('search.search')).sendKeys('john 1600843676805');
     element(by.model('search.search')).sendKeys(Patient_fname +" " + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.partialLinkText('00000000')).click();
+    element(by.partialLinkText('00000003')).click();
     browser.sleep(2000);
     expect(browser.getTitle()).toEqual('Manage Claim: Create Claim');
   });
@@ -55,7 +55,7 @@ describe('Hybrent DME Module', function () {
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.partialLinkText('00000000')).click();
+    element(by.partialLinkText('00000003')).click();
     browser.sleep(4000);
     expect(browser.getTitle()).toEqual('Manage Claim: Create Claim');
     browser.sleep(2000);

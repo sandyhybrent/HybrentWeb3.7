@@ -83,8 +83,8 @@ describe('Planner module', function () {
     element(by.buttonText('Schedule Case')).click();
     browser.sleep(2000);
     var toast_message = $('.toast-message').getText();
-    expect(EC.textToBePresentInElement(toast_message, 'Case #  successfully created for patient "john".')).toBeTruthy();
-    // expect($('.toast-message')).toContain('Case #  successfully created for patient "john".');
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case #  successfully created for patient "john".'), 20000);
+    expect($('.toast-message')).toContain('Case #  successfully created for patient "john".');
     browser.sleep(4000);
   });
 

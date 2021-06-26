@@ -5,6 +5,8 @@ describe('Dashboard test cases', function () {
   var EC = protractor.ExpectedConditions;
   var DashBoard_Report_PartialReviews_txt = element.all(by.css('[ng-click="goToOrders()"]'));
   var userfacility = browser.params.userfacility.facility_xpath;
+ 
+  
 
   it('Verify that System gets redirected to Profile page when user clicks on Profile link', function () {
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
@@ -108,7 +110,7 @@ describe('Dashboard test cases', function () {
     expect(browser.getTitle()).toEqual('Dashboard');
     var viewmorereport = element(by.buttonText('View More Reports'), 20000);
     viewmorereport.click();
-    var allreports = element(by.xpath('//li[@tooltip-trigger="focus"]/a[@role="menuitem"]'), 20000);
+    browser.wait(EC.presenceOf(element(by.xpath('//li[@tooltip-trigger="focus"]/a[@role="menuitem"]'))), 20000);
     element.all(by.xpath('//li[@tooltip-trigger="focus"]/a[@role="menuitem"]')).getText().then(function (reports) {
       for (var i = 0; i < reports.length; i++) {
 

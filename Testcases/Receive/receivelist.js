@@ -6,12 +6,9 @@ describe('Hybrent Receive Module', function () {
   var Inventory_name = browser.params.user.Inv_name;
 
   it('Navigate to Receive module', function () {
-
     element(by.xpath('//span[contains(text(),"Receive")]')).click();
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Receive PO'), 50000);
     expect(browser.getTitle()).toEqual('Receive PO');
-    browser.sleep(1000);
   });
 
   it('verify that all search filter appear on listing page', function () {

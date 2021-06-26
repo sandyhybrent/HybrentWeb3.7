@@ -5,11 +5,11 @@ describe('Hybrent Templates Module for scan out', function () {
   var userfacility = browser.params.userfacility.facility_xpath;
   var randNumber = browser.params.itemCatalog.randNumber;
 
-  it('Templates scanout List page should open', function () {
-    browser.sleep(2000);
+  it('Templates scanout List page should open', async function () {
+    browser.wait(EC.presenceOf(element.all(by.className('nav-link')).get(1)), 20000);
     var scanout = element.all(by.className('nav-link')).get(1);
     scanout.click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Templates'),5000);
     expect(browser.getTitle()).toEqual('Templates');
   });
 
@@ -20,12 +20,13 @@ describe('Hybrent Templates Module for scan out', function () {
   });
 
   it('Add scanout Template', function () {
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add Template'))), 20000);
     element(by.buttonText('Add Template')).click();
-    browser.sleep(2000);
+    browser.wait(EC.presenceOf(element(by.model('tempData.template_name'))), 20000);
     element(by.model('tempData.template_name')).sendKeys('sct' + randNumber);
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Create Template'))), 20000);
     element(by.buttonText('Create Template')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Template created successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Template created successfully.');
   });
 
@@ -35,10 +36,11 @@ describe('Hybrent Templates Module for scan out', function () {
     browser.sleep(2000);
     element(by.id("btnAdd")).click();
     browser.sleep(2000);
-    element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
-    browser.sleep(2000);
-    element(by.buttonText('Select')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add'))), 20000);
+    // element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();
+    // browser.sleep(2000);
+    // element(by.buttonText('Select')).click();
+    // browser.sleep(2000);
     element(by.buttonText('Add')).click();
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Item added for scan out template successfully.');
@@ -46,7 +48,7 @@ describe('Hybrent Templates Module for scan out', function () {
     element(by.buttonText('Close')).click();
   });
 
-  it('Search template by name', function () {
+  it('Search template by name', async function () {
     browser.sleep(3000);
     let search = element(by.css("div.tab-content > div:nth-of-type(2) #PONUM"));
     search.clear().sendKeys('sct' + randNumber);
@@ -59,16 +61,17 @@ describe('Hybrent Templates Module for scan out', function () {
     })
   });
 
-  it('update newly created scanout template', function () {
+  it('update newly created scanout template', async function () {
     browser.sleep(2000);
-    let template = element.all(by.xpath('//i[@class="fa fa-edit"]')).get(1);
+    let template = await element.all(by.xpath('//i[@class="fa fa-edit"]')).get(1);
     template.click();
     browser.sleep(2000);
-    element(by.buttonText('+')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('+'))), 20000);
+    await element(by.buttonText('+')).click();
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Template updated successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Template updated successfully.');
     browser.sleep(1000);
-    element(by.buttonText('Close')).click();
+    await element(by.buttonText('Close')).click();
   });
 
   it('delete newly created scanout template', function () {
@@ -76,8 +79,12 @@ describe('Hybrent Templates Module for scan out', function () {
     let template = element.all(by.xpath('//i[@class="fa fa-trash-o"]')).get(1);
     template.click();
     browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 20000);
     element(by.buttonText('Yes')).click();
-    browser.sleep(1000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Template deleted successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Template deleted successfully.');
+    browser.sleep(2000);
+    let search = element(by.css("div.tab-content > div:nth-of-type(2) #PONUM"));
+    search.clear()
   });
 });

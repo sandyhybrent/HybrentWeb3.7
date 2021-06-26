@@ -65,7 +65,7 @@ describe('Picklist module', function () {
 
   it('open and add normal notes in newly created case', function () {
 
-    element(by.partialLinkText('00000001')).click();
+    element(by.partialLinkText('00000000')).click();
     browser.sleep(2000);
     element(by.model('CaseDetail.gloves_size')).clear().sendKeys('glove' + randNumber);
     browser.sleep(1000);
@@ -108,7 +108,7 @@ describe('Picklist module', function () {
     element(by.xpath('//button[contains(text(),"Move to Execute")]')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Case moved to execute successfully.');
-    browser.sleep(2000);
+    browser.sleep(3000);
     expect(browser.getTitle()).toEqual('Pick list');
   });
 

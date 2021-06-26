@@ -10,8 +10,9 @@ describe('Hybrent Cart Module', function () {
   })
 
   it('Open cart page', function () {
+    browser.wait(EC.elementToBeClickable(element(by.css('.fa-shopping-cart'))), 20000);
     element(by.css('.fa-shopping-cart')).click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('My Cart'), 20000);
     expect(browser.getTitle()).toEqual('My Cart');
   });
 
@@ -21,46 +22,45 @@ describe('Hybrent Cart Module', function () {
     browser.sleep(1000);
     // element(by.id("btnAdd")).click();
     // browser.sleep(1000);
-    expect(element(by.buttonText('+')).isPresent()).toBe(true);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('+'))), 20000);
     element(by.buttonText('+')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('+'))), 20000);
     element(by.buttonText('+')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('+'))), 20000);
     element(by.buttonText('+')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement(element(by.css('.item-qty-editable-label')),'4'), 20000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
   });
 
   it('Generate PO', function () {
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.model('cartParams.vendorParams[key].is_receive_only'))), 20000);
     var receive_only = element(by.model('cartParams.vendorParams[key].is_receive_only'));
     receive_only.click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.model('cartParams.vendorParams[key].is_use_my_po_num'))), 20000);
     element(by.model('cartParams.vendorParams[key].is_use_my_po_num')).click();
     browser.sleep(1000);
     element(by.model('cartParams.vendorParams[key].manual_po_num')).sendKeys(PO_Num + randNumber);
-    browser.sleep(3000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//span[@id="btnAdd"]'))), 20000);
     element(by.xpath('//span[@id="btnAdd"]')).click();
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(3000);
+    browser.sleep(2000);
     var budget = element(by.css('.sa-button-container'));
     budget.isPresent().then(function (present) {
       if (present) {
         console.log('Budget is present for corresponding facility');
+        browser.wait(EC.presenceOf(element(by.css('.sa-button-container')).element(by.buttonText('Yes'))), 20000);
         element(by.buttonText('Yes')).click();
+        browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randNumber + ') created successfully.'), 20000);
+        expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
       } else {
         console.log('Budget is not present for corresponding facility');
+        browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randNumber + ') created successfully.'), 20000);
+        expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
       }
 
     });
-    browser.wait(EC.textToBePresentInElement($('.toast-message'),'PO(' + PO_Num + randNumber + ') created successfully.'),5000);
-    expect($('.toast-message').getText()).toContain('PO(' + PO_Num + randNumber + ') created successfully.');
-    
+        
   });
-
-
-
-
 
 });

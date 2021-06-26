@@ -133,7 +133,7 @@ describe('Hybrent Item Catalog Module', function () {
     browser.sleep(1000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
     browser.wait(EC.elementToBeClickable(element(by.buttonText('Yes'))), 5000);
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
     browser.sleep(2000);
   });
@@ -470,7 +470,7 @@ describe('Hybrent Item Catalog Module', function () {
       element(by.buttonText('Save')).click();
       browser.sleep(2000);
       expect($('.toast-message').getText()).toEqual('Item added successfully.');
-
+      browser.sleep(2000);
       element(by.xpath("//i[@class='fa fa-2x fa-times']")).click();
     });
   });

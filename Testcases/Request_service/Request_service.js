@@ -8,7 +8,7 @@ describe('Request service module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Request Service")]')).getWebElement()).then(function () {
       element(by.xpath('//span[contains(text(),"Request Service")]')).click();
     });
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Create Service PO'), 50000);
     expect(browser.getTitle()).toEqual('Create Service PO');
   });
 

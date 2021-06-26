@@ -22,7 +22,7 @@ describe('Hybrent DME Module', function () {
   it('Click on select button to select patient to generate a claim', function () {
     element(by.xpath('//a[@class="text-primary fa fa-wheelchair"]')).click();
     browser.sleep(2000);
-    // element(by.model('searchParams.search')).sendKeys('john 1612946816419');
+    // element(by.model('searchParams.search')).sendKeys('john 1600843676805');
     element(by.model('searchParams.search')).sendKeys(Patient_fname +" "+ randNumber);
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
@@ -37,7 +37,7 @@ describe('Hybrent DME Module', function () {
     browser.sleep(2000);
     element(by.buttonText('Add DME')).click();
     browser.sleep(2000);
-    // element(by.model('itemSearchParam.search')).sendKeys('DS1609998429910');
+    // element(by.model('itemSearchParam.search')).sendKeys('DS1619352975278');
     element(by.model('itemSearchParam.search')).sendKeys(Dme_sku+randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();

@@ -4,11 +4,11 @@ describe('Hybrent Invoice Module', function () {
   var randNumber = browser.params.itemCatalog.randNumber;
 
   it('Navigate to Invoice module', function () {
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//span[contains(text(),"Invoices")]'))), 20000);
     element(by.xpath('//span[contains(text(),"Invoices")]')).click();
-    browser.sleep(2000);
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
+    browser.wait(EC.titleIs('Manage Invoice'));
     expect(browser.getTitle()).toEqual('Manage Invoice');
-    browser.sleep(1000);
+    
   });
 
   it('verify that all search filter and drop down should appear on invoice listing page', function () {
@@ -35,24 +35,23 @@ describe('Hybrent Invoice Module', function () {
   });
 
   it('Open invoice detail page', function () {
+    browser.wait(EC.elementToBeClickable(element(by.linkText('TEST' + randNumber))), 20000);
     element(by.linkText('TEST' + randNumber)).click();
-    browser.sleep(2000);
+    browser.wait(EC.titleIs('Invoice Detail'), 20000);
     expect(browser.getTitle()).toEqual('Invoice Detail');
   });
 
-  it('update invoice', function () {
-    browser.sleep(2000);
-    element(by.model('vm.InvTaxAmount')).clear().sendKeys('10.00');
-    browser.sleep(1000);
-    element(by.model('vm.InvFreightCharges')).clear().sendKeys('10.00');
-    browser.sleep(1000);
-    element(by.model('vm.InvMiscCharges')).clear().sendKeys('10.00');
-    browser.sleep(1000);
-    element(by.model('vm.InvDiscountAmount')).clear().sendKeys('10.00');
+  it('update invoice', async function () {
+    browser.wait(EC.presenceOf(element(by.model('vm.InvTaxAmount'))), 20000);
+    await element(by.model('vm.InvTaxAmount')).clear().sendKeys('10.00');
+    await element(by.model('vm.InvFreightCharges')).clear().sendKeys('10.00');
+    await element(by.model('vm.InvMiscCharges')).clear().sendKeys('10.00');
+    await element(by.model('vm.InvDiscountAmount')).clear().sendKeys('10.00');
     browser.sleep(1000);
     element(by.xpath('//span[contains(@class,"pull-right")]')).getText().then(function (test) {
       expect(test).toEqual('$68.00');
     })
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))), 20000);
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
     var YesPopUo = element(by.css('.sa-button-container')).element(by.buttonText('Yes'));

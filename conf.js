@@ -22,14 +22,14 @@ exports.config = {
     'Testcases/login/*.js',
     'Testcases/Dashboard/*.js',
     'Testcases/Userfacility/*.js',
-    'Testcases/ItemCatalog/*.js',
+    'Testcases/ItemCatalog/itn.js',
     'Testcases/Shop/*.js',
     'Testcases/Cart/*js',
     'Testcases/Order/*js',
     'Testcases/Request_service/*js',
     'Testcases/Receive/*js',
     'Testcases/Invoice/*js',
-    'Testcases/Template/*js',
+    'Testcases/Template/*.js',
     'Testcases/Patient/*.js',
     'Testcases/ScanIN/*.js',
     'Testcases/ScanOut/*.js',
@@ -47,7 +47,8 @@ exports.config = {
     // // 'Testcases/All_Reports/*js',
     // 'Testcases/Patient1/*.js'
   ],
-
+  
+  
   onPrepare: function () {
     browser.manage().window().maximize();
     var jasmineReporters = require('jasmine-reporters');
@@ -61,22 +62,6 @@ exports.config = {
       filePrefix: 'xmlresults'
     }));
 
-    
-
-    
-    /*var AllureReporter = require('jasmine-allure-reporter');
-    jasmine.getEnv().addReporter(new AllureReporter({
-      resultsDir: 'allure-results'
-    }));
-
-    jasmine.getEnv().afterEach(function (done) {
-      browser.takeScreenshot().then(function (png) {
-        allure.createAttachment('Screenshot', function () {
-          return new Buffer(png, 'base64')
-        }, 'image/png')();
-        done();
-      })
-    }); */
   },
   plugins: [{
     package: 'jasmine2-protractor-utils',
@@ -100,9 +85,9 @@ exports.config = {
       var HTMLReport = require('protractor-html-reporter-2');
 
       testConfig = {
-        reportTitle: 'Hybrent Web 3.6.0-RC1',
+        reportTitle: 'Hybrent Web 3.7.0-RC1',
         outputPath: './',
-        outputFilename: 'Protractor Test Execution Report for web 3.5.2-RC2',
+        outputFilename: 'Protractor Test Execution Report for web 3.7.0-RC1',
         screenshotPath: './screenshots',
         testBrowser: browserName,
         browserVersion: browserVersion,
