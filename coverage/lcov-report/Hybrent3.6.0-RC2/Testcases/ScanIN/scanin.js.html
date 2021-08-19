@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95% </span>
+                <span class="strong">94.12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>228/240</span>
+                <span class='fraction'>224/238</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.52% </span>
+                <span class="strong">58.06% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>20/31</span>
+                <span class='fraction'>18/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95% </span>
+                <span class="strong">94.12% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>228/240</span>
+                <span class='fraction'>224/238</span>
             </div>
         
             
@@ -349,7 +349,8 @@
 <a name='L290'></a><a href='#L290'>290</a>
 <a name='L291'></a><a href='#L291'>291</a>
 <a name='L292'></a><a href='#L292'>292</a>
-<a name='L293'></a><a href='#L293'>293</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -386,7 +387,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -441,6 +441,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -449,8 +450,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -633,10 +634,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -671,14 +673,13 @@
     browser.actions().mouseMove(scanIn).perform();
     browser.sleep(2000);
     scanIn.click();
-    browser.sleep(5000);
+    browser.wait(EC.titleIs('Scan In'), 20000);
     expect(browser.getTitle()).toEqual('Scan In');
 &nbsp;
   });
   it('List page should display Scan In filters and refresh button', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('search.search')).isPresent()).toBeTruthy();
-    expect(element(by.buttonText('Search')).isPresent()).toBeTruthy();
+    expect(element(by.css(".btn-lg")).isPresent()).toBeTruthy();
 &nbsp;
   });
 &nbsp;
@@ -711,16 +712,17 @@
     element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(2000);
     var itemRow = element(by.repeater('item in items').row(0));
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add'))), 20000);
     element(by.buttonText('Add')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.sleep(1000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-minus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
     browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
@@ -740,9 +742,9 @@
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element.all(by.repeater('item in ScanInData.rows')).each(function (element1, index) {
-      element1.element(by.css("hyb-highlight")).getText().then(function (text) {
-        expect(text).toEqual(General_item_Name + randNumber);
+    element.all(by.repeater('item in ScanInData.rows')).each(<span class="fstat-no" title="function not covered" >fu</span>nction (element1, index) {
+<span class="cstat-no" title="statement not covered" >      element1.element(by.css("hyb-highlight")).getText().then(<span class="fstat-no" title="function not covered" >fu</span>nction (text) {</span>
+<span class="cstat-no" title="statement not covered" >        expect(text).toEqual(General_item_Name + randNumber);</span>
       });
     });
 &nbsp;
@@ -756,11 +758,11 @@
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
@@ -797,11 +799,11 @@
     element(by.buttonText('Add')).click();
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
-    browser.sleep(1000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
@@ -924,15 +926,16 @@
 <span class="cstat-no" title="statement not covered" >        console.log('Do you still wants to complete Scan In? not appear');</span>
       }
     });
-    browser.sleep(1000);
-    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item successfully mapped with inventory.'), 20000);
-    expect($('.toast-message').getText()).toBe('Item successfully mapped with inventory.');
-    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Scan in completed successfully.'), 20000);
-    var toastnew = element.all($('.toast-message')).get(1);
-    expect(toastnew.getText()).toBe('Scan in completed successfully.');
     browser.sleep(2000);
-  });
-&nbsp;
+    // var toast_message = $('.toast-message').getText();
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item successfully mapped with inventory.'), 20000);
+    expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
+    // browser.sleep(1000);
+    // var toastnew = element.all($('.toast-message')).get(1);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Scan In completed successfully.'), 20000);
+    expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
+    // browser.sleep(2000);
+  }); 
 });</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -940,7 +943,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jun 26 2021 18:14:12 GMT+0530 (India Standard Time)
+                at Fri Aug 13 2021 18:18:40 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

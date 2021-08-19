@@ -24,6 +24,16 @@ describe('Hybrent Invoice Module', function () {
   });
 
   it('Verify that user is able to search invoice by invoice number', function () {
+    browser.sleep(1000);
+    var closetoast = element(by.css(".toast-close-button"));
+    closetoast.isPresent().then(function (present) {
+      if (present) {
+        console.log('toast notification appear on page');
+        closetoast.click();
+      } else {
+        console.log('toast notification does not appear on page');
+      }
+    });
     element(by.model('searchParams.search')).clear().sendKeys('TEST' + randNumber);
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
@@ -47,7 +57,7 @@ describe('Hybrent Invoice Module', function () {
     await element(by.model('vm.InvFreightCharges')).clear().sendKeys('10.00');
     await element(by.model('vm.InvMiscCharges')).clear().sendKeys('10.00');
     await element(by.model('vm.InvDiscountAmount')).clear().sendKeys('10.00');
-    browser.sleep(1000);
+    browser.sleep(2000);
     element(by.xpath('//span[contains(@class,"pull-right")]')).getText().then(function (test) {
       expect(test).toEqual('$68.00');
     })
@@ -63,7 +73,7 @@ describe('Hybrent Invoice Module', function () {
         console.log('popup does not appear');
       }
     });
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Invoice saved successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Invoice saved successfully.');
   });
 
@@ -72,7 +82,7 @@ describe('Hybrent Invoice Module', function () {
     element(by.xpath("//table[@class='table']//tr[1]//i[@class='glyphicon glyphicon-trash text-danger action-button']")).click();
     browser.sleep(2000);
     element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Invoice deleted successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Invoice deleted successfully.');
   })
 

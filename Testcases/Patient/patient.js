@@ -14,18 +14,12 @@ describe('Patient module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Patients")]')).getWebElement()).then(function () {
       element(by.xpath('//span[contains(text(),"Patients")]')).click();
     });
-
-    browser.sleep(2000);
-
+    browser.wait(EC.titleIs('Patients'), 20000);
     expect(browser.getTitle()).toEqual('Patients');
-    browser.sleep(2000);
-    element(by.xpath(Patient_defaultfacility)).getText().then(function (default_facility) {
-      console.log('facility selected on patient page appear as', default_facility);
-      expect(default_facility).toBe(browser.params.user.fac_name);
-    })
   });
 
   it('Verify that search patient By filter appear on patient detail page', function () {
+    browser.wait(EC.presenceOf(element(by.model('searchParams.search'))), 20000);
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
     expect(element(by.model('$select.search')).isPresent()).toBeTruthy();
     expect(element(by.xpath("//a[contains(.,'Select Building')]")).isPresent()).toBeTruthy();
@@ -33,36 +27,28 @@ describe('Patient module', function () {
   });
 
   it('verify that user is able to add patient by clicking on add patient button', function () {
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//span[@class="patient-add-icon"]'))), 20000);
     element(by.xpath('//span[@class="patient-add-icon"]')).click();
     browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
     element(by.model('patient.first_name')).sendKeys(Patient_fname);
     element(by.xpath('//a[contains(text(),"--Select facility--")]')).click();
     browser.sleep(1000);
     element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(1000);
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     element(by.model('patient.last_name')).sendKeys(randNumber);
-    browser.sleep(1000);
     element(by.model('patient.mrn_number')).sendKeys(randNumber);
-    browser.sleep(1000);
     element(by.model('patient.account_number')).sendKeys(randNumber);
-    browser.sleep(1000);
     element(by.model('patient.resident_id')).sendKeys(randNumber);
-    browser.sleep(1000);
     element(by.model('patient.patient_barcode')).sendKeys(randNumber);
-    browser.sleep(1000);
     element(by.id('dob')).clear().sendKeys("01/01/2018");
-    browser.sleep(2000);
     // element(by.xpath('//select[@id="status"]//option[3]')).click();
     element(by.buttonText('Save')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Patient created successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Patient created successfully.');
-
-
 
   });
 
@@ -113,7 +99,7 @@ describe('Patient module', function () {
     element(by.buttonText('Add Recurring Charge')).click();
     browser.sleep(1000);
     element(by.model('searchParams.search')).sendKeys(General_sku + randNumber);
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Add'))), 20000);
     element(by.buttonText('Add')).click();
     browser.wait(EC.elementToBeClickable(element(by.xpath('//a[contains(text(),"Select Inventory")]'))),20000);
     element(by.xpath('//a[contains(text(),"Select Inventory")]')).click();

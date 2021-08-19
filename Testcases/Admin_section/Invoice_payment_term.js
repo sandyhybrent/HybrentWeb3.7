@@ -47,7 +47,7 @@ describe('Invoice Payment Terms', function () {
     element(by.xpath('//i[@class="fa fa-edit"]')).click();
     browser.sleep(2000);
     element(by.buttonText('Update')).click();
-    browser.sleep(1000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Payment term updated successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Payment term updated successfully.');
   });
 

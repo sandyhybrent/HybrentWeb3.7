@@ -7,12 +7,13 @@ describe('Hybrent Order Module', function () {
   it('Open order module', function () {
     browser.wait(EC.elementToBeClickable(element(by.linkText('Orders'))),20000);
     element(by.linkText('Orders')).click();
+    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 10000);
     browser.wait(EC.titleIs('My Orders'),20000);
     expect(browser.getTitle()).toEqual('My Orders');
 
   });
   it('List page should display list of filters', function () {
-    browser.sleep(2000);
+    browser.wait(EC.presenceOf(element(by.model('searchForm.search'))),20000);
     expect(element(by.model('searchForm.search')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.statusFilter')).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.typeFilter')).isPresent()).toBeTruthy();

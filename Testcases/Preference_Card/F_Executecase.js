@@ -84,16 +84,18 @@ describe('Execute Case module', function () {
   });
 
   it('increase item hold qty and move case to complete case', function () {
-    element(by.partialLinkText('00000000')).click();
-    browser.sleep(2000);
-    element.all(by.className('item-qty-editable-label')).click();
+    element(by.css("a[uib-tooltip='Open Patient Case']")).click();
+    browser.wait(EC.elementToBeClickable(element(by.css(".item-qty-editable-label"))), 20000);
+    element(by.css(".item-qty-editable-label")).click();
     element(by.model('$parent.$data')).clear().sendKeys('1.000');
-    browser.sleep(2000);
-    element(by.xpath('//button[@class="btn btn-primary"]//span[@class="glyphicon glyphicon-ok"]')).click();
+    browser.wait(EC.elementToBeClickable(element(by.xpath("//span[@class='editable-buttons']//span[@class='glyphicon glyphicon-ok']"))), 20000);
+    element(by.xpath("//span[@class='editable-buttons']//span[@class='glyphicon glyphicon-ok']")).click();
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))),20000);
       browser.sleep(2000);
       element(by.buttonText('Save')).click();
-      browser.sleep(2000);
+      browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case updated successfully.'),20000);
+      browser.sleep(1000);
       expect($('.toast-message').getText()).toEqual('Case updated successfully.');
     })
     browser.wait(function () {
@@ -102,9 +104,10 @@ describe('Execute Case module', function () {
       });
     }, 10000);
 
-    browser.sleep(3000);
+    browser.sleep(2000);
     element(by.xpath('//button[contains(text(),"Complete Case")]')).click();
-    browser.sleep(2000)
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case completed successfully.'),20000);
+    browser.sleep(1000); 
     expect($('.toast-message').getText()).toEqual('Case completed successfully.');
     expect(browser.getTitle()).toEqual('Execute cases');
   });

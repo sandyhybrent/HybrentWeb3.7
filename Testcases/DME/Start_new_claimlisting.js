@@ -1,5 +1,5 @@
 var user_facility = require('../Userfacility/User_defaultfacility.js');
-describe('Hybrent DME Module', function () {
+describe('Hybrent DME Module - My Claims', function () {
   var EC = protractor.ExpectedConditions;
   var fac_name = browser.params.user.fac_name;
   var Dme_sku = browser.params.itemCatalog.Dme_sku;
@@ -11,6 +11,7 @@ describe('Hybrent DME Module', function () {
   var Inventory_name = browser.params.user.Inv_name;
   it('Verify that following search filter appear on my claim listing page', function () {
     browser.sleep(2000);
+    element(by.css(".sa-confirm-button-container")).element(by.css(".confirm")).click();
     expect(element(by.model('searchForm.searchFilter')).isPresent()).toBeTruthy();
     expect(element(by.css(".btn-default")).isPresent()).toBeTruthy();
     expect(element(by.model('searchForm.statusFilter')).isPresent()).toBeTruthy();
@@ -22,46 +23,35 @@ describe('Hybrent DME Module', function () {
     browser.sleep(2000);
     // element(by.model('search.search')).sendKeys('john 1600843676805');
     element(by.model('search.search')).sendKeys(Patient_fname +" " + randNumber);
+    browser.wait(EC.visibilityOf(element(by.xpath("//td[.='john 1629199471436']"))), 20000);
     browser.sleep(2000);
     element(by.buttonText('Select')).click();
     browser.sleep(1000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    element(by.partialLinkText('00000003')).click();
-    browser.sleep(2000);
+    element(by.xpath('(//tr[@ng-repeat="claim in claimsData.claims"]//a)[1]')).click();
+    browser.wait(EC.titleIs('Manage Claim: Create Claim'), 20000);
     expect(browser.getTitle()).toEqual('Manage Claim: Create Claim');
   });
 
-  it('Save newly created claim', function(){
-    element(by.xpath("//button[contains(.,'Save claim')]")).click();
-    browser.sleep(2000);
-    element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(3000);
-    element(by.css(".sweet-alert")).getText().then(function(Claimstatus){
-    expect(Claimstatus).toContain('Success?');
-    browser.sleep(2000);
-    })
-    element(by.css(".confirm")).click();
-  });
+  // it('Save newly created claim', function(){
+  //   browser.wait(EC.elementToBeClickable(element(by.xpath("//button[contains(.,'Save Claim')]"))), 20000);
+  //   element(by.xpath("//button[contains(.,'Save Claim')]")).click();
+  //   browser.sleep(2000);
+  //   element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
+  //   browser.sleep(3000);
+  //   element(by.css(".sweet-alert")).getText().then(function(Claimstatus){
+  //   expect(Claimstatus).toContain('Success?');
+  //   browser.sleep(2000);
+  //   })
+  //   element(by.css(".confirm")).click();
+  // });
 
   it('Verify that user is able to complete the assigned DME claim', function(){
-    browser.sleep(2000);
-    element(by.css(".btn-default")).click();
-    browser.sleep(2000);
-    // element(by.model('search.search')).sendKeys('john 1612946816419');
-    element(by.model('search.search')).sendKeys(Patient_fname +" " + randNumber);
-    browser.sleep(2000);
-    element(by.buttonText('Select')).click();
-    browser.sleep(1000);
-    element(by.buttonText('Search')).click();
-    browser.sleep(2000);
-    element(by.partialLinkText('00000003')).click();
-    browser.sleep(4000);
-    expect(browser.getTitle()).toEqual('Manage Claim: Create Claim');
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//button[contains(text(),"Complete claim")]'))), 20000);
     element(by.xpath("//button[contains(text(),'Complete claim')]")).click();
-    browser.sleep(1000);
-    expect($('.toast-message').getText()).toMatch('Claim completed successfully');
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Claim completed successfully.'),20000);
+    expect($('.toast-message').getText()).toEqual('Claim completed successfully.');
   });
 
 });

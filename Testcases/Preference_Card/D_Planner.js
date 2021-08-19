@@ -34,9 +34,8 @@ describe('Planner module', function () {
       browser.sleep(2000);
       browser.executeScript('window.scrollTo(0,0);').then(function () {
         console.log('++++++SCROLLED UP+++++');
-        browser.sleep(2000);
-
       });
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Month'))), 20000);
       element(by.buttonText('Month')).click();
     });
     browser.sleep(2000);
@@ -81,10 +80,8 @@ describe('Planner module', function () {
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.buttonText('Schedule Case')).click();
-    browser.sleep(2000);
-    var toast_message = $('.toast-message').getText();
-    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case #  successfully created for patient "john".'), 20000);
-    expect($('.toast-message')).toContain('Case #  successfully created for patient "john".');
+    browser.wait(EC.textToBePresentInElementValue($('.toast-message'),'successfully created for patient "john".'), 20000);
+    expect($('.toast-message')).toContain('successfully created for patient "john".');
     browser.sleep(4000);
   });
 

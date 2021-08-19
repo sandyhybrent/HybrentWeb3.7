@@ -64,8 +64,7 @@ describe('Picklist module', function () {
 
 
   it('open and add normal notes in newly created case', function () {
-
-    element(by.partialLinkText('00000000')).click();
+    element(by.css("a[uib-tooltip='Open Patient Case']")).click();
     browser.sleep(2000);
     element(by.model('CaseDetail.gloves_size')).clear().sendKeys('glove' + randNumber);
     browser.sleep(1000);
@@ -83,7 +82,7 @@ describe('Picklist module', function () {
     browser.sleep(1000);
   });
 
-  it('increase item qty ', function () {
+  it('increase item qty and attach stock info ', function () {
     element.all(by.className('item-qty-editable-label')).first().click();
     browser.sleep(2000);
     element(by.model('$parent.$data')).clear().sendKeys('1.000');
@@ -92,23 +91,31 @@ describe('Picklist module', function () {
     browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
       browser.sleep(2000);
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))),20000);
       element(by.buttonText('Save')).click();
-      browser.sleep(3000);
+      browser.sleep(2000);
+      browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case updated successfully.'),20000);
+      browser.sleep(1000); 
+      expect($('.toast-message').getText()).toEqual('Case updated successfully.');
     })
+
   });
 
   it('move case to execute case', function () {
-    // browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).getWebElement()).then(function () {
-    //   element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).click();
-    // });
-    // expect($('.toast-message').getText()).toEqual('All Items stock attached successfully.');
-    // browser.sleep(3000);
-    // element(by.buttonText('Save')).click();
+    browser.sleep(1000);
+    browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).getWebElement()).then(function () {
+      element(by.xpath('//span[contains(text(),"Auto Attach Stock")]')).click();
+    });
+    browser.wait(EC.textToBePresentInElement($('.toast-message'), 'All Items stock attached successfully.'),20000);
+    expect($('.toast-message').getText()).toEqual('All Items stock attached successfully.');
+    browser.sleep(3000);
+    element(by.buttonText('Save')).click();
     browser.sleep(2000);
     element(by.xpath('//button[contains(text(),"Move to Execute")]')).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Case moved to execute successfully.'),20000);
+    browser.sleep(1000);    
     expect($('.toast-message').getText()).toEqual('Case moved to execute successfully.');
-    browser.sleep(3000);
+    browser.wait(EC.titleIs('Pick list'), 20000);
     expect(browser.getTitle()).toEqual('Pick list');
   });
 

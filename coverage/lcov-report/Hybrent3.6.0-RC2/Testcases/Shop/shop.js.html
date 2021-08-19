@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.51% </span>
+                <span class="strong">97.06% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>83/86</span>
+                <span class='fraction'>66/68</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.31% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.51% </span>
+                <span class="strong">97.06% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>83/86</span>
+                <span class='fraction'>66/68</span>
             </div>
         
             
@@ -261,24 +261,24 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,36 +372,36 @@
   it('Shop: Shows all items that are marked as Favorite.', function () {
     browser.wait(EC.elementToBeClickable($('[name="optionsRadios"][value="5"]')), 20000);
     $('[name="optionsRadios"][value="5"]').click();
-    browser.sleep(2000);
+    expect(EC.presenceOf(element(by.className("fa fa-star"))), 20000);
     expect(element(by.className("fa fa-star")).isPresent()).toBe(true);
   });
 &nbsp;
-  it('shop: backorder warning', function () {
-    $('[name="optionsRadios"][value="0"]').click();
-    var item_name = element.all(by.repeater('item in items track by item.facility_item_vendor_id'));
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
-    var backorder = element(by.className('text-with-tooltip text-danger'));
-    var next_button = element(by.linkText('Next'));
-    var next_disable = element(by.className('pagination-next disabled'));
-    var paginationsize = element.all(by.repeater('page in pages track by $index'));
-    var item_description = element.all(by.repeater('item in items track by item.facility_item_vendor_id'));
-    var threedit_button = element(by.linkText('...'));
-    var nextthreedot_button = element(by.xpath('//div[@class="col-sm-10"]//li[9]//a[1]'));
-    paginationsize.getText().then(function (size) {
-      for (i = 0; i &lt; size.length; i++) {
-        console.log('pagination count are', size[i]);
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (next_button.isPresent()) {
-          next_button.click();
-          item_description.element(by.className('text-with-tooltip text-danger')).isPresent().getText().then(<span class="fstat-no" title="function not covered" >fu</span>nction (test) {
-<span class="cstat-no" title="statement not covered" >            console.log('item are', test);</span>
-          })
-        }
+  // xit('shop: backorder warning', function () {
+  //   $('[name="optionsRadios"][value="0"]').click();
+  //   var item_name = element.all(by.repeater('item in items track by item.facility_item_vendor_id'));
+  //   browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
+  //   var backorder = element(by.className('text-with-tooltip text-danger'));
+  //   var next_button = element(by.linkText('Next'));
+  //   var next_disable = element(by.className('pagination-next disabled'));
+  //   var paginationsize = element.all(by.repeater('page in pages track by $index'));
+  //   var item_description = element.all(by.repeater('item in items track by item.facility_item_vendor_id'));
+  //   var threedit_button = element(by.linkText('...'));
+  //   var nextthreedot_button = element(by.xpath('//div[@class="col-sm-10"]//li[9]//a[1]'));
+  //   paginationsize.getText().then(function (size) {
+  //     for (i = 0; i &lt; size.length; i++) {
+  //       console.log('pagination count are', size[i]);
+  //       if (next_button.isPresent()) {
+  //         next_button.click();
+  //         item_description.element(by.className('text-with-tooltip text-danger')).isPresent().getText().then(function (test) {
+  //           console.log('item are', test);
+  //         })
+  //       }
 &nbsp;
-      }
+  //     }
 &nbsp;
-    })
+  //   })
 &nbsp;
-  });
+  // });
 });</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -409,7 +409,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Jun 26 2021 18:14:12 GMT+0530 (India Standard Time)
+                at Fri Aug 13 2021 18:18:40 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

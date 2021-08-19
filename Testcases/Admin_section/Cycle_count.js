@@ -32,15 +32,17 @@ describe('Cycle count module', function () {
     expect(element(by.className('modal-content')).isPresent()).toBe(true);
   });
 
-  it('Verify that user should able to initiate cycle count with Blind count', function () {
+  it('Verify that user should able to initiate cycle count with Blind count', async function () {
     browser.sleep(2000);
-    var select_inventory = element(by.xpath("//div[@class='modal-body']//span[1]/span[contains(.,'Select')]"));
+    var select_inventory = await element(by.xpath("//div[@class='modal-body']//span[1]/span[contains(.,'Select')]"));
+    browser.wait(EC.elementToBeClickable(select_inventory),20000);
     select_inventory.click();
     browser.sleep(2000);
     element(by.model('$ctrl.search.search')).sendKeys(browser.params.user.Inv_name);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))),20000);
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
     element(by.model('cycleCountParams.is_blind_count')).click();

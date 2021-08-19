@@ -154,15 +154,15 @@ describe('Hybrent Item Catalog Module', function () {
     await element(by.model('searchParams.search')).clear().sendKeys(General_sku + randNumber);
     browser.sleep(1000);
     await element(by.buttonText('Search')).click();
-    browser.wait(EC.visibilityOf(element(by.xpath("(//mark[@data-markjs='true'])[1]"))), 20000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(async function (element1) {
-      await element1.element(by.xpath("(//mark[@data-markjs='true'])[1]")).getText().then(async function (itemmfr) {
+      await element1.element(by.css("mark")).getText().then(async function (itemmfr) {
         console.log(itemmfr);
-        browser.wait(EC.textToBePresentInElement(element(by.xpath("(//mark[@data-markjs='true'])[1]")), General_sku + randNumber), 20000);
+        browser.wait(EC.textToBePresentInElement(element(by.css("mark")), General_sku + randNumber), 20000);
         expect(await itemmfr).toEqual(General_sku + randNumber);
       })
-      browser.wait(EC.elementToBeClickable(element(by.xpath("//button[contains(text(),'Map Facility')]"))),20000);
-      await element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
+      browser.wait(EC.elementToBeClickable(element(by.xpath("//span[contains(.,'Map Facility/Update Price')]"))),20000);
+      await element(by.xpath("//span[contains(.,'Map Facility/Update Price')]")).click();
       browser.wait(EC.visibilityOf(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for'))),20000);
       expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
       browser.wait(EC.visibilityOf(element(by.model('searchForm.search'))),20000);
@@ -244,7 +244,7 @@ describe('Hybrent Item Catalog Module', function () {
     await element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
     browser.sleep(1000);
     await element(by.buttonText('Search')).click();
-    browser.wait(EC.textToBePresentInElement(element(by.className("margin-r-30")), 'cmfr'+randNumber), 20000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(async function (element1) {
       await element1.element(by.className("margin-r-30")).getText().then(async function (itemmfr) {
         console.log(itemmfr);
@@ -252,7 +252,7 @@ describe('Hybrent Item Catalog Module', function () {
         expect(await itemmfr).toEqual('cmfr' + randNumber);
     });
       browser.sleep(2000);
-      await element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
+      await element(by.xpath("//span[contains(.,'Map Facility/Update Price')]")).click();
       browser.sleep(2000);
       expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
       browser.sleep(1000);
@@ -329,7 +329,7 @@ describe('Hybrent Item Catalog Module', function () {
     await element(by.model('searchParams.search')).clear().sendKeys(Dme_sku + randNumber);
     browser.sleep(1000);
     await element(by.buttonText('Search')).click();
-    browser.wait(EC.textToBePresentInElement(element(by.className("margin-r-30")), Dme_mfr+randNumber), 20000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(async function (element1) {
       await element1.element(by.className("margin-r-30")).getText().then(async function (itemmfr) {
         console.log(itemmfr);
@@ -337,7 +337,7 @@ describe('Hybrent Item Catalog Module', function () {
         expect(await itemmfr).toEqual(Dme_mfr + randNumber);
     });
       browser.sleep(2000);
-      await element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
+      await element(by.xpath("//span[contains(.,'Map Facility/Update Price')]")).click();
       browser.sleep(2000);
       expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
       browser.sleep(1000);
@@ -413,7 +413,7 @@ describe('Hybrent Item Catalog Module', function () {
     await element(by.model('searchParams.search')).clear().sendKeys(Billonly_sku + randNumber);
     browser.sleep(1000);
     await element(by.buttonText('Search')).click();
-    browser.wait(EC.textToBePresentInElement(element(by.className("margin-r-30")), Billonly_mfr + randNumber), 20000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(async function (element1) {
       await element1.element(by.className("margin-r-30")).getText().then(async function (itemmfr) {
         console.log(itemmfr);
@@ -421,7 +421,7 @@ describe('Hybrent Item Catalog Module', function () {
         expect(await itemmfr).toEqual(Billonly_mfr + randNumber);
     });
       browser.sleep(2000);
-      await element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
+      await element(by.xpath("//span[contains(.,'Map Facility/Update Price')]")).click();
       browser.sleep(2000);
       expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
       browser.sleep(1000);
@@ -446,6 +446,91 @@ describe('Hybrent Item Catalog Module', function () {
     });
   });
 
+  it('Add a Service item', async function(){
+    try {
+    browser.sleep(3000);
+    browser.wait(EC.elementToBeClickable(element(by.css(".btn-default"))),20000);
+    await element(by.css(".btn-default")).click();
+    browser.sleep(1000);
+    await element(by.xpath("//a[.='Add Item']")).click();
+    browser.wait(EC.presenceOf(element(by.model('item.description'))), 20000);
+    await element(by.model('item.description')).sendKeys(Service_item_name + randNumber);
+    await element(by.model('item.alias')).sendKeys(Service_alias + randNumber);
+    await element(by.model('item.mfr_number')).sendKeys(Service_mfrNumber + randNumber);
+    await element(by.xpath("//button[@class='btn btn-default']")).click();
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Select'))), 20000);
+    await element.all(by.buttonText('Select')).get(1).click();
+    browser.sleep(1000);
+    var item_identifier = await element(by.css("input[ng-model='item.item_identifier']"));
+    item_identifier.isPresent().then(async function(present){
+      if(present){
+        await item_identifier.sendKeys('service' + randNumber);
+      } else {
+        console.log('click on lot toggle button');
+      }
+    })
+    browser.sleep(1000);
+    element(by.model('item.item_type')).$('[label="' + 'Non Inventory' + '"]').click();
+    browser.wait(EC.elementToBeClickable(element(by.css("[name='ordering_type'] > [label='Service']"))), 20000);
+    element(by.css("[name='ordering_type'] > [label='Service']")).click();
+    browser.wait(EC.elementToBeClickable(element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]')), 20000);
+    await element(by.model('item.consumption_type')).$('[label="' + consumptionType + '"]').click();
+    await element(by.linkText('Vendors')).click();
+    await element(by.css('.btn-success')).click();
+    await element(by.model('v.vselected')).click();
+    await element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
+    await element(by.model('v.sku')).sendKeys(Service_sku + randNumber);
+    browser.sleep(2000);
+    await element(by.css("[ng-model='v.service_duration']")).element(by.css("[label='For One Time']")).click();
+    browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))),20000);
+    await element(by.buttonText('Save')).click();
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item added successfully.'), 20000);
+    expect($('.toast-message').getText()).toEqual('Item added successfully.');
+    browser.wait(EC.elementToBeClickable(element(by.css('.sa-button-container')).element(by.buttonText('No'))), 5000);
+    await element(by.css('.sa-button-container')).element(by.buttonText('No')).click();
+    }
+    catch {
+      console.log('consumption type not found');
+    }
+  });
+
+  it('Verify that user should able to map new created Bill Only with his default facility', async function () {
+    browser.sleep(1000);
+    await element(by.model('searchParams.search')).clear().sendKeys(Service_sku + randNumber);
+    browser.sleep(1000);
+    await element(by.buttonText('Search')).click();
+    browser.sleep(2000);
+    element.all(by.repeater('item in items')).each(async function (element1) {
+      await element1.element(by.className("margin-r-30")).getText().then(async function (itemmfr) {
+        console.log(itemmfr);
+        browser.wait(EC.textToBePresentInElement(element(by.className("margin-r-30")), Service_mfrNumber + randNumber), 20000);
+        expect(await itemmfr).toEqual(Service_mfrNumber + randNumber);
+    });
+      browser.sleep(2000);
+      await element(by.xpath("//span[contains(.,'Map Facility/Update Price')]")).click();
+      browser.sleep(2000);
+      expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
+      browser.sleep(1000);
+      await element(by.model('searchForm.search')).clear().sendKeys(browser.params.user.fac_name);
+      await element(by.buttonText('Search')).click();
+      browser.wait(EC.presenceOf(element(by.buttonText('Add to facility'))), 20000);
+      await element(by.css(".border-top")).getText().then(function (text) {
+        expect(text).toContain(browser.params.user.fac_name);
+      })
+      browser.sleep(2000);
+      expect(element(by.buttonText('Add to facility')).isPresent()).toBeTruthy();
+      await element(by.buttonText('Add to facility')).click();
+      browser.sleep(1000);
+      await element(by.name('purchase_price')).sendKeys('12.52');
+      await element(by.name('billable_price')).sendKeys('0.20');
+      browser.wait(EC.elementToBeClickable(element(by.buttonText('Save'))),20000);
+      await element(by.buttonText('Save')).click();
+      browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item added successfully.'), 20000);
+      expect($('.toast-message').getText()).toEqual('Item added successfully.');
+      browser.wait(EC.elementToBeClickable(element(by.xpath("//i[@class='fa fa-2x fa-times']"))),20000);
+      await element(by.xpath("//i[@class='fa fa-2x fa-times']")).click();
+    });
+  });
   it('Add Amenity item', async function () {
     browser.sleep(3000);
     browser.wait(EC.elementToBeClickable(element(by.css(".btn-default"))),20000);
@@ -469,7 +554,7 @@ describe('Hybrent Item Catalog Module', function () {
     await element(by.model('searchParams.search')).clear().sendKeys('testAM' + randNumber);
     browser.sleep(2000);
     await element(by.buttonText('Search')).click();
-    browser.wait(EC.textToBePresentInElement(element(by.tagName("mark")), 'testAM'+ randNumber), 20000);
+    browser.sleep(2000);
     element.all(by.repeater('item in items')).each(async function (element1) {
       await element1.element(by.tagName("mark")).getText().then(async function (itemmfr) {
         console.log(itemmfr);

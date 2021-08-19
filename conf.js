@@ -85,9 +85,9 @@ exports.config = {
       var HTMLReport = require('protractor-html-reporter-2');
 
       testConfig = {
-        reportTitle: 'Hybrent Web 3.7.0-RC1',
+        reportTitle: 'Hybrent Web 3.7.0-RC3',
         outputPath: './',
-        outputFilename: 'Protractor Test Execution Report for web 3.7.0-RC1',
+        outputFilename: 'Protractor Test Execution Report for web 3.7.0-RC3',
         screenshotPath: './screenshots',
         testBrowser: browserName,
         browserVersion: browserVersion,

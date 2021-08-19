@@ -1,5 +1,5 @@
 var user_facility = require('../Userfacility/User_defaultfacility.js');
-describe('Hybrent DME Module', function () {
+describe('Hybrent DME Module - Start New Claim', function () {
   var EC = protractor.ExpectedConditions;
   var fac_name = browser.params.user.fac_name;
   var Dme_sku = browser.params.itemCatalog.Dme_sku;
@@ -14,12 +14,12 @@ describe('Hybrent DME Module', function () {
     browser.executeScript("arguments[0].scrollIntoView();", element(by.xpath('//span[contains(text(),"Start New Claim")]')).getWebElement()).then(function () {
       element(by.xpath('//span[contains(text(),"Start New Claim")]')).click();
     });
-    browser.sleep(2000);
-    browser.wait(EC.invisibilityOf($('.pg-loading-center-middle')), 20000);
+    browser.wait(EC.titleIs('Manage Claim: Create Claim'));
     expect(browser.getTitle()).toEqual('Manage Claim: Create Claim');
   });
 
   it('Click on select button to select patient to generate a claim', function () {
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//a[@class="text-primary fa fa-wheelchair"]'))), 20000);
     element(by.xpath('//a[@class="text-primary fa fa-wheelchair"]')).click();
     browser.sleep(2000);
     // element(by.model('searchParams.search')).sendKeys('john 1600843676805');
@@ -29,13 +29,13 @@ describe('Hybrent DME Module', function () {
     browser.sleep(3000);
     element(by.buttonText('Select')).click();
     browser.sleep(2000);
-    var toast_message = $('.toast-message').getText();
-    expect(EC.textToBePresentInElement(toast_message, "Claim code created successfully")).toBeTruthy();
+    browser.wait(EC.textToBePresentInElementValue($('.toast-message'),'Claim code'), 20000);
+    expect($('.toast-message').getText()).toContain('created successfully');
   });
 
   it('Verify that user is able add Dme item into the newly created claim', function(){
     browser.sleep(2000);
-    element(by.buttonText('Add DME')).click();
+    element(by.css("[ng-disabled='generatingClaim']")).click();
     browser.sleep(2000);
     // element(by.model('itemSearchParam.search')).sendKeys('DS1619352975278');
     element(by.model('itemSearchParam.search')).sendKeys(Dme_sku+randNumber);
@@ -49,13 +49,15 @@ describe('Hybrent DME Module', function () {
     element(by.buttonText('Proceed')).click();
   });
 
-  it('Verify that user get redirect to claim lising page on clicing close button',function(){
+  it('Verify that user get redirect to claim lising page on clicking close button',function(){
     browser.sleep(2000);
     browser.executeScript("arguments[0].scrollIntoView(0,0);", element(by.className('pagehead')).getWebElement()).then(function () {
       browser.sleep(2000);
-      element(by.xpath("//button[contains(text(),'Close')]")).click();
-    browser.sleep(2000);
-    expect(browser.getTitle()).toEqual('All Claims');
+      element(by.css("[ng-click='saveClaim()']")).click();
+      browser.sleep(2000);
+      element(by.css(".sa-confirm-button-container")).element(by.css(".confirm")).click();
+      browser.wait(EC.titleIs('All Claims'), 20000);
+      expect(browser.getTitle()).toEqual('All Claims');
     });
   });
 

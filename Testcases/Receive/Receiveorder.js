@@ -45,16 +45,16 @@ describe('Hybrent Receive order', function () {
     element(by.xpath("//button[@class='confirm']")).click();
     browser.sleep(2000);
     element(by.model('inventoryItem.min')).clear().sendKeys('2');
-    element(by.model('inventoryItem.max')).clear().sendKeys('5');
+    element(by.model('inventoryItem.max')).clear().sendKeys('40');
     element(by.model('inventoryItem.par_level')).clear().sendKeys('3');
     element(by.buttonText('Add To Inventory')).click();
     browser.sleep(2000);
     element(by.xpath("//div[@class='modal-footer']/button[@class='btn btn-primary']")).click();
+    browser.wait(EC.elementToBeClickable(element(by.css(".cancel"))),20000);
+    browser.sleep(1000);
+    element(by.css(".sa-button-container")).element(by.css(".cancel")).click();
     browser.sleep(2000);
-    element(by.css('.sa-button-container')).element(by.buttonText('Yes')).click();
-    browser.sleep(2000);
-    element(by.xpath("//button[@class='btn btn-default pull-right']")).click();
-    browser.sleep(2000);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Order completed successfully.'), 20000);
     expect($('.toast-message').getText()).toEqual('Order completed successfully.');
     browser.sleep(2000);
    

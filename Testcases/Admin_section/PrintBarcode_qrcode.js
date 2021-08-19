@@ -18,21 +18,20 @@ describe('Print Barcodes/QRCodes', function () {
     expect(browser.getTitle()).toEqual('Print Barcodes/QRCodes');
   });
 
-  it('verify that search and status filter appear on the page', function () {
+  it('verify that search and date range filter appear on the page', function () {
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.xpath("//a[contains(.,'All Vendors')]")).isPresent()).toBeTruthy();
-    expect(element(by.css("span[ng-if='!$ctrl.multiSelect']")).isPresent()).toBeTruthy();
+    expect(element(by.model("$ctrl.selectedDate")).isPresent()).toBeTruthy();
   });
 
-  it('verify the user user default inventory should appear selected in inventory drop down', function () {
-    element(by.css("span[ng-if='!$ctrl.multiSelect']")).click();
+  it('verify the user user default facility should appear selected in facility drop down', function () {
+    element(by.css("[ng-click='selectItem();']")).click();
     browser.sleep(2000);
-    element(by.model('$ctrl.search.search')).sendKeys(browser.params.user.Inv_name);
+    element(by.model('search.searchKeyword')).sendKeys(browser.params.user.fac_name);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
-    var default_inv_selected = element(by.buttonText('Selected'));
-    default_inv_selected.isPresent().then(function (present) {
+    var default_fac_selected = element(by.buttonText('Selected'));
+    default_fac_selected.isPresent().then(function (present) {
       if (present) {
         element(by.buttonText('Close')).click();
       } else {
@@ -89,15 +88,15 @@ describe('Print Barcodes/QRCodes', function () {
     expect(element(by.model('printType.barCodeType')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.vendor')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.uom')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.price')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.min')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.max')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.parlevel')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.price')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.min')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.max')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.parlevel')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.mfr_number')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.quick_code')).isPresent()).toBeTruthy();
     // expect(element(by.model('printType.printWith.cross_walk_id')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printWith.categories')).isPresent()).toBeTruthy();
-    expect(element(by.model('printType.printWith.inventory_path')).isPresent()).toBeTruthy();
+    // expect(element(by.model('printType.printWith.inventory_path')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.averyTemplate')).isPresent()).toBeTruthy();
     expect(element(by.model('printType.printPages')).isPresent()).toBeTruthy();
 

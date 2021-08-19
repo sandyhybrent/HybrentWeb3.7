@@ -33,10 +33,8 @@ describe('Hybrent Scan IN Module', function () {
 
   });
   it('List page should display Scan In filters and refresh button', function () {
+    browser.wait(EC.presenceOf(element(by.model('searchParams.search'))),20000);
     expect(element(by.model('searchParams.search')).isPresent()).toBeTruthy();
-    expect(element(by.model('search.search')).isPresent()).toBeTruthy();
-    expect(element(by.buttonText('Search')).isPresent()).toBeTruthy();
-
   });
 
   it('Scan In - Search items by item Name, sku, mfr', function () {
@@ -151,8 +149,8 @@ describe('Hybrent Scan IN Module', function () {
     browser.sleep(2000);
     element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
     browser.sleep(2000);
-    var itemRow = element(by.repeater('item in items').row(0));
-    element(by.buttonText('Add')).click();
+    browser.wait(EC.elementToBeClickable(element(by.id("btnAdd"))), 20000);
+    element(by.id("btnAdd")).click();
     browser.sleep(2000);
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
@@ -161,11 +159,11 @@ describe('Hybrent Scan IN Module', function () {
     element(by.xpath('//i[@class="fa fa-plus-circle font-22"]')).click();
     browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-plus-circle font-22"]'))), 20000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('4');
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//i[@class="fa fa-minus-circle font-22"]'))), 20000);
     element(by.xpath('//i[@class="fa fa-minus-circle font-22"]')).click();
     browser.sleep(2000);
     expect(element(by.css('.item-qty-editable-label')).getText()).toEqual('3');
-    browser.sleep(2000);
+    browser.wait(EC.elementToBeClickable(element(by.xpath('//span[contains(text(),"Select Inventory")]'))), 20000);
     element(by.xpath('//span[contains(text(),"Select Inventory")]')).click();
     browser.sleep(2000);
     element(by.model('$ctrl.search.search')).clear().sendKeys(browser.params.user.Inv_name);
@@ -271,25 +269,24 @@ describe('Hybrent Scan IN Module', function () {
     element(by.buttonText('Yes')).click();
     browser.sleep(2000);
     element(by.buttonText('Add To Inventory')).click();
-    browser.sleep(2000);
-    var inventory_maximum = element(by.css('.sa-button-container'));
-    inventory_maximum.isPresent().then(function (present) {
-      if (present) {
-        console.log('Yes still wants to complete Scan In?');
-        browser.sleep(1000);
-        element(by.buttonText('Yes')).click();
-      } else {
-        console.log('Do you still wants to complete Scan In? not appear');
-      }
-    });
-    browser.sleep(1000);
+    // browser.sleep(2000);
+    // var inventory_maximum = element(by.css('.sa-button-container'));
+    // inventory_maximum.isPresent().then(function (present) {
+    //   if (present) {
+    //     console.log('Yes still wants to complete Scan In?');
+    //     browser.sleep(1000);
+    //     element(by.buttonText('Yes')).click();
+    //   } else {
+    //     console.log('Do you still wants to complete Scan In? not appear');
+    //   }
+    // });
     // var toast_message = $('.toast-message').getText();
-    // expect(EC.textToBePresentInElement(toast_message, "Item successfully mapped with inventory.")).toBe(true);
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Item successfully mapped with inventory.'), 20000);
     expect($('.toast-message').getText()).toEqual('Item successfully mapped with inventory.');
     // browser.sleep(1000);
     // var toastnew = element.all($('.toast-message')).get(1);
-    // expect(toastnew.getText()).toEqual('Scan in completed successfully.');
-    // // expect($('.toast-message').getText()).toBe('Scan in completed successfully.');
+    browser.wait(EC.textToBePresentInElement($('.toast-message'),'Scan In completed successfully.'), 20000);
+    expect($('.toast-message').getText()).toEqual('Scan In completed successfully.');
     // browser.sleep(2000);
   }); 
 });

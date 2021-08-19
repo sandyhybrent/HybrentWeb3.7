@@ -151,7 +151,8 @@ describe('Hybrent Item Catalog Module', function () {
 
       })
       browser.sleep(4000);
-      element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
+      element(by.xpath('(//span[@id="btnAdd"])[2]')).click();
+      // element(by.xpath("//button[contains(text(),'Map Facility')]")).click();
       browser.sleep(2000);
       expect(element(by.css('.headtext > div.row > div.col-sm-17', 'Map Facility for')).isPresent()).toBeTruthy();
       element(by.model('searchForm.search')).clear().sendKeys(browser.params.user.fac_name);
@@ -267,9 +268,9 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.className("btn btn-default dropdown-toggle margin-r-0")).click();
     element(by.xpath("//a[.='Add Item']")).click();
     browser.sleep(2000);
-    element(by.model('item.description')).sendKeys(Consignment + randNumber);
-    element(by.model('item.alias')).sendKeys('consignment' + randNumber);
-    element(by.model('item.mfr_number')).sendKeys("cmfr" + randNumber);
+    element(by.model('item.description')).sendKeys(Consignment_itemname + randNumber);
+    element(by.model('item.alias')).sendKeys(consignment_Item_Alias + randNumber);
+    element(by.model('item.mfr_number')).sendKeys(consignment_Item_Mfr + randNumber);
     // element(by.model('item.item_identifier')).sendKeys('item identy2' + randNumber);
     browser.sleep(1000);
     element(by.css('button > i.fa-ellipsis-h')).click();
@@ -293,7 +294,7 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.css('.btn-success')).click();
     element(by.model('v.vselected')).click();
     element(by.cssContainingText('span.ui-select-choices-row-inner > span', vendor)).click();
-    element(by.model('v.sku')).sendKeys(Con_sku + randNumber);
+    element(by.model('v.sku')).sendKeys(consignment_Item_SKu + randNumber);
     element(by.buttonText('Save')).click();
     browser.sleep(2000);
     expect($('.toast-message').getText()).toEqual('Item added successfully.');
@@ -306,14 +307,14 @@ describe('Hybrent Item Catalog Module', function () {
 
   it('Verify that user should able to map consignment item with user default facility', function () {
     browser.sleep(2000);
-    element(by.model('searchParams.search')).clear().sendKeys(Con_sku + randNumber);
+    element(by.model('searchParams.search')).clear().sendKeys(consignment_Item_SKu + randNumber);
     browser.sleep(2000);
     element(by.buttonText('Search')).click();
     browser.sleep(2000);
     element.all(by.repeater('item in items')).each(function (element1, index) {
       element1.element(by.css(".margin-r-30")).getText().then(function (text) {
 
-        expect(text).toEqual("cmfr" + randNumber);
+        expect(text).toEqual(consignment_Item_Mfr + randNumber);
         console.log(text);
 
       })
@@ -429,7 +430,6 @@ describe('Hybrent Item Catalog Module', function () {
     element(by.model('amenity.description')).sendKeys('testAM' + randNumber);
     element(by.model('amenity.alias')).sendKeys('amenityalias' + randNumber);
     element(by.model('amenity.service_duration')).$('[label="' + 'For One Time' + '"]').click();
-    //element(by.model('amenity.ar_code_id')).sendKeys(ARC + randomnumber);
     browser.sleep(1000);
     element(by.buttonText('Save')).click();
     browser.sleep(1000);
